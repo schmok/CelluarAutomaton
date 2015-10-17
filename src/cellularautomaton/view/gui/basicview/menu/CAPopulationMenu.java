@@ -4,13 +4,15 @@ import cellularautomaton.controller.locale.StringController;
 import cellularautomaton.controller.locale.StringEnumeration;
 
 import javax.swing.*;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.util.Observable;
 import java.util.Observer;
 
 /**
  * Created by Viktor Spadi on 14.10.2015.
  */
-public class CABasicPopulationMenu extends JMenu implements Observer {
+public class CAPopulationMenu extends JMenu implements Observer {
     private CAJMenuItem changeSizeItem;
     private CAJMenuItem deleteItem;
     private CAJMenuItem createItem;
@@ -31,8 +33,10 @@ public class CABasicPopulationMenu extends JMenu implements Observer {
     private CAJMenuItem PNGItem;
 
 
-    public CABasicPopulationMenu(StringController stringController) {
+    public CAPopulationMenu(StringController stringController) {
         super(stringController.get(StringEnumeration.MB_POPULATION));
+
+        // Add components
         add(this.changeSizeItem = new CAJMenuItem(StringEnumeration.MI_CHANGE_SIZE));
         add(this.deleteItem = new CAJMenuItem(StringEnumeration.MI_DELETE));
         add(this.createItem = new CAJMenuItem(StringEnumeration.MI_CREATE));

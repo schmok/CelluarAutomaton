@@ -12,12 +12,14 @@ import java.util.Observer;
 /**
  * Created by Viktor Spadi on 15.10.2015.
  */
-public class CABasicHelpMenu extends JMenu implements Observer {
+public class CAHelpMenu extends JMenu implements Observer {
     private CAJMenuItem helpItem;
     private CAJMenuItem infoItem;
 
-    public CABasicHelpMenu(StringController stringController) {
+    public CAHelpMenu(StringController stringController) {
         super(stringController.get(StringEnumeration.MB_HELP));
+
+        // Add components
         add(this.helpItem = new CAJMenuItem(StringEnumeration.MI_HELP));
         add(this.infoItem = new CAJMenuItem(StringEnumeration.MI_INFO));
     }

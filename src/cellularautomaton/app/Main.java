@@ -1,7 +1,6 @@
 package cellularautomaton.app;
 
 import cellularautomaton.controller.*;
-import cellularautomaton.controller.locale.StringController;
 import cellularautomaton.model.CellularAutomaton;
 import cellularautomaton.view.*;
 
@@ -15,15 +14,19 @@ public class Main {
     public static void main(String[] args) {
         // Start Automaton
         // Choose View
-        BasicAutomatonView basicAutomatonView = new BasicAutomatonView(StringController.getInstance());
+        AutomatonView automatonView = new AutomatonView();
 
         // Init AutomatonController
-        CellularAutomatonController automatonController = new CellularAutomatonController(basicAutomatonView);
+        CellularAutomatonController automatonController = new CellularAutomatonController(automatonView);
 
         // Create Automaton
         CellularAutomaton automaton = new CellularAutomaton(automatonController);
 
         // Start it
         automaton.start();
+        /*
+        String currentDir = System.getProperty("user.dir");
+        System.out.println("Current dir using System: " +currentDir);
+        */
     }
 }

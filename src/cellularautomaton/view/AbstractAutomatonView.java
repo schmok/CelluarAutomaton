@@ -11,14 +11,14 @@ import java.util.concurrent.Callable;
  */
 public abstract class AbstractAutomatonView implements Observer {
     // Attributes //////////////////////////////////////////////////////////////////////////////////////////////////////
-    private StringController stringController;
+    public StringController stringController;
     public Callable<Void> cTerminate;
 
 
     // Mehtods /////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    public AbstractAutomatonView(StringController stringController) {
-        this.stringController = stringController;
+    public AbstractAutomatonView() {
+        this.stringController = StringController.getInstance();
         this.init();
     }
 
@@ -26,16 +26,6 @@ public abstract class AbstractAutomatonView implements Observer {
     public abstract void init();
 
     // Getter & Setter /////////////////////////////////////////////////////////////////////////////////////////////////
-    public StringController getStringController() {
-        return this.stringController;
-    }
-
-    /*
-    * Method for getting the strings a bit easier
-    */
-    public String getString(StringEnumeration text){
-        return this.stringController.get(text);
-    }
 
     // Eventbinding ////////////////////////////////////////////////////////////////////////////////////////////////////
 

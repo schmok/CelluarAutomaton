@@ -10,14 +10,16 @@ import java.util.Observer;
 /**
  * Created by Viktor Spadi on 14.10.2015.
  */
-public class CABasicAutomatonMenu extends JMenu implements Observer {
+public class CAAutomatonMenu extends JMenu implements Observer {
     private CAJMenuItem newItem;
     private CAJMenuItem loadItem;
     private CAJMenuItem editorItem;
     private CAJMenuItem quitItem;
 
-    public CABasicAutomatonMenu(StringController stringController) {
+    public CAAutomatonMenu(StringController stringController) {
         super(stringController.get(StringEnumeration.MB_AUTOMATON));
+
+        // Add components
         add(this.newItem = new CAJMenuItem(StringEnumeration.MI_NEW));
         add(this.loadItem = new CAJMenuItem(StringEnumeration.MI_LOAD));
         addSeparator();

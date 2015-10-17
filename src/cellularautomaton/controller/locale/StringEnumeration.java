@@ -8,6 +8,7 @@ package cellularautomaton.controller.locale;
  * http://stackoverflow.com/questions/3978654/best-way-to-create-enum-of-strings
  */
 public enum StringEnumeration {
+    // Menuitems
     WINDOW_TITLE("CAS"),
     MB_AUTOMATON("Automaton"),
     MI_NEW("Neu..."),
@@ -35,7 +36,9 @@ public enum StringEnumeration {
     MI_STOP("Stop"),
     MB_HELP("Hilfe"),
     MI_HELP("Hilfe"),
-    MI_INFO("\u00dcber CA Simulator")
+    MI_INFO("\u00dcber CA Simulator"),
+    // Toolbar
+    TB_NAME("Toolbar")
     ;
 
     private final String text;
@@ -45,7 +48,7 @@ public enum StringEnumeration {
     /**
      * @param text
      */
-    private StringEnumeration(final String text) {
+    StringEnumeration(final String text) {
         this.text = text;
     }
 
