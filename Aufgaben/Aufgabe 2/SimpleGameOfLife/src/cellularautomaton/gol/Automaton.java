@@ -4,6 +4,7 @@ package cellularautomaton.gol;
  * Created by Viktor Spadi on 18.10.2015.
  */
 import java.awt.Color;
+import java.util.Arrays;
 
 public abstract class Automaton {
     private Cell[][] cells;
@@ -32,7 +33,7 @@ public abstract class Automaton {
                      boolean isMooreNeighborHood, boolean isTorus) {
         this.numberOfStates = numberOfStates;
         this.cells = new Cell[rows][columns];
-        this.cells = iterator(this.cells, (cell, row, col) -> new Cell());
+        iterator(this.cells, (cell, row, col) -> new Cell());
         this.isTorus = isTorus;
         this.isMooreNeighborHood = isMooreNeighborHood;
         defineColors();
@@ -85,7 +86,7 @@ public abstract class Automaton {
      * die neue Anzahl an Spalten
      */
     public void setSize(int rows, int columns) {
-        if(rows == this.cells.length && columns == this.cells[0].length)
+        if(rows == this.getNumberOfRows() && columns == this.getNumberOfColumns())
             return;
 
         Cell[][] old = this.cells.clone();
@@ -95,7 +96,7 @@ public abstract class Automaton {
         int nR = (oR < rows)?oR:rows;
         int nC = (oC < columns)?oC:columns;
 
-        this.cells = iterator(this.cells, (cell, row, col) -> {
+        iterator(this.cells, (cell, row, col) -> {
             if(row < nR && col < nC)
                 return old[row][col];
             else
@@ -170,12 +171,12 @@ public abstract class Automaton {
      * setzt alle Zellen in den Zustand 0
      */
     public void clearPopulation() {
-        this.cells = iterator(this.cells, (cell, row, col) -> new Cell());
+        iterator(this.cells, (cell, row, col) -> new Cell());
     }
 
     public void drawCells() {
-        for(int r = 0; r < this.cells.length; r++) {
-            for (int c = 0; c < this.cells[0].length; c++) {
+        for(int r = 0; r < this.getNumberOfRows(); r++) {
+            for (int c = 0; c < this.getNumberOfColumns(); c++) {
                 System.out.print(this.cells[r][c].getState());
             }
             System.out.println("");
@@ -185,7 +186,7 @@ public abstract class Automaton {
      * setzt für jede Zelle einen zufällig erzeugten Zustand
      */
     public void randomPopulation() {
-        this.cells = iterator(this.cells, (cell, row, col) -> new Cell((int)(Math.random() * this.numberOfStates)));
+        iterator(this.cells, (cell, row, col) -> new Cell((int)(Math.random() * this.numberOfStates)));
     }
 
     /**
@@ -195,11 +196,10 @@ public abstract class Automaton {
         Cell interate(Cell cell, int row, int col);
     }
 
-    public Cell[][] iterator(Cell[][] cells, CellIterator ci) {
-        for(int r = 0; r < cells.length; r++)
-            for (int c = 0; c < cells[0].length; c++)
+    public void iterator(Cell[][] cells, CellIterator ci) {
+        for(int r = 0; r < this.getNumberOfRows(); r++)
+            for (int c = 0; c < this.getNumberOfColumns(); c++)
                cells[r][c] = ci.interate(cells[r][c], r, c);
-        return cells;
     }
 
     /**
@@ -225,7 +225,7 @@ public abstract class Automaton {
      * @return Cell-Objekt an Position row/column
      */
     public Cell getCell(int row, int column) {
-        int rMax = this.cells.length, cMax = this.cells[0].length;
+        int rMax = this.getNumberOfRows(), cMax = this.getNumberOfColumns();
         if(this.isTorus) {
             return this.cells[torusMod(row, rMax)][torusMod(column, cMax)];
         } else if(row < rMax && row >= 0 && column < cMax && column >= 0) {
@@ -235,7 +235,7 @@ public abstract class Automaton {
     }
 
     private int torusMod(int val, int max) {
-        return ((val > 0)?val:max-val) % max;
+        return ((val > 0)?val:max+val) % max;
     }
     /**
      * definiert die Farbrepräsentation der einzelnen Zustände; implementiert
@@ -299,16 +299,24 @@ public abstract class Automaton {
      * @return
      */
     public Cell[][] calcNextGeneration() {
+        Cell[][] newCells = new Cell[this.getNumberOfRows()][this.getNumberOfColumns()];
         int mod = (this.isMooreNeighborHood)?-1:0;
-        return iterator(this.cells, (cell, row, col) -> {
+        iterator(newCells, (cell, row, col) -> {
             Cell[] neighbors = new Cell[(mod == -1)?8:4];
             int ctr = 0;
             for(int i = 0; i < 9; i++)
                 if(i % 2 > mod && i != 4) {
-                    int x = i % 3, y = (i / 3);
+                    int y = i % 3, x = (i / 3);
                     neighbors[ctr++] = this.getCell((row-1)+x, (col-1)+y);
                 }
             return transform(getCell(row,col), neighbors);
         });
+        return newCells;
+    }
+
+    private Cell[][] clone(Cell[][] cells) {
+        Cell[][] newCells = new Cell[cells.length][cells[0].length];
+        iterator(newCells, (cell, row, col) -> new Cell(getCell(row, col)));
+        return newCells;
     }
 }

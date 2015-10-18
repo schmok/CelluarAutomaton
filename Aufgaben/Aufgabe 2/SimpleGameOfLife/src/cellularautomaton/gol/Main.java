@@ -14,6 +14,7 @@ import java.awt.event.*;
 public class Main extends JPanel {
     private JFrame frame;
     private JToolBar toolbar;
+    private JToolBar instrumentsBar;
     public GameOfLifeAutomaton gol;
     public int stepSize = 100;
     private JButton startButton;
@@ -22,7 +23,7 @@ public class Main extends JPanel {
 
     public Main() {
         super();
-        this.gol = new GameOfLifeAutomaton(30,30,true);
+        this.gol = new GameOfLifeAutomaton(100,100,true);
         createFrame();
         this.r = new Runner();
         this.r.start(this);
@@ -32,6 +33,7 @@ public class Main extends JPanel {
         this.frame = new JFrame("Game of Life Test");
         this.frame.setLayout(new BorderLayout());
         this.toolbar = new JToolBar();
+        this.instrumentsBar = generateInstruments();
         this.frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.frame.setSize(600,500);
         JButton randPopButton = new JButton("Random Popoulation");
@@ -50,6 +52,7 @@ public class Main extends JPanel {
         this.toolbar.add(speedSlider);
 
         this.frame.add(toolbar, BorderLayout.PAGE_START);
+        this.frame.add(this.instrumentsBar, BorderLayout.PAGE_END);
         this.frame.add(this, BorderLayout.CENTER);
         this.frame.addComponentListener(new ComponentAdapter() {
             @Override
@@ -60,6 +63,36 @@ public class Main extends JPanel {
         });
         //this.frame.pack();
         this.frame.setVisible(true);
+    }
+
+    public JToolBar generateInstruments() {
+        JToolBar tb = new JToolBar();
+        // blinker
+        JButton blinkerBtn = new JButton("Blinker");
+        blinkerBtn.addActionListener(e -> {
+            populator(20, 20, new int[][]{
+
+                    {0, 1, 1, 1, 1},
+                    {1, 0, 0, 0, 1},
+                    {0, 0, 0, 0, 1},
+                    {1, 0, 0, 1, 0}
+
+                    /*
+                    {1,1,1},
+                    {1,0,1},
+                    {1,0,1},
+                    {0,0,0},
+                    {1,0,1},
+                    {1,0,1},
+                    {1,1,1}
+*/
+            });
+            //this.gol.drawCells();
+            repaint();
+        });
+        tb.add(blinkerBtn);
+
+        return tb;
     }
 
     public void populateRandom() {
@@ -90,7 +123,7 @@ public class Main extends JPanel {
 
         gol.iterator(cp, (cell, row, col) -> {
             g.setColor(gol.getColor(cell.getState()));
-            g.fillRect(row * smaller, col * smaller, smaller, smaller);
+            g.fillRect(col * smaller, row * smaller, smaller, smaller);
             return cell;
         });
     }
@@ -119,4 +152,11 @@ public class Main extends JPanel {
     }
 
 
+    public void populator(int xPos, int yPos, int[][] states) {
+        for(int x = 0; x < states.length; x++) {
+            for(int y = 0; y < states[0].length; y++) {
+                this.gol.setState(xPos + x, yPos + y, states[x][y]);
+            }
+        }
+    }
 }

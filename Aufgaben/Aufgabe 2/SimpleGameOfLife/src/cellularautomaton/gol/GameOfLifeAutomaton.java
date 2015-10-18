@@ -10,11 +10,11 @@ public class GameOfLifeAutomaton extends Automaton {
 
     }
     protected Cell transform(Cell cell, Cell[] neighbors) {
-        Cell newCell = new Cell(cell.getState());
+        Cell newCell = new Cell(cell);
         int living = 0;
         // Count living neighbors
         for(Cell n : neighbors) {
-            if(n != null && n.getState() > 0)
+            if(n != null && n.getState() == 1)
                 living++;
         }
 
@@ -25,9 +25,9 @@ public class GameOfLifeAutomaton extends Automaton {
                     newCell.setState(1);
                 break;
             case 1:
-                if(living < 2)
-                    newCell.setState(0);
                 if(living > 3)
+                    newCell.setState(0);
+                if(living < 2)
                     newCell.setState(0);
                 break;
         }
