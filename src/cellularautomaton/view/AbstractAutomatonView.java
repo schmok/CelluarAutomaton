@@ -1,5 +1,6 @@
 package cellularautomaton.view;
 
+import cellularautomaton.controller.CellularAutomatonController;
 import cellularautomaton.controller.locale.StringController;
 import cellularautomaton.controller.locale.StringEnumeration;
 
@@ -33,6 +34,7 @@ public abstract class AbstractAutomatonView implements Observer {
      * Method for binding the terminate signal
      */
     public void bindTerminate(Callable<Void> func) {
+        // ToDo - Messed up -< Change that
         this.cTerminate = func;
     }
 

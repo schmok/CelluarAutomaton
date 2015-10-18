@@ -1,11 +1,9 @@
 package cellularautomaton.view;
 
-import cellularautomaton.controller.locale.StringController;
-import cellularautomaton.controller.locale.StringEnumeration;
+import cellularautomaton.controller.locale.*;
 import cellularautomaton.view.gui.basicview.footer.CAFooter;
 import cellularautomaton.view.gui.basicview.menu.CAMenuBar;
-import cellularautomaton.view.gui.basicview.states.CAPopulationContainer;
-import cellularautomaton.view.gui.basicview.states.CAStateContainer;
+import cellularautomaton.view.gui.basicview.states.*;
 import cellularautomaton.view.gui.basicview.toolbar.CAToolbar;
 
 import javax.swing.*;
@@ -85,6 +83,7 @@ public class AutomatonView extends AbstractAutomatonView {
 
     // Events //////////////////////////////////////////////////////////////////////////////////////////////////////////
     private void bindEvents() {
+        // ToDo - Remove Events from here to Controller
         this.frame.addWindowListener(new WindowAdapter() {
             public void windowClosing(WindowEvent e) {
                 try {

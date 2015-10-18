@@ -26,6 +26,7 @@ public class CellularAutomatonController implements ActionListener {
     */
     public CellularAutomatonController(AbstractAutomatonView automatonView) {
         this.automatonView = automatonView;
+
         bindEvents();
     }
 
@@ -51,6 +52,6 @@ public class CellularAutomatonController implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-
+        System.out.println("Some Action E");
     }
 }

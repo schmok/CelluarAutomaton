@@ -4,6 +4,8 @@ import cellularautomaton.controller.locale.StringController;
 import cellularautomaton.controller.locale.StringEnumeration;
 
 import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 /**
  * Created by Viktor Spadi on 14.10.2015.
@@ -17,4 +19,6 @@ public class CAJMenuItem extends JMenuItem {
         setAccelerator(stringController.getAccelerator(text));
         setMnemonic(stringController.getMnemonic(text));
     }
+
+
 }

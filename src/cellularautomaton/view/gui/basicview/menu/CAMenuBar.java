@@ -1,5 +1,6 @@
 package cellularautomaton.view.gui.basicview.menu;
 
+import cellularautomaton.controller.CellularAutomatonController;
 import cellularautomaton.controller.locale.StringController;
 import javax.swing.*;
 import java.util.Observable;

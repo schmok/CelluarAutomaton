@@ -4,6 +4,8 @@ import cellularautomaton.controller.*;
 import cellularautomaton.model.CellularAutomaton;
 import cellularautomaton.view.*;
 
+import java.util.Locale;
+
 /**
  * Created by Viktor Spadi on 14.10.2015.
  *
@@ -28,5 +30,7 @@ public class Main {
         String currentDir = System.getProperty("user.dir");
         System.out.println("Current dir using System: " +currentDir);
         */
+        Locale loc = new Locale.Builder().setLanguage("de").setRegion("DE").build();
+        
     }
 }
