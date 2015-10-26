@@ -23,7 +23,7 @@ public class Main extends JPanel {
 
     public Main() {
         super();
-        this.gol = new GameOfLifeAutomaton(30,30,true);
+        this.gol = new GameOfLifeAutomaton(100,100,true);
         createFrame();
         this.r = new Runner();
         this.r.start(this);
