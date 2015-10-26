@@ -2,16 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b223b9ca-7a18-4221-830c-756980f09b4a" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Cellular Test.xlsx" />
-      <change type="DELETED" beforePath="D:\Users\Viktor Spadi\Documents\GitHub\CelluarAutomaton\Aufgaben\Aufgabe 2\out\production\SimpleGameOfLife\cellularautomaton\gol\GameOfLifeAutomaton2.class" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SimpleGameOfLife/cellularautomaton/gol/Automaton.class" afterPath="$PROJECT_DIR$/out/production/SimpleGameOfLife/cellularautomaton/gol/Automaton.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SimpleGameOfLife/cellularautomaton/gol/GameOfLifeAutomaton.class" afterPath="$PROJECT_DIR$/out/production/SimpleGameOfLife/cellularautomaton/gol/GameOfLifeAutomaton.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SimpleGameOfLife/cellularautomaton/gol/Main$1.class" afterPath="$PROJECT_DIR$/out/production/SimpleGameOfLife/cellularautomaton/gol/Main$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SimpleGameOfLife/cellularautomaton/gol/Main$Runner.class" afterPath="$PROJECT_DIR$/out/production/SimpleGameOfLife/cellularautomaton/gol/Main$Runner.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Cellular Test.xlsx" afterPath="$PROJECT_DIR$/Cellular Test.xlsx" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SimpleGameOfLife/cellularautomaton/gol/Main.class" afterPath="$PROJECT_DIR$/out/production/SimpleGameOfLife/cellularautomaton/gol/Main.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SimpleGameOfLife/src/cellularautomaton/gol/Automaton.java" afterPath="$PROJECT_DIR$/SimpleGameOfLife/src/cellularautomaton/gol/Automaton.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SimpleGameOfLife/src/cellularautomaton/gol/GameOfLifeAutomaton.java" afterPath="$PROJECT_DIR$/SimpleGameOfLife/src/cellularautomaton/gol/GameOfLifeAutomaton.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SimpleGameOfLife/src/cellularautomaton/gol/Main.java" afterPath="$PROJECT_DIR$/SimpleGameOfLife/src/cellularautomaton/gol/Main.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Aufgabe 2.iws" />
@@ -39,7 +33,7 @@
         <entry file="file://$PROJECT_DIR$/SimpleGameOfLife/src/cellularautomaton/gol/Main.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="25" column="50" selection-start-line="25" selection-start-column="50" selection-end-line="25" selection-end-column="50" />
+              <caret line="18" column="30" selection-start-line="18" selection-start-column="30" selection-end-line="18" selection-end-column="30" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -172,8 +166,9 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="Scratches" />
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -212,7 +207,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -577,12 +571,20 @@
       <updated>1445163925889</updated>
       <workItem from="1445163930282" duration="19475000" />
       <workItem from="1445189102227" duration="13406000" />
-      <workItem from="1445204401056" duration="18000" />
+      <workItem from="1445204401056" duration="641000" />
+      <workItem from="1445361608649" duration="23000" />
     </task>
+    <task id="LOCAL-00001" summary="Minor Changes">
+      <created>1445204431720</created>
+      <option name="number" value="00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1445204431720</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="32899000" />
+    <option name="totallyTimeSpent" value="33545000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1486" height="1400" extended-state="0" />
@@ -626,6 +628,10 @@
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Minor Changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Minor Changes" />
+  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
@@ -651,6 +657,73 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/SimpleGameOfLife/src/cellularautomaton/gol/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SimpleGameOfLife/src/cellularautomaton/gol/Cell.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="18" column="5" selection-start-line="18" selection-start-column="5" selection-end-line="18" selection-end-column="5" />
+          <folding>
+            <element signature="e#145#146#0" expanded="true" />
+            <element signature="e#175#176#0" expanded="true" />
+            <element signature="e#205#206#0" expanded="true" />
+            <element signature="e#239#240#0" expanded="true" />
+            <element signature="e#269#270#0" expanded="true" />
+            <element signature="e#308#309#0" expanded="true" />
+            <element signature="e#337#338#0" expanded="true" />
+            <element signature="e#370#371#0" expanded="true" />
+            <element signature="e#402#403#0" expanded="true" />
+            <element signature="e#436#437#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SimpleGameOfLife/src/cellularautomaton/gol/GameOfLifeAutomaton.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="29" column="29" selection-start-line="29" selection-start-column="29" selection-end-line="29" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SimpleGameOfLife/src/cellularautomaton/gol/Automaton.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="305" column="24" selection-start-line="305" selection-start-column="24" selection-end-line="305" selection-end-column="24" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1917#1918#0" expanded="true" />
+            <element signature="e#1959#1960#0" expanded="true" />
+            <element signature="e#2089#2090#0" expanded="true" />
+            <element signature="e#2129#2130#0" expanded="true" />
+            <element signature="e#2264#2265#0" expanded="true" />
+            <element signature="e#2307#2308#0" expanded="true" />
+            <element signature="e#3381#3382#0" expanded="true" />
+            <element signature="e#3437#3438#0" expanded="true" />
+            <element signature="e#3617#3618#0" expanded="true" />
+            <element signature="e#3673#3674#0" expanded="true" />
+            <element signature="e#4722#4723#0" expanded="true" />
+            <element signature="e#4755#4756#0" expanded="true" />
+            <element signature="e#4917#4918#0" expanded="true" />
+            <element signature="e#4951#4952#0" expanded="true" />
+            <element signature="e#5045#5046#0" expanded="true" />
+            <element signature="e#5113#5114#0" expanded="true" />
+            <element signature="e#6286#6287#0" expanded="true" />
+            <element signature="e#6341#6342#0" expanded="true" />
+            <element signature="e#6970#6971#0" expanded="true" />
+            <element signature="e#7022#7023#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/SimpleGameOfLife/src/cellularautomaton/gol/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -856,7 +929,7 @@
     <entry file="file://$PROJECT_DIR$/SimpleGameOfLife/src/cellularautomaton/gol/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="25" column="50" selection-start-line="25" selection-start-column="50" selection-end-line="25" selection-end-column="50" />
+          <caret line="18" column="30" selection-start-line="18" selection-start-column="30" selection-end-line="18" selection-end-column="30" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

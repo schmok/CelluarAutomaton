@@ -56,11 +56,19 @@ public class AutomatonView extends AbstractAutomatonView {
         this.populationScrollPane = new JScrollPane(this.populationContainer,
                 ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED,
                 ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+
         this.stateContainer = new CAStateContainer();
-        this.stateScrollPane = new JScrollPane(     this.stateContainer,
+        this.stateScrollPane = new JScrollPane(this.stateContainer,
                 ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED,
                 ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 
+        this.toolbar.zoomInButton.addActionListener(e -> {
+            this.populationContainer.increaseCellSize();
+        });
+
+        this.toolbar.zoomOutButton.addActionListener(e -> {
+            this.populationContainer.decreaseCellSize();
+        });
 
         this.frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
         this.frame.setLayout(new BorderLayout());
@@ -70,7 +78,7 @@ public class AutomatonView extends AbstractAutomatonView {
         this.frame.add(this.toolbar, BorderLayout.PAGE_START);
         this.frame.add(this.footer, BorderLayout.SOUTH);
         this.frame.add(this.stateScrollPane, BorderLayout.WEST);
-        this.frame.add(populationScrollPane);
+        this.frame.add(this.populationScrollPane, BorderLayout.CENTER);
 
 
         // Push some basic cells into it

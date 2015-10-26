@@ -5,6 +5,8 @@ import cellularautomaton.controller.locale.StringEnumeration;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 
@@ -15,19 +17,19 @@ import java.beans.PropertyChangeListener;
  */
 public class CAToolbar extends JToolBar {
     StringController stringController;
-    CAToolbarItem newButton;
-    CAToolbarItem openButton;
-    CAToolbarItem gridButton;
-    CAToolbarItem deleteButton;
-    CAToolbarItem randomButton;
-    CAToolbarItem torusButton;
-    CAToolbarItem printButton;
-    CAToolbarItem zoomInButton;
-    CAToolbarItem zoomOutButton;
-    CAToolbarItem stepButton;
-    CAToolbarItem simulateButton;
-    CAToolbarItem stopButton;
-    JSlider slider;
+    public CAToolbarItem newButton;
+    public CAToolbarItem openButton;
+    public CAToolbarItem gridButton;
+    public CAToolbarItem deleteButton;
+    public CAToolbarItem randomButton;
+    public CAToolbarItem torusButton;
+    public CAToolbarItem printButton;
+    public CAToolbarItem zoomInButton;
+    public CAToolbarItem zoomOutButton;
+    public CAToolbarItem stepButton;
+    public CAToolbarItem simulateButton;
+    public CAToolbarItem stopButton;
+    public JSlider slider;
 
     public CAToolbar(StringController stringController) {
         super(stringController.get(StringEnumeration.TB_NAME));
@@ -35,27 +37,27 @@ public class CAToolbar extends JToolBar {
         // ToDo remove hardcoded icons
         add(this.newButton = new CAToolbarItem("New24.gif"));
         addSeparator(new Dimension(5,5));
-        add(this.newButton = new CAToolbarItem("Open24.gif"));
+        add(this.openButton = new CAToolbarItem("Open24.gif"));
         addSeparator(new Dimension(15,15));
-        add(this.newButton = new CAToolbarItem("Size24.gif"));
+        add(this.gridButton = new CAToolbarItem("Size24.gif"));
         addSeparator(new Dimension(5,5));
-        add(this.newButton = new CAToolbarItem("Delete24.gif"));
+        add(this.deleteButton = new CAToolbarItem("Delete24.gif"));
         addSeparator(new Dimension(5,5));
-        add(this.newButton = new CAToolbarItem("Random24.gif"));
+        add(this.randomButton = new CAToolbarItem("Random24.gif"));
         addSeparator(new Dimension(5,5));
-        add(this.newButton = new CAToolbarItem("Torus24.gif"));
+        add(this.torusButton = new CAToolbarItem("Torus24.gif"));
         addSeparator(new Dimension(5,5));
-        add(this.newButton = new CAToolbarItem("Print24.gif"));
+        add(this.printButton = new CAToolbarItem("Print24.gif"));
         addSeparator(new Dimension(15,15));
-        add(this.newButton = new CAToolbarItem("ZoomIn24.gif"));
+        add(this.zoomInButton = new CAToolbarItem("ZoomIn24.gif"));
         addSeparator(new Dimension(5,5));
-        add(this.newButton = new CAToolbarItem("ZoomOut24.gif"));
+        add(this.zoomOutButton = new CAToolbarItem("ZoomOut24.gif"));
         addSeparator(new Dimension(15,15));
-        add(this.newButton = new CAToolbarItem("StepForward24.gif"));
+        add(this.stepButton = new CAToolbarItem("StepForward24.gif"));
         addSeparator(new Dimension(10,10));
-        add(this.newButton = new CAToolbarItem("Run24.gif"));
+        add(this.simulateButton = new CAToolbarItem("Run24.gif"));
         addSeparator(new Dimension(5,5));
-        add(this.newButton = new CAToolbarItem("Stop24.gif"));
+        add(this.stopButton = new CAToolbarItem("Stop24.gif"));
         addSeparator(new Dimension(15,15));
         add(this.slider = new JSlider());
         this.slider.setPaintTicks(true);

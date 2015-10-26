@@ -11,7 +11,7 @@ import java.awt.event.ActionListener;
  *
  *
  */
-public class CellularAutomatonController implements ActionListener {
+public class CellularAutomatonController extends Thread implements ActionListener {
     // Attributes //////////////////////////////////////////////////////////////////////////////////////////////////////
     private CellularAutomaton cellularAutomaton;
     private AbstractAutomatonView automatonView;
