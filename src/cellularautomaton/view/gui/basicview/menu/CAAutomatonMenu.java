@@ -29,7 +29,7 @@ public class CAAutomatonMenu extends JMenu implements Observer {
         addSeparator();
         add(this.editorItem = new CAJMenuItem(StringEnumeration.MI_EDITOR));
         add(this.quitItem = new CAJMenuItem(StringEnumeration.MI_QUIT));
-       
+        setMnemonic(stringController.getMnemonic(StringEnumeration.MB_AUTOMATON));
     }
 
     @Override

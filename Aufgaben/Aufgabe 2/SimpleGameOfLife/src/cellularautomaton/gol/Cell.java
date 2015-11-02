@@ -7,7 +7,7 @@ public class Cell {
     private int state;
 
     public Cell () {
-        this.state = 0;
+        this(0);
     }
 
     public Cell(int state) {
@@ -15,7 +15,7 @@ public class Cell {
     }
 
     public Cell(Cell cell) {
-        this.state = cell.state;
+        this(cell.state);
     }
 
     public int getState() {

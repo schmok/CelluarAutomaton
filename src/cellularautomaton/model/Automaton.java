@@ -21,7 +21,7 @@ public abstract class Automaton {
      * @param columns
      * Anzahl an Spalten
      * @param numberOfStates
-     * Anzahl an Zuständen; die Zustände des Automaten sind dann die
+     * Anzahl an Zustï¿½nden; die Zustï¿½nde des Automaten sind dann die
      * Werte 0 bis numberOfStates-1
      * @param isMooreNeighborHood
      * true, falls der Automat die Moore-Nachbarschaft benutzt;
@@ -42,19 +42,19 @@ public abstract class Automaton {
      * Implementierung der Transformationsregel
      *
      * @param cell
-     * die betroffene Zelle (darf nicht verändert werden!!!)
+     * die betroffene Zelle (darf nicht verï¿½ndert werden!!!)
      * @param neighbors
-     * die Nachbarn der betroffenen Zelle (dürfen nicht verändert
+     * die Nachbarn der betroffenen Zelle (dï¿½rfen nicht verï¿½ndert
      * werden!!!)
-     * @return eine neu erzeugte Zelle, die gemäß der Transformationsregel aus
+     * @return eine neu erzeugte Zelle, die gemï¿½ï¿½ der Transformationsregel aus
      * der betroffenen Zelle hervorgeht
      */
     protected abstract Cell transform(Cell cell, Cell[] neighbors);
     /**
-     * Liefert die Anzahl an Zuständen des Automaten; gültige Zustände sind
+     * Liefert die Anzahl an Zustï¿½nden des Automaten; gï¿½ltige Zustï¿½nde sind
      * int-Werte zwischen 0 und Anzahl-1
      *
-     * @return die Anzahl an Zuständen des Automaten
+     * @return die Anzahl an Zustï¿½nden des Automaten
      */
     public int getNumberOfStates() {
         return this.numberOfStates;
@@ -76,8 +76,8 @@ public abstract class Automaton {
         return this.cells[0].length;
     }
     /**
-     * Ändert die Größe des Automaten; Achtung: aktuelle Belegungen nicht
-     * gelöschter Zellen sollen beibehalten werden; neue Zellen sollen im
+     * ï¿½ndert die Grï¿½ï¿½e des Automaten; Achtung: aktuelle Belegungen nicht
+     * gelï¿½schter Zellen sollen beibehalten werden; neue Zellen sollen im
      * Zustand 0 erzeugt werden
      *
      * @param rows
@@ -105,7 +105,7 @@ public abstract class Automaton {
         defineColors();
     }
     /**
-     * Ändert die Anzahl an Reihen des Automaten
+     * ï¿½ndert die Anzahl an Reihen des Automaten
      *
      * @param rows
      * die neue Anzahl an Reihen
@@ -115,7 +115,7 @@ public abstract class Automaton {
     }
 
     /**
-     * Ändert die Anzahl an Spalten des Automaten
+     * ï¿½ndert die Anzahl an Spalten des Automaten
      *
      * @param columns
      * die neue Anzahl an Spalten
@@ -132,7 +132,7 @@ public abstract class Automaton {
         return this.isTorus;
     }
     /**
-     * Ändert die Torus-Eigenschaft des Automaten
+     * ï¿½ndert die Torus-Eigenschaft des Automaten
      *
      * @param isTorus
      * true, falls der Automat als Torus betrachtet wird; falls sonst
@@ -141,11 +141,11 @@ public abstract class Automaton {
         this.isTorus = isTorus;
     }
     /**
-     * Liefert Informationen über die Nachbarschaft-Eigenschaft des Automaten
-     * (Hinweis: Die Nachbarschaftseigenschaft kann nicht verändert werden)
+     * Liefert Informationen ï¿½ber die Nachbarschaft-Eigenschaft des Automaten
+     * (Hinweis: Die Nachbarschaftseigenschaft kann nicht verï¿½ndert werden)
      *
-     * @return true, falls der Automat die Moore-Nachbarschaft berücksicht;
-     * false, falls er die von-Neumann-Nachbarschaft berücksichtigt
+     * @return true, falls der Automat die Moore-Nachbarschaft berï¿½cksicht;
+     * false, falls er die von-Neumann-Nachbarschaft berï¿½cksichtigt
      */
     public boolean isMooreNeighborHood() {
         return this.isMooreNeighborHood;
@@ -159,7 +159,7 @@ public abstract class Automaton {
         return this.cells;
     }
     /**
-     * Ändert die Population
+     * ï¿½ndert die Population
      *
      * @param cells
      * eine neue Population des Automaten
@@ -183,7 +183,7 @@ public abstract class Automaton {
         }
     }
     /**
-     * setzt für jede Zelle einen zufällig erzeugten Zustand
+     * setzt fï¿½r jede Zelle einen zufï¿½llig erzeugten Zustand
      */
     public void randomPopulation() {
         iterator(this.cells, (cell, row, col) -> new Cell((int)(Math.random() * this.numberOfStates)));
@@ -203,7 +203,7 @@ public abstract class Automaton {
     }
 
     /**
-     * ändert den Zustand einer Zelle
+     * ï¿½ndert den Zustand einer Zelle
      *
      * @param row
      * Reihe der Zelle
@@ -238,10 +238,10 @@ public abstract class Automaton {
         return ((val > 0)?val:max+val) % max;
     }
     /**
-     * definiert die Farbrepräsentation der einzelnen Zustände; implementiert
+     * definiert die Farbreprï¿½sentation der einzelnen Zustï¿½nde; implementiert
      * wie folgt: <br>
-     * Anzahl der Zustände = 2: 0 = weiß; 1 = schwarz <br>
-     * Anzahl der Zustände = 3: 0 = weiß; 1 = grau; 2 = schwarz <br>
+     * Anzahl der Zustï¿½nde = 2: 0 = weiï¿½; 1 = schwarz <br>
+     * Anzahl der Zustï¿½nde = 3: 0 = weiï¿½; 1 = grau; 2 = schwarz <br>
      * Ansonsten: Farbzuordnung per Zufall
      */
     protected void defineColors() {
@@ -260,11 +260,11 @@ public abstract class Automaton {
         }
     }
     /**
-     * Liefert die Farbrepräsentation eines Zustandes
+     * Liefert die Farbreprï¿½sentation eines Zustandes
      *
      * @param state
-     * der Zustand, dessen Farbrepräsentation geliefert werden soll
-     * @return die Farbrepräsentation des Zustandes state
+     * der Zustand, dessen Farbreprï¿½sentation geliefert werden soll
+     * @return die Farbreprï¿½sentation des Zustandes state
      */
     public Color getColor(int state) {
         if(state >= 0 && state < this.numberOfStates)
@@ -272,28 +272,28 @@ public abstract class Automaton {
         return null;
     }
     /**
-     * Liefert die Farbrepräsentation alles Zustände des Automaten
+     * Liefert die Farbreprï¿½sentation alles Zustï¿½nde des Automaten
      *
-     * @return die Farbrepräsentation alles Zustände des Automaten
+     * @return die Farbreprï¿½sentation alles Zustï¿½nde des Automaten
      */
     public Color[] getColorMapping() {
         return this.colors;
     }
     /**
-     * Ändert die Farbrepräsentation eines Zustandes
+     * ï¿½ndert die Farbreprï¿½sentation eines Zustandes
      *
      * @param state
      * der Zustand
      * @param newColor
-     * die neue Farbrepräsentation des Zustandes state
+     * die neue Farbreprï¿½sentation des Zustandes state
      */
     public void changeColor(int state, Color newColor) {
         if(state > 0 && state < this.numberOfStates)
             this.colors[state] = newColor;
     }
     /**
-     * Berechnet und liefert die nächste Generation; ruft dabei die abstrakte
-     * Methode "transform" für alle Zellen auf; Hinweis: zu berücksichtigen sind
+     * Berechnet und liefert die nï¿½chste Generation; ruft dabei die abstrakte
+     * Methode "transform" fï¿½r alle Zellen auf; Hinweis: zu berï¿½cksichtigen sind
      * die Nachbarschaftseigenschaft und die Torus-Eigenschaft des Automaten
      *
      * @return
@@ -311,12 +311,6 @@ public abstract class Automaton {
                 }
             return transform(getCell(row,col), neighbors);
         });
-        return newCells;
-    }
-
-    private Cell[][] clone(Cell[][] cells) {
-        Cell[][] newCells = new Cell[cells.length][cells[0].length];
-        iterator(newCells, (cell, row, col) -> new Cell(getCell(row, col)));
         return newCells;
     }
 }

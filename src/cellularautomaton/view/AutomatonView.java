@@ -89,7 +89,6 @@ public class AutomatonView extends AbstractAutomatonView {
         bindEvents();
     }
 
-    // Events //////////////////////////////////////////////////////////////////////////////////////////////////////////
     private void bindEvents() {
         // ToDo - Remove Events from here to Controller
         this.frame.addWindowListener(new WindowAdapter() {

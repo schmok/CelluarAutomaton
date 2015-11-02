@@ -28,9 +28,9 @@ public class CAStateCell extends JPanel {
         // Style of inner components
         this.stateButton.setText(String.valueOf(counter));
         this.colorButton.setBackground(ColorGenerator.generateColor(counter));
+        this.colorButton.setOpaque(true);
+        this.colorButton.setBorderPainted(false);
         this.colorButton.setText(" ");
-
-
 
         // Add components
         add(this.stateButton);

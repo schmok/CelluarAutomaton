@@ -46,14 +46,14 @@ public class CAPopulationContainer extends JPanel {
     }
 
     public void increaseCellSize() {
-        this.cellSize = (int)((float)this.cellSize * 1.2)+1;
+        this.cellSize = (int)((float)this.cellSize * 1.1)+1;
         this.fitPopulation();
         this.fillBuffer();
     }
 
     public void decreaseCellSize() {
         if(this.cellSize > 1)
-            this.cellSize = (int)((float)this.cellSize / 1.2);
+            this.cellSize = (int)((float)this.cellSize / 1.1);
         this.fitPopulation();
         this.fillBuffer();
     }
