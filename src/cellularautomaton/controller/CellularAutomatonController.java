@@ -1,7 +1,7 @@
 package cellularautomaton.controller;
 
 import cellularautomaton.model.CellularAutomaton;
-import cellularautomaton.view.AbstractAutomatonView;
+import cellularautomaton.view.AutomatonView;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -14,7 +14,11 @@ import java.awt.event.ActionListener;
 public class CellularAutomatonController extends Thread implements ActionListener {
     // Attributes //////////////////////////////////////////////////////////////////////////////////////////////////////
     private CellularAutomaton cellularAutomaton;
-    private AbstractAutomatonView automatonView;
+    private AutomatonView automatonView;
+
+    public CellularAutomaton getModel() {
+        return this.cellularAutomaton;
+    }
 
     // Methods /////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -24,7 +28,7 @@ public class CellularAutomatonController extends Thread implements ActionListene
     * @param viewController     the ViewController to use
     *
     */
-    public CellularAutomatonController(AbstractAutomatonView automatonView) {
+    public CellularAutomatonController(AutomatonView automatonView) {
         this.automatonView = automatonView;
 
         bindEvents();
@@ -42,12 +46,7 @@ public class CellularAutomatonController extends Thread implements ActionListene
     }
 
     private void bindEvents() {
-        // Terminate
-        this.automatonView.bindTerminate(() -> {
-            cellularAutomaton.terminate();
-            return null;
-        });
-
+        this.automatonView.getFrame();
     }
 
     @Override

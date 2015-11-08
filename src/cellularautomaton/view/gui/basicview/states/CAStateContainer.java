@@ -1,6 +1,8 @@
 package cellularautomaton.view.gui.basicview.states;
 
+import cellularautomaton.controller.locale.StringEnumeration;
 import cellularautomaton.view.gui.basicview.cells.CAStateCell;
+import cellularautomaton.view.util.IOwnEnumeration;
 
 import javax.swing.*;
 import java.awt.*;
@@ -10,9 +12,17 @@ import java.util.HashMap;
 /**
  * Created by Viktor Spadi on 17.10.2015.
  */
-public class CAStateContainer extends JPanel {
-    public JPanel container;
-    public HashMap<Integer, CAStateCell> cells;
+public class CAStateContainer extends JPanel implements IOwnEnumeration{
+    private JPanel container;
+    private HashMap<Integer, CAStateCell> cells;
+
+    public JPanel getStateContainer() {
+        return container;
+    }
+
+    public HashMap<Integer, CAStateCell> getCells() {
+        return cells;
+    }
 
     public CAStateContainer() {
         super();
@@ -33,5 +43,10 @@ public class CAStateContainer extends JPanel {
     public void removeCell(CAStateCell cell) {
         this.cells.remove(cell);
         this.container.remove(cell);
+    }
+
+    @Override
+    public StringEnumeration getEnumeration() {
+        return StringEnumeration.CA_STATECONTAINER;
     }
 }

@@ -2,6 +2,7 @@ package cellularautomaton.view.gui.basicview.menu;
 
 import cellularautomaton.controller.locale.StringController;
 import cellularautomaton.controller.locale.StringEnumeration;
+import cellularautomaton.view.util.IOwnEnumeration;
 
 import javax.swing.*;
 import java.awt.event.MouseEvent;
@@ -12,7 +13,7 @@ import java.util.Observer;
 /**
  * Created by Viktor Spadi on 14.10.2015.
  */
-public class CAPopulationMenu extends JMenu implements Observer {
+public class CAPopulationMenu extends JMenu implements Observer, IOwnEnumeration {
     private CAJMenuItem changeSizeItem;
     private CAJMenuItem deleteItem;
     private CAJMenuItem createItem;
@@ -32,6 +33,69 @@ public class CAPopulationMenu extends JMenu implements Observer {
     private CAJMenuItem GIFItem;
     private CAJMenuItem PNGItem;
 
+    public CAJMenuItem getChangeSizeItem() {
+        return changeSizeItem;
+    }
+
+    public CAJMenuItem getDeleteItem() {
+        return deleteItem;
+    }
+
+    public CAJMenuItem getCreateItem() {
+        return createItem;
+    }
+
+    public CAJMenuItem getTorusItem() {
+        return torusItem;
+    }
+
+    public CAJMenuItem getZoomInItem() {
+        return zoomInItem;
+    }
+
+    public CAJMenuItem getZoomOutItem() {
+        return zoomOutItem;
+    }
+
+    public CAJSubMenu getSaveItem() {
+        return saveItem;
+    }
+
+    public CAJMenuItem getSaveXMLItem() {
+        return saveXMLItem;
+    }
+
+    public CAJMenuItem getSaveSerialItem() {
+        return saveSerialItem;
+    }
+
+    public CAJSubMenu getLoadItem() {
+        return loadItem;
+    }
+
+    public CAJMenuItem getLoadXMLItem() {
+        return loadXMLItem;
+    }
+
+    public CAJMenuItem getLoadSerialItem() {
+        return loadSerialItem;
+    }
+
+    public CAJMenuItem getPrintItem() {
+        return printItem;
+    }
+
+    public CAJSubMenu getSaveAsImageItem() {
+        return saveAsImageItem;
+    }
+
+    public CAJMenuItem getGIFItem() {
+        return GIFItem;
+    }
+
+    public CAJMenuItem getPNGItem() {
+        return PNGItem;
+    }
 
     public CAPopulationMenu(StringController stringController) {
         super(stringController.get(StringEnumeration.MB_POPULATION));
@@ -60,5 +124,11 @@ public class CAPopulationMenu extends JMenu implements Observer {
     @Override
     public void update(Observable o, Object arg) {
 
+    }
+
+
+    @Override
+    public StringEnumeration getEnumeration() {
+        return StringEnumeration.CA_POPULATIONMENU;
     }
 }

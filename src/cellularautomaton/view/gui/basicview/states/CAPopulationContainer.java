@@ -1,8 +1,10 @@
 package cellularautomaton.view.gui.basicview.states;
 
+import cellularautomaton.controller.locale.StringEnumeration;
 import cellularautomaton.model.Automaton;
 import cellularautomaton.model.Cell;
 import cellularautomaton.model.GameOfLifeAutomaton;
+import cellularautomaton.view.util.IOwnEnumeration;
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
@@ -12,13 +14,35 @@ import java.awt.image.BufferedImage;
 /**
  * Created by Viktor Spadi on 17.10.2015.
  */
-public class CAPopulationContainer extends JPanel {
+public class CAPopulationContainer extends JPanel implements IOwnEnumeration {
     private Cell[][] lastPopulation;
     private int cellSize = 10;
     private BufferedImage bufferA = null;
     private BufferedImage bufferB = null;
     private boolean turn = false;
     private Color[] colors;
+
+    public Cell[][] getLastPopulation() {
+        return lastPopulation;
+    }
+
+    public int getCellSize() {
+        return cellSize;
+    }
+
+    public void setCellSize(int cellSize) {
+        if(cellSize >= 1)
+            this.cellSize = cellSize;
+        this.fitPopulation();
+        this.fillBuffer();
+
+    }
+
+    public Color[] getColors() {
+        return colors;
+    }
+
+
 
     public CAPopulationContainer() {
         super();
@@ -120,5 +144,10 @@ public class CAPopulationContainer extends JPanel {
 
     private void setColorMapping(Color[] colors) {
         this.colors = colors;
+    }
+
+    @Override
+    public StringEnumeration getEnumeration() {
+        return StringEnumeration.CA_POPULATIONCONTAINER;
     }
 }

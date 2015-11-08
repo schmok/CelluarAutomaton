@@ -1,22 +1,26 @@
 package cellularautomaton.view;
 
 import cellularautomaton.controller.locale.*;
+import cellularautomaton.event.AutomatonEventEnum;
 import cellularautomaton.view.gui.basicview.footer.CAFooter;
 import cellularautomaton.view.gui.basicview.menu.CAMenuBar;
 import cellularautomaton.view.gui.basicview.states.*;
 import cellularautomaton.view.gui.basicview.toolbar.CAToolbar;
+import cellularautomaton.view.util.IOwnEnumeration;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.util.Observable;
+import java.util.Observer;
 
 /**
  * Created by Viktor Spadi on 14.10.2015.
  * Basic implementation of the interface AbstractAutomatonView
  */
-public class AutomatonView extends AbstractAutomatonView {
+public class AutomatonView implements IOwnEnumeration{
     // Attributes //////////////////////////////////////////////////////////////////////////////////////////////////////
+    private StringController stringController;
     private JFrame frame;
     private CAMenuBar menuBar;
     private CAToolbar toolbar;
@@ -26,6 +30,38 @@ public class AutomatonView extends AbstractAutomatonView {
     private CAPopulationContainer populationContainer;
     private JScrollPane populationScrollPane;
 
+    public JFrame getFrame() {
+        return frame;
+    }
+
+    public CAMenuBar getMenuBar() {
+        return menuBar;
+    }
+
+    public CAToolbar getToolbar() {
+        return toolbar;
+    }
+
+    public CAFooter getFooter() {
+        return footer;
+    }
+
+    public CAStateContainer getStateContainer() {
+        return stateContainer;
+    }
+
+    public JScrollPane getStateScrollPane() {
+        return stateScrollPane;
+    }
+
+    public CAPopulationContainer getPopulationContainer() {
+        return populationContainer;
+    }
+
+    public JScrollPane getPopulationScrollPane() {
+        return populationScrollPane;
+    }
+
     // Methods /////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     /*
@@ -33,12 +69,15 @@ public class AutomatonView extends AbstractAutomatonView {
      */
     public AutomatonView() {
         super();
+        this.stringController = StringController.getInstance();
+        init();
     }
 
     /*
      * Mehtod to show the window
      */
     public void open() {
+
         this.frame.pack();
         this.frame.setVisible(true);
     }
@@ -62,11 +101,11 @@ public class AutomatonView extends AbstractAutomatonView {
                 ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED,
                 ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 
-        this.toolbar.zoomInButton.addActionListener(e -> {
+        this.toolbar.getZoomInButton().addActionListener(e -> {
             this.populationContainer.increaseCellSize();
         });
 
-        this.toolbar.zoomOutButton.addActionListener(e -> {
+        this.toolbar.getZoomOutButton().addActionListener(e -> {
             this.populationContainer.decreaseCellSize();
         });
 
@@ -85,25 +124,20 @@ public class AutomatonView extends AbstractAutomatonView {
         this.stateContainer.addCell();
         this.stateContainer.addCell();
         this.stateContainer.addCell();
-
-        bindEvents();
     }
 
-    private void bindEvents() {
-        // ToDo - Remove Events from here to Controller
-        this.frame.addWindowListener(new WindowAdapter() {
-            public void windowClosing(WindowEvent e) {
-                try {
-                    terminate();
-                } catch (Exception e1) {
-                    e1.printStackTrace();
-                }
-            }
-        });
+    public void update(Observable o, Object arg) {
+        AutomatonEventEnum evt = (AutomatonEventEnum)arg;
+        switch (evt) {
+            case CLOSE:
+                break;
+            default:
+                System.out.printf("Undhandled Update from Model %s", evt);
+        }
     }
 
     @Override
-    public void update(Observable o, Object arg) {
-
+    public StringEnumeration getEnumeration() {
+        return StringEnumeration.CA_MAINWINDOW;
     }
 }

@@ -1,6 +1,8 @@
 package cellularautomaton.view.gui.basicview.cells;
 
+import cellularautomaton.controller.locale.StringEnumeration;
 import cellularautomaton.view.util.ColorGenerator;
+import cellularautomaton.view.util.IOwnEnumeration;
 
 import javax.swing.*;
 import javax.swing.border.Border;
@@ -10,14 +12,27 @@ import java.awt.*;
 /**
  * Created by Viktor Spadi on 17.10.2015.
  */
-public class CAStateCell extends JPanel {
-    private JButton stateButton;
+public class CAStateCell extends JPanel implements IOwnEnumeration {
+    private JToggleButton stateButton;
     private JButton colorButton;
+    private int state;
 
+
+    public JToggleButton getStateButton() {
+        return stateButton;
+    }
+
+    public JButton getColorButton() {
+        return colorButton;
+    }
+
+    public int getState() {
+        return this.state;
+    }
 
     public CAStateCell(int counter) {
         super();
-        this.stateButton = new JButton();
+        this.stateButton = new JToggleButton();
         this.colorButton = new JButton();
 
         // Componentstyle
@@ -35,5 +50,10 @@ public class CAStateCell extends JPanel {
         // Add components
         add(this.stateButton);
         add(this.colorButton);
+    }
+
+    @Override
+    public StringEnumeration getEnumeration() {
+        return StringEnumeration.CA_CELL;
     }
 }

@@ -2,6 +2,7 @@ package cellularautomaton.view.gui.basicview.toolbar;
 
 import cellularautomaton.controller.locale.StringController;
 import cellularautomaton.controller.locale.StringEnumeration;
+import cellularautomaton.view.util.IOwnEnumeration;
 
 import javax.swing.*;
 import java.awt.*;
@@ -15,21 +16,77 @@ import java.beans.PropertyChangeListener;
  *
  * http://www.java2s.com/Code/Java/Swing-JFC/DeterminingWhenaFloatableJToolBarContainerChangesOrientation.htm
  */
-public class CAToolbar extends JToolBar {
+public class CAToolbar extends JToolBar implements IOwnEnumeration {
     StringController stringController;
-    public CAToolbarItem newButton;
-    public CAToolbarItem openButton;
-    public CAToolbarItem gridButton;
-    public CAToolbarItem deleteButton;
-    public CAToolbarItem randomButton;
-    public CAToolbarItem torusButton;
-    public CAToolbarItem printButton;
-    public CAToolbarItem zoomInButton;
-    public CAToolbarItem zoomOutButton;
-    public CAToolbarItem stepButton;
-    public CAToolbarItem simulateButton;
-    public CAToolbarItem stopButton;
-    public JSlider slider;
+    private CAToolbarItem newButton;
+    private CAToolbarItem openButton;
+    private CAToolbarItem gridButton;
+    private CAToolbarItem deleteButton;
+    private CAToolbarItem randomButton;
+    private CAToolbarItem torusButton;
+    private CAToolbarItem printButton;
+    private CAToolbarItem zoomInButton;
+    private CAToolbarItem zoomOutButton;
+    private CAToolbarItem stepButton;
+    private CAToolbarItem simulateButton;
+    private CAToolbarItem stopButton;
+    private JSlider slider;
+
+    public StringController getStringController() {
+        return stringController;
+    }
+
+    public CAToolbarItem getNewButton() {
+        return newButton;
+    }
+
+    public CAToolbarItem getOpenButton() {
+        return openButton;
+    }
+
+    public CAToolbarItem getGridButton() {
+        return gridButton;
+    }
+
+    public CAToolbarItem getDeleteButton() {
+        return deleteButton;
+    }
+
+    public CAToolbarItem getRandomButton() {
+        return randomButton;
+    }
+
+    public CAToolbarItem getTorusButton() {
+        return torusButton;
+    }
+
+    public CAToolbarItem getPrintButton() {
+        return printButton;
+    }
+
+    public CAToolbarItem getZoomInButton() {
+        return zoomInButton;
+    }
+
+    public CAToolbarItem getZoomOutButton() {
+        return zoomOutButton;
+    }
+
+    public CAToolbarItem getStepButton() {
+        return stepButton;
+    }
+
+    public CAToolbarItem getSimulateButton() {
+        return simulateButton;
+    }
+
+    public CAToolbarItem getStopButton() {
+        return stopButton;
+    }
+
+    public JSlider getSlider() {
+        return slider;
+    }
 
     public CAToolbar(StringController stringController) {
         super(stringController.get(StringEnumeration.TB_NAME));
@@ -77,5 +134,10 @@ public class CAToolbar extends JToolBar {
             }
         });
         setBackground(Color.decode("0xFFD7B4"));
+    }
+
+    @Override
+    public StringEnumeration getEnumeration() {
+        return StringEnumeration.CA_TOOLBAR;
     }
 }

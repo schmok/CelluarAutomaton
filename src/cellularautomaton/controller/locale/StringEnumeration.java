@@ -38,7 +38,19 @@ public enum StringEnumeration {
     MI_HELP("Hilfe"),
     MI_INFO("\u00dcber CA Simulator"),
     // Toolbar
-    TB_NAME("Toolbar")
+    TB_NAME("Toolbar"),
+
+    // J Objects
+    CA_CELL(""),
+    CA_FOOTER(""),
+    CA_MENUBAR(""),
+    CA_POPULATIONMENU(""),
+    CA_SIMULATIONMENU(""),
+    CA_POPULATIONCONTAINER(""),
+    CA_STATECONTAINER(""),
+    CA_TOOLBAR(""),
+    CA_TOOLBARITEM(""),
+    CA_MAINWINDOW("")
     ;
 
     private final String text;
