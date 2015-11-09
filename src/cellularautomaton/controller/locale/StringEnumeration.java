@@ -37,6 +37,7 @@ public enum StringEnumeration {
     MB_HELP("Hilfe"),
     MI_HELP("Hilfe"),
     MI_INFO("\u00dcber CA Simulator"),
+    MI_RANDOM("Random"),
     // Toolbar
     TB_NAME("Toolbar"),
 

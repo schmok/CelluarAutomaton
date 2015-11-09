@@ -10,14 +10,17 @@ import javax.swing.*;
  * Created by Viktor Spadi on 17.10.2015.
  */
 public class CAToolbarItem extends JButton implements IOwnEnumeration {
-    public CAToolbarItem(String icon) {
+    private StringEnumeration type;
+
+    public CAToolbarItem(String icon, StringEnumeration text) {
         super();
+        this.type = text;
         setIcon(FileHelper.getInstance().getIcon(icon));
         setBorder(null);
     }
 
     @Override
     public StringEnumeration getEnumeration() {
-        return StringEnumeration.CA_TOOLBARITEM;
+        return type;
     }
 }

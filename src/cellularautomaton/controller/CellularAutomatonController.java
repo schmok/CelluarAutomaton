@@ -1,24 +1,23 @@
 package cellularautomaton.controller;
 
+import cellularautomaton.controller.locale.StringEnumeration;
 import cellularautomaton.model.CellularAutomaton;
 import cellularautomaton.view.AutomatonView;
+import cellularautomaton.view.util.IOwnEnumeration;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.event.*;
 
 /**
  * Created by Viktor Spadi on 14.10.2015.
  *
  *
  */
-public class CellularAutomatonController extends Thread implements ActionListener {
+public class CellularAutomatonController extends AbstractController<AutomatonView> {
     // Attributes //////////////////////////////////////////////////////////////////////////////////////////////////////
-    private CellularAutomaton cellularAutomaton;
-    private AutomatonView automatonView;
-
-    public CellularAutomaton getModel() {
-        return this.cellularAutomaton;
-    }
+    private MenuController menuController;
+    private StateController stateController;
+    private ToolbarController toolbarController;
+    private PoppulationController poppulationController;
 
     // Methods /////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -29,8 +28,11 @@ public class CellularAutomatonController extends Thread implements ActionListene
     *
     */
     public CellularAutomatonController(AutomatonView automatonView) {
-        this.automatonView = automatonView;
-
+        super(automatonView);
+        this.menuController = new MenuController(getView().getMenuBar());
+        this.stateController = new StateController(getView().getStateContainer());
+        this.toolbarController = new ToolbarController(getView().getToolbar());
+        this.poppulationController = new PoppulationController(getView().getPopulationContainer());
         bindEvents();
     }
 
@@ -38,19 +40,38 @@ public class CellularAutomatonController extends Thread implements ActionListene
      * Pass call to the view
      */
     public void open() {
-        this.automatonView.open();
+        this.getView().open();
     }
 
     public void bindModel(CellularAutomaton cellularAutomaton) {
-        this.cellularAutomaton = cellularAutomaton;
+        super.bindModel(cellularAutomaton);
+        this.menuController.bindModel(cellularAutomaton);
+        this.stateController.bindModel(cellularAutomaton);
+        this.toolbarController.bindModel(cellularAutomaton);
+        this.poppulationController.bindModel(cellularAutomaton);
+
     }
 
-    private void bindEvents() {
-        this.automatonView.getFrame();
+    public void bindEvents() {
+        // Terminate
+        this.getView().getFrame().addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                super.windowClosing(e);
+                getModel().terminate();
+            }
+        });
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        System.out.println("Some Action E");
+        StringEnumeration enm = ((IOwnEnumeration)e.getSource()).getEnumeration();
+        switch (enm) {
+            case MI_QUIT:
+                getModel().terminate();
+                break;
+            default:
+                //System.out.println("Event: "+ enm.name());
+        }
     }
 }

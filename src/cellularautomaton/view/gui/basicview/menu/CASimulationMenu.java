@@ -33,8 +33,8 @@ public class CASimulationMenu extends JMenu implements Observer, IOwnEnumeration
 
         // Add components
         add(this.stepItem = new CAJMenuItem(StringEnumeration.MI_STEP));
-        add(this.stepItem = new CAJMenuItem(StringEnumeration.MI_START));
-        add(this.stepItem = new CAJMenuItem(StringEnumeration.MI_STOP));
+        add(this.startItem = new CAJMenuItem(StringEnumeration.MI_START));
+        add(this.stopItem = new CAJMenuItem(StringEnumeration.MI_STOP));
     }
 
     @Override

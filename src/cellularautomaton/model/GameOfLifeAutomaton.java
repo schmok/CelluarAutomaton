@@ -1,7 +1,5 @@
 package cellularautomaton.model;
 
-import javafx.beans.InvalidationListener;
-
 /**
  * Created by Viktor Spadi on 18.10.2015.
  */

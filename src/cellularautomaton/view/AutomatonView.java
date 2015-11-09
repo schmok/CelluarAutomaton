@@ -101,14 +101,6 @@ public class AutomatonView implements IOwnEnumeration{
                 ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED,
                 ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 
-        this.toolbar.getZoomInButton().addActionListener(e -> {
-            this.populationContainer.increaseCellSize();
-        });
-
-        this.toolbar.getZoomOutButton().addActionListener(e -> {
-            this.populationContainer.decreaseCellSize();
-        });
-
         this.frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
         this.frame.setLayout(new BorderLayout());
         this.frame.setJMenuBar(this.menuBar);
@@ -130,6 +122,7 @@ public class AutomatonView implements IOwnEnumeration{
         AutomatonEventEnum evt = (AutomatonEventEnum)arg;
         switch (evt) {
             case CLOSE:
+                System.out.println("Something Happens here");
                 break;
             default:
                 System.out.printf("Undhandled Update from Model %s", evt);

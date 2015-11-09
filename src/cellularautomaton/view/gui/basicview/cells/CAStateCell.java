@@ -50,6 +50,7 @@ public class CAStateCell extends JPanel implements IOwnEnumeration {
         // Add components
         add(this.stateButton);
         add(this.colorButton);
+
     }
 
     @Override
