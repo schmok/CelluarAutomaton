@@ -8,6 +8,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Set;
 
 /**
  * Created by Viktor Spadi on 17.10.2015.
@@ -33,8 +34,8 @@ public class CAStateContainer extends JPanel implements IOwnEnumeration{
         setBackground(Color.decode("0xF7E6F0"));
     }
 
-    public CAStateCell addCell() {
-        CAStateCell cell = new CAStateCell(cells.size());
+    public CAStateCell addCell(Color color) {
+        CAStateCell cell = new CAStateCell(cells.size(),color);
         this.cells.put(cells.size(), cell);
         this.container.add(cell);
         return cell;
@@ -43,6 +44,16 @@ public class CAStateContainer extends JPanel implements IOwnEnumeration{
     public void removeCell(CAStateCell cell) {
         this.cells.remove(cell);
         this.container.remove(cell);
+    }
+
+    public CAStateCell getCell(int index) {
+        return this.cells.get(index);
+    }
+
+    public void removeAll() {
+        Set<Integer> set = this.cells.keySet();
+        for(Integer it: set)
+            this.removeCell(this.getCell(it));
     }
 
     @Override

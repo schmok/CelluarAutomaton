@@ -1,4 +1,4 @@
-package cellularautomaton.view.gui.basicview.toolbar;
+package cellularautomaton.view.gui.basicview.components;
 
 import cellularautomaton.controller.locale.StringEnumeration;
 import cellularautomaton.view.util.FileHelper;
@@ -9,13 +9,14 @@ import javax.swing.*;
 /**
  * Created by Viktor Spadi on 17.10.2015.
  */
-public class CAToolbarToggleItem extends JToggleButton implements IOwnEnumeration {
+public class CAJToggleButton extends JToggleButton implements IOwnEnumeration {
     private StringEnumeration type;
 
-    public CAToolbarToggleItem(String icon, StringEnumeration text) {
+    public CAJToggleButton(String icon, StringEnumeration text) {
         super();
         this.type = text;
-        setIcon(FileHelper.getInstance().getIcon(icon));
+        if(icon != null)
+            setIcon(FileHelper.getInstance().getIcon(icon));
         setBorder(null);
     }
 

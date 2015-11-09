@@ -2,14 +2,12 @@ package cellularautomaton.view.gui.basicview.toolbar;
 
 import cellularautomaton.controller.locale.StringController;
 import cellularautomaton.controller.locale.StringEnumeration;
+import cellularautomaton.view.gui.basicview.CAChangeSizeWindow;
+import cellularautomaton.view.gui.basicview.components.CAJToggleButton;
 import cellularautomaton.view.util.IOwnEnumeration;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.beans.PropertyChangeEvent;
-import java.beans.PropertyChangeListener;
 
 /**
  * Created by Viktor Spadi on 17.10.2015.
@@ -23,7 +21,7 @@ public class CAToolbar extends JToolBar implements IOwnEnumeration {
     private CAToolbarItem gridButton;
     private CAToolbarItem deleteButton;
     private CAToolbarItem randomButton;
-    private CAToolbarToggleItem torusButton;
+    private CAJToggleButton torusButton;
     private CAToolbarItem printButton;
     private CAToolbarItem zoomInButton;
     private CAToolbarItem zoomOutButton;
@@ -31,6 +29,11 @@ public class CAToolbar extends JToolBar implements IOwnEnumeration {
     private CAToolbarItem simulateButton;
     private CAToolbarItem stopButton;
     private JSlider slider;
+    private CAChangeSizeWindow changeSizeWindow;
+
+    public CAChangeSizeWindow getChangeSizeWindow() {
+        return changeSizeWindow;
+    }
 
     public StringController getStringController() {
         return stringController;
@@ -56,7 +59,7 @@ public class CAToolbar extends JToolBar implements IOwnEnumeration {
         return randomButton;
     }
 
-    public CAToolbarToggleItem getTorusButton() {
+    public CAJToggleButton getTorusButton() {
         return torusButton;
     }
 
@@ -102,7 +105,7 @@ public class CAToolbar extends JToolBar implements IOwnEnumeration {
         addSeparator(new Dimension(5,5));
         add(this.randomButton = new CAToolbarItem("Random24.gif", StringEnumeration.MI_RANDOM));
         addSeparator(new Dimension(5,5));
-        add(this.torusButton = new CAToolbarToggleItem("Torus24.gif", StringEnumeration.MI_TORUS));
+        add(this.torusButton = new CAJToggleButton("Torus24.gif", StringEnumeration.MI_TORUS));
         addSeparator(new Dimension(5,5));
         add(this.printButton = new CAToolbarItem("Print24.gif", StringEnumeration.MI_PRINT));
         addSeparator(new Dimension(15,15));
@@ -134,6 +137,8 @@ public class CAToolbar extends JToolBar implements IOwnEnumeration {
             }
         });
         setBackground(Color.decode("0xFFD7B4"));
+
+        this.changeSizeWindow = new CAChangeSizeWindow();
     }
 
     @Override

@@ -3,6 +3,7 @@ package cellularautomaton.view;
 import cellularautomaton.controller.locale.*;
 import cellularautomaton.event.AutomatonEventEnum;
 import cellularautomaton.model.CellularAutomaton;
+import cellularautomaton.view.gui.basicview.CAChangeSizeWindow;
 import cellularautomaton.view.gui.basicview.footer.CAFooter;
 import cellularautomaton.view.gui.basicview.menu.CAMenuBar;
 import cellularautomaton.view.gui.basicview.states.*;
@@ -29,6 +30,7 @@ public class AutomatonView implements IOwnEnumeration, Observer{
     private JScrollPane stateScrollPane;
     private CAPopulationContainer populationContainer;
     private JScrollPane populationScrollPane;
+
 
     public JFrame getFrame() {
         return frame;
@@ -105,17 +107,13 @@ public class AutomatonView implements IOwnEnumeration, Observer{
         this.frame.setLayout(new BorderLayout());
         this.frame.setJMenuBar(this.menuBar);
 
+        // Create additional Windows
+
         // Add components
         this.frame.add(this.toolbar, BorderLayout.PAGE_START);
         this.frame.add(this.footer, BorderLayout.SOUTH);
         this.frame.add(this.stateScrollPane, BorderLayout.WEST);
         this.frame.add(this.populationScrollPane, BorderLayout.CENTER);
-
-
-        // Push some basic cells into it
-        this.stateContainer.addCell();
-        this.stateContainer.addCell();
-        this.stateContainer.addCell();
     }
 
     @Override

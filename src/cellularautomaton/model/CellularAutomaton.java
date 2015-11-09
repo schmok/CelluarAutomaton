@@ -27,9 +27,10 @@ public class CellularAutomaton extends Observable {
      * @param automatonController
      */
     public CellularAutomaton(CellularAutomatonController automatonController) {
+        this.setAutomaton(new GameOfLifeAutomaton(10, 10, true));
         this.automatonController = automatonController;
         this.automatonController.bindModel(this);
-        this.setAutomaton(new GameOfLifeAutomaton(10, 10, true));
+        System.out.println(this.automaton.getNumberOfStates());
     }
 
     /*

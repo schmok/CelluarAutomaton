@@ -53,7 +53,16 @@ public enum StringEnumeration {
     CA_STATECONTAINER(""),
     CA_TOOLBAR(""),
     CA_TOOLBARITEM(""),
-    CA_MAINWINDOW("")
+    CA_MAINWINDOW(""),
+
+
+    // Windows
+    W_CHANGE_SIZE_WINDOW("Gr\u00f6\u00dfe \u00e4ndern"),
+    W_CHANGED_SIZE("Gr\u00f6\u00dfe \u00e4ndern"),
+
+    // States ect.
+    SI_STATE(""),
+    SI_COLOR("")
     ;
 
     private final String text;

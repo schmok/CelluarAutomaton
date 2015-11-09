@@ -36,7 +36,7 @@ public class MenuController extends AbstractController<CAMenuBar, CellularAutoma
 
             case MI_TORUS:
                 this.getModel().setTorus(!this.getModel().isTorus());
-                break;
+                //break;
             case MI_ZOOM_IN:
 
             case MI_ZOOM_OUT:

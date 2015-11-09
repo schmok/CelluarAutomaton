@@ -34,7 +34,6 @@ public class CellularAutomatonController extends AbstractController<AutomatonVie
         this.toolbarController = new ToolbarController(getView().getToolbar(), this);
         this.poppulationController = new PoppulationController(getView().getPopulationContainer(), this);
         bindEvents();
-
     }
 
     /*
@@ -50,7 +49,12 @@ public class CellularAutomatonController extends AbstractController<AutomatonVie
         this.stateController.bindModel(cellularAutomaton);
         this.toolbarController.bindModel(cellularAutomaton);
         this.poppulationController.bindModel(cellularAutomaton);
+
+        // observer binding
         this.getModel().addObserver(this.getView());
+
+        // additional suff like first cell obtain
+        this.stateController.bindStates();
     }
 
     public void bindEvents() {
