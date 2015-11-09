@@ -29,11 +29,6 @@ public class CAToolbar extends JToolBar implements IOwnEnumeration {
     private CAToolbarItem simulateButton;
     private CAToolbarItem stopButton;
     private JSlider slider;
-    private CAChangeSizeWindow changeSizeWindow;
-
-    public CAChangeSizeWindow getChangeSizeWindow() {
-        return changeSizeWindow;
-    }
 
     public StringController getStringController() {
         return stringController;
@@ -137,8 +132,6 @@ public class CAToolbar extends JToolBar implements IOwnEnumeration {
             }
         });
         setBackground(Color.decode("0xFFD7B4"));
-
-        this.changeSizeWindow = new CAChangeSizeWindow();
     }
 
     @Override

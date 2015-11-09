@@ -48,19 +48,12 @@ public class CAPopulationContainer extends JPanel implements IOwnEnumeration {
         super();
         setPopulationWindowSize(900, 900);
         fitPopulation();
-        GameOfLifeAutomaton gol = new GameOfLifeAutomaton(100,100,true);
-
-        gol.randomPopulation();
-        this.setColorMapping(gol.getColorMapping());
-
-        this.drawPopulation(gol.getPopulation());
-        this.drawPopulation(gol.getPopulation());
 
         // Componentstyle
         this.setBackground(Color.decode("0xFFFFDC"));
     }
 
-    private void fitPopulation() {
+    public void fitPopulation() {
         int newSize = 5;
         if(this.lastPopulation != null)
             newSize = this.cellSize * this.lastPopulation.length;
@@ -142,7 +135,7 @@ public class CAPopulationContainer extends JPanel implements IOwnEnumeration {
             return Color.BLACK;
     }
 
-    private void setColorMapping(Color[] colors) {
+    public void setColorMapping(Color[] colors) {
         this.colors = colors;
     }
 

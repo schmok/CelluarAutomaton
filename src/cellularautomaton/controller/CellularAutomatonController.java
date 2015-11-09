@@ -55,6 +55,7 @@ public class CellularAutomatonController extends AbstractController<AutomatonVie
 
         // additional suff like first cell obtain
         this.stateController.bindStates();
+        this.getView().setModel(this.getModel());
     }
 
     public void bindEvents() {
@@ -68,12 +69,62 @@ public class CellularAutomatonController extends AbstractController<AutomatonVie
         });
     }
 
+    public void getNewAutomatonSize() {
+        try {
+            int width = Integer.parseInt(this.getView().getChangeSizeWindow().getWidthField().getText());
+            int height = Integer.parseInt(this.getView().getChangeSizeWindow().getHeightField().getText());
+            boolean valid = true;
+
+            if(width <= 0) {
+                this.getView().getChangeSizeWindow().getWidthField().setText("");
+                valid = false;
+            }
+            if(height <= 0) {
+                this.getView().getChangeSizeWindow().getHeightField().setText("");
+                valid = false;
+            }
+
+            if(valid) {
+                this.getModel().setSize(width, height);
+                this.getView().getChangeSizeWindow().setVisible(false);
+            }
+        } catch(Exception ex) {
+            //ex.printStackTrace();
+        }
+    }
+
     @Override
     public void actionPerformed(ActionEvent e) {
         StringEnumeration enm = ((IOwnEnumeration)e.getSource()).getEnumeration();
         switch (enm) {
             case MI_QUIT:
                 getModel().terminate();
+                break;
+            case MI_CHANGE_SIZE:
+                this.getView().getChangeSizeWindow().reset();
+                this.getView().getChangeSizeWindow().setVisible(true);
+                this.getView().getChangeSizeWindow().toFront();
+                break;
+            case W_CHANGED_SIZE:
+                getNewAutomatonSize();
+                break;
+            case MI_RANDOM:
+                this.getModel().randomPopulation();
+                break;
+            case MI_TORUS:
+                this.getModel().setTorus(!this.getModel().isTorus());
+                break;
+            case MI_DELETE:
+                this.getModel().clearPopulation();
+                break;
+            case MI_ZOOM_IN:
+                this.getView().getPopulationContainer().increaseCellSize();
+                break;
+            case MI_ZOOM_OUT:
+                this.getView().getPopulationContainer().decreaseCellSize();
+                break;
+            case MI_STEP:
+                this.getModel().nextGeneration();
                 break;
             default:
                 //System.out.println("Event: "+ enm.name());

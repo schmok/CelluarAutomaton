@@ -20,40 +20,6 @@ public class MenuController extends AbstractController<CAMenuBar, CellularAutoma
         StringEnumeration enm = ((IOwnEnumeration)e.getSource()).getEnumeration();
         switch (enm) {
             // Automatonmenu
-            case MI_LOAD:
-
-            case MI_EDITOR:
-
-            case MI_QUIT:
-
-            case MI_NEW:
-
-            case MI_CHANGE_SIZE:
-
-            case MI_DELETE:
-
-            case MI_CREATE:
-
-            case MI_TORUS:
-                this.getModel().setTorus(!this.getModel().isTorus());
-                //break;
-            case MI_ZOOM_IN:
-
-            case MI_ZOOM_OUT:
-
-            case MI_SAVE_XML:
-
-            case MI_SAVE_SERIAL:
-
-            case MI_LOAD_XML:
-
-            case MI_LOAD_SERIAL:
-
-            case MI_PRINT:
-
-            case MI_GIF:
-
-            case MI_PNG:
 
             //
             default:

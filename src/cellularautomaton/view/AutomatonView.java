@@ -30,7 +30,20 @@ public class AutomatonView implements IOwnEnumeration, Observer{
     private JScrollPane stateScrollPane;
     private CAPopulationContainer populationContainer;
     private JScrollPane populationScrollPane;
+    private CellularAutomaton automaton;
 
+    private CAChangeSizeWindow changeSizeWindow;
+
+    public void setModel(CellularAutomaton automaton) {
+        this.automaton = automaton;
+        this.populationContainer.setColorMapping(this.automaton.getColorMapping());
+        this.repaint();
+        this.toolbar.getTorusButton().setSelected(this.automaton.isTorus());
+    }
+
+    public CAChangeSizeWindow getChangeSizeWindow() {
+        return changeSizeWindow;
+    }
 
     public JFrame getFrame() {
         return frame;
@@ -79,7 +92,6 @@ public class AutomatonView implements IOwnEnumeration, Observer{
      * Mehtod to show the window
      */
     public void open() {
-
         this.frame.pack();
         this.frame.setVisible(true);
     }
@@ -108,12 +120,18 @@ public class AutomatonView implements IOwnEnumeration, Observer{
         this.frame.setJMenuBar(this.menuBar);
 
         // Create additional Windows
+        this.changeSizeWindow = new CAChangeSizeWindow();
+
 
         // Add components
         this.frame.add(this.toolbar, BorderLayout.PAGE_START);
         this.frame.add(this.footer, BorderLayout.SOUTH);
         this.frame.add(this.stateScrollPane, BorderLayout.WEST);
         this.frame.add(this.populationScrollPane, BorderLayout.CENTER);
+    }
+
+    public void repaint() {
+        this.getPopulationContainer().drawPopulation(this.automaton.getPopulation());
     }
 
     @Override
@@ -128,6 +146,19 @@ public class AutomatonView implements IOwnEnumeration, Observer{
                 break;
             case NEW_AUTOMATON:
                 this.toolbar.getTorusButton().setSelected(automaton.isTorus());
+                this.populationContainer.setColorMapping(this.automaton.getColorMapping());
+                this.populationContainer.fitPopulation();
+                repaint();
+                break;
+            case SIZE_CHANGED:
+                // Fix-> dont know why but i have to...
+                this.populationContainer.fitPopulation();
+                repaint();
+                this.populationContainer.fitPopulation();
+                repaint();
+                break;
+            case CELL_CHANGED:
+                repaint();
                 break;
             default:
                 System.out.printf("Undhandled Update from Model %s", evt);
@@ -138,4 +169,5 @@ public class AutomatonView implements IOwnEnumeration, Observer{
     public StringEnumeration getEnumeration() {
         return StringEnumeration.CA_MAINWINDOW;
     }
+
 }

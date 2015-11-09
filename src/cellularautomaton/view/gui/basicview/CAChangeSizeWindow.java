@@ -69,4 +69,9 @@ public class CAChangeSizeWindow extends JFrame implements IOwnEnumeration{
     public StringEnumeration getEnumeration() {
         return StringEnumeration.W_CHANGE_SIZE_WINDOW;
     }
+
+    public void reset() {
+        this.heightField.setText("");
+        this.widthField.setText("");
+    }
 }
