@@ -10,10 +10,10 @@ import java.awt.event.ActionListener;
 /**
  * Created by vspadi on 08.11.15.
  */
-public class StateController extends AbstractController<CAStateContainer> {
+public class StateController extends AbstractController<CAStateContainer, CellularAutomatonController> {
 
-    StateController(CAStateContainer view) {
-        super(view);
+    StateController(CAStateContainer view, CellularAutomatonController cac) {
+        super(view, cac);
     }
 
     @Override

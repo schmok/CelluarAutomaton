@@ -23,7 +23,7 @@ public class CAToolbar extends JToolBar implements IOwnEnumeration {
     private CAToolbarItem gridButton;
     private CAToolbarItem deleteButton;
     private CAToolbarItem randomButton;
-    private CAToolbarItem torusButton;
+    private CAToolbarToggleItem torusButton;
     private CAToolbarItem printButton;
     private CAToolbarItem zoomInButton;
     private CAToolbarItem zoomOutButton;
@@ -56,7 +56,7 @@ public class CAToolbar extends JToolBar implements IOwnEnumeration {
         return randomButton;
     }
 
-    public CAToolbarItem getTorusButton() {
+    public CAToolbarToggleItem getTorusButton() {
         return torusButton;
     }
 
@@ -102,7 +102,7 @@ public class CAToolbar extends JToolBar implements IOwnEnumeration {
         addSeparator(new Dimension(5,5));
         add(this.randomButton = new CAToolbarItem("Random24.gif", StringEnumeration.MI_RANDOM));
         addSeparator(new Dimension(5,5));
-        add(this.torusButton = new CAToolbarItem("Torus24.gif", StringEnumeration.MI_TORUS));
+        add(this.torusButton = new CAToolbarToggleItem("Torus24.gif", StringEnumeration.MI_TORUS));
         addSeparator(new Dimension(5,5));
         add(this.printButton = new CAToolbarItem("Print24.gif", StringEnumeration.MI_PRINT));
         addSeparator(new Dimension(15,15));

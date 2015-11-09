@@ -8,6 +8,7 @@ public enum AutomatonEventEnum {
     CELL_CHANGED,
     TORUS_CHANGED,
     SIZE_CHANGED,
+    NEW_AUTOMATON,
     CLOSE;
 
     AutomatonEventEnum() {

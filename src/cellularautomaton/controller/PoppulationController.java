@@ -9,10 +9,10 @@ import java.awt.event.ActionEvent;
 /**
  * Created by vspadi on 08.11.15.
  */
-public class PoppulationController extends AbstractController<CAPopulationContainer> {
+public class PoppulationController extends AbstractController<CAPopulationContainer, CellularAutomatonController> {
 
-    PoppulationController(CAPopulationContainer view) {
-        super(view);
+    PoppulationController(CAPopulationContainer view, CellularAutomatonController cac) {
+        super(view, cac);
     }
 
     @Override

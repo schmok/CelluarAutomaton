@@ -11,18 +11,22 @@ import java.lang.reflect.Field;
 /**
  * Created by vspadi on 08.11.15.
  */
-public abstract class AbstractController<T extends IOwnEnumeration> implements ActionListener {
+public abstract class AbstractController<T extends IOwnEnumeration,C> implements ActionListener {
     private CellularAutomaton cellularAutomaton;
+    private C parent;
     private T view;
     private int depth = 0;
 
-    AbstractController(T view) {
+    AbstractController(T view, C parent) {
         this.view = view;
+        this.parent = parent;
     }
 
     public T getView() {
         return this.view;
     }
+
+    public C getParent() { return this.parent; }
 
     public void bindModel(CellularAutomaton cellularAutomaton) {
         this.cellularAutomaton = cellularAutomaton;

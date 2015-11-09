@@ -12,7 +12,7 @@ import java.awt.event.*;
  *
  *
  */
-public class CellularAutomatonController extends AbstractController<AutomatonView> {
+public class CellularAutomatonController extends AbstractController<AutomatonView, Object> {
     // Attributes //////////////////////////////////////////////////////////////////////////////////////////////////////
     private MenuController menuController;
     private StateController stateController;
@@ -28,12 +28,13 @@ public class CellularAutomatonController extends AbstractController<AutomatonVie
     *
     */
     public CellularAutomatonController(AutomatonView automatonView) {
-        super(automatonView);
-        this.menuController = new MenuController(getView().getMenuBar());
-        this.stateController = new StateController(getView().getStateContainer());
-        this.toolbarController = new ToolbarController(getView().getToolbar());
-        this.poppulationController = new PoppulationController(getView().getPopulationContainer());
+        super(automatonView, null);
+        this.menuController = new MenuController(getView().getMenuBar(), this);
+        this.stateController = new StateController(getView().getStateContainer(), this);
+        this.toolbarController = new ToolbarController(getView().getToolbar(), this);
+        this.poppulationController = new PoppulationController(getView().getPopulationContainer(), this);
         bindEvents();
+
     }
 
     /*
@@ -49,7 +50,7 @@ public class CellularAutomatonController extends AbstractController<AutomatonVie
         this.stateController.bindModel(cellularAutomaton);
         this.toolbarController.bindModel(cellularAutomaton);
         this.poppulationController.bindModel(cellularAutomaton);
-
+        this.getModel().addObserver(this.getView());
     }
 
     public void bindEvents() {

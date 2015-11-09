@@ -37,9 +37,9 @@ public class AcceleratorMnemonicMapper {
                 return KeyEvent.VK_S;
             case MS_LOAD:
                 return KeyEvent.VK_A;
-            case MI_XML:
+            case MI_SAVE_XML:
                 return KeyEvent.VK_X;
-            case MI_SERIAL:
+            case MI_SAVE_SERIAL:
                 return KeyEvent.VK_S;
             case MI_PRINT:
                 return KeyEvent.VK_D;
@@ -89,9 +89,9 @@ public class AcceleratorMnemonicMapper {
                 return KeyStroke.getKeyStroke("ctrl shift I");
             case MI_ZOOM_OUT:
                 return KeyStroke.getKeyStroke("ctrl shift O");
-            case MI_XML:
+            case MI_SAVE_XML:
                 return KeyStroke.getKeyStroke("ctrl shift X");
-            case MI_SERIAL:
+            case MI_SAVE_SERIAL:
                 return KeyStroke.getKeyStroke("ctrl shift R");
             case MI_PRINT:
                 return KeyStroke.getKeyStroke("ctrl P");

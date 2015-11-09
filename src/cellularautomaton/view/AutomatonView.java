@@ -2,6 +2,7 @@ package cellularautomaton.view;
 
 import cellularautomaton.controller.locale.*;
 import cellularautomaton.event.AutomatonEventEnum;
+import cellularautomaton.model.CellularAutomaton;
 import cellularautomaton.view.gui.basicview.footer.CAFooter;
 import cellularautomaton.view.gui.basicview.menu.CAMenuBar;
 import cellularautomaton.view.gui.basicview.states.*;
@@ -10,7 +11,6 @@ import cellularautomaton.view.util.IOwnEnumeration;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.*;
 import java.util.Observable;
 import java.util.Observer;
 
@@ -18,7 +18,7 @@ import java.util.Observer;
  * Created by Viktor Spadi on 14.10.2015.
  * Basic implementation of the interface AbstractAutomatonView
  */
-public class AutomatonView implements IOwnEnumeration{
+public class AutomatonView implements IOwnEnumeration, Observer{
     // Attributes //////////////////////////////////////////////////////////////////////////////////////////////////////
     private StringController stringController;
     private JFrame frame;
@@ -118,11 +118,18 @@ public class AutomatonView implements IOwnEnumeration{
         this.stateContainer.addCell();
     }
 
+    @Override
     public void update(Observable o, Object arg) {
+        CellularAutomaton automaton = (CellularAutomaton)o;
         AutomatonEventEnum evt = (AutomatonEventEnum)arg;
         switch (evt) {
             case CLOSE:
-                System.out.println("Something Happens here");
+                break;
+            case TORUS_CHANGED:
+                this.toolbar.getTorusButton().setSelected(automaton.isTorus());
+                break;
+            case NEW_AUTOMATON:
+                this.toolbar.getTorusButton().setSelected(automaton.isTorus());
                 break;
             default:
                 System.out.printf("Undhandled Update from Model %s", evt);

@@ -5,8 +5,6 @@ import cellularautomaton.controller.locale.StringEnumeration;
 import cellularautomaton.view.util.IOwnEnumeration;
 
 import javax.swing.*;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
 import java.util.Observable;
 import java.util.Observer;
 
@@ -109,11 +107,11 @@ public class CAPopulationMenu extends JMenu implements Observer, IOwnEnumeration
         add(this.zoomInItem = new CAJMenuItem(StringEnumeration.MI_ZOOM_IN));
         add(this.zoomOutItem = new CAJMenuItem(StringEnumeration.MI_ZOOM_OUT));
         add(this.saveItem = new CAJSubMenu(StringEnumeration.MS_SAVE));
-        this.saveItem.add(this.saveXMLItem = new CAJMenuItem(StringEnumeration.MI_XML));
-        this.saveItem.add(this.saveSerialItem = new CAJMenuItem(StringEnumeration.MI_SERIAL));
+        this.saveItem.add(this.saveXMLItem = new CAJMenuItem(StringEnumeration.MI_SAVE_XML));
+        this.saveItem.add(this.saveSerialItem = new CAJMenuItem(StringEnumeration.MI_SAVE_SERIAL));
         add(this.loadItem = new CAJSubMenu(StringEnumeration.MS_LOAD));
-        this.loadItem.add(this.loadXMLItem = new CAJMenuItem(StringEnumeration.MI_XML));
-        this.loadItem.add(this.loadSerialItem = new CAJMenuItem(StringEnumeration.MI_SERIAL));
+        this.loadItem.add(this.loadXMLItem = new CAJMenuItem(StringEnumeration.MI_LOAD_XML));
+        this.loadItem.add(this.loadSerialItem = new CAJMenuItem(StringEnumeration.MI_LOAD_SERIAL));
         addSeparator();
         add(this.printItem = new CAJMenuItem(StringEnumeration.MI_PRINT));
         add(this.saveAsImageItem = new CAJSubMenu(StringEnumeration.MS_SAVE_AS_IMG));
