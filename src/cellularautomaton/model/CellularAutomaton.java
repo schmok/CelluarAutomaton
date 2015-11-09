@@ -93,6 +93,8 @@ public class CellularAutomaton extends Observable {
 
     public void setPopulation(Cell[][] cells) {
         this.automaton.setPopulation(cells);
+        this.setChanged();
+        this.notifyObservers(AutomatonEventEnum.CELL_CHANGED);
     }
 
     public void clearPopulation() {
@@ -109,6 +111,8 @@ public class CellularAutomaton extends Observable {
 
     public void setState(int row, int column, int state) {
         this.automaton.setState(row, column, state);
+        this.setChanged();
+        this.notifyObservers(AutomatonEventEnum.CELL_CHANGED);
     }
 
     public Color getColor(int state) {
@@ -123,10 +127,6 @@ public class CellularAutomaton extends Observable {
         this.automaton.changeColor(state, newColor);
         this.setChanged();
         this.notifyObservers(AutomatonEventEnum.COLOR_CHANGED);
-    }
-
-    public void step() {
-        this.automaton.setPopulation(this.automaton.calcNextGeneration());
     }
 
     public void nextGeneration() {

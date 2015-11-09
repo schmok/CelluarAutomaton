@@ -171,7 +171,7 @@ public class AutomatonView implements IOwnEnumeration, Observer{
                 this.populationContainer.setColorMapping(this.automaton.getColorMapping());
                 this.populationContainer.fitPopulation();
                 repaint();
-
+                break;
             default:
                 System.out.printf("Undhandled Update from Model %s", evt);
         }

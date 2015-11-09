@@ -19,12 +19,28 @@ public class CellularAutomatonController extends AbstractController<AutomatonVie
     private ToolbarController toolbarController;
     private PoppulationController poppulationController;
 
+    public MenuController getMenuController() {
+        return menuController;
+    }
+
+    public StateController getStateController() {
+        return stateController;
+    }
+
+    public ToolbarController getToolbarController() {
+        return toolbarController;
+    }
+
+    public PoppulationController getPoppulationController() {
+        return poppulationController;
+    }
+
     // Methods /////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     /*
     * Constructor
     *
-    * @param viewController     the ViewController to use
+    * @param viewController
     *
     */
     public CellularAutomatonController(AutomatonView automatonView) {
