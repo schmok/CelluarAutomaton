@@ -3,7 +3,8 @@ package cellularautomaton.view;
 import cellularautomaton.controller.locale.*;
 import cellularautomaton.event.AutomatonEventEnum;
 import cellularautomaton.model.CellularAutomaton;
-import cellularautomaton.view.gui.basicview.CAChangeSizeWindow;
+import cellularautomaton.view.gui.basicview.windows.CAChangeCellColorWindow;
+import cellularautomaton.view.gui.basicview.windows.CAChangeSizeWindow;
 import cellularautomaton.view.gui.basicview.footer.CAFooter;
 import cellularautomaton.view.gui.basicview.menu.CAMenuBar;
 import cellularautomaton.view.gui.basicview.states.*;
@@ -33,6 +34,7 @@ public class AutomatonView implements IOwnEnumeration, Observer{
     private CellularAutomaton automaton;
 
     private CAChangeSizeWindow changeSizeWindow;
+    private CAChangeCellColorWindow changeCellColorWindow;
 
     public void setModel(CellularAutomaton automaton) {
         this.automaton = automaton;
@@ -43,6 +45,10 @@ public class AutomatonView implements IOwnEnumeration, Observer{
 
     public CAChangeSizeWindow getChangeSizeWindow() {
         return changeSizeWindow;
+    }
+
+    public CAChangeCellColorWindow getChangeCellColorWindow() {
+        return changeCellColorWindow;
     }
 
     public JFrame getFrame() {
@@ -121,7 +127,7 @@ public class AutomatonView implements IOwnEnumeration, Observer{
 
         // Create additional Windows
         this.changeSizeWindow = new CAChangeSizeWindow();
-
+        this.changeCellColorWindow = new CAChangeCellColorWindow();
 
         // Add components
         this.frame.add(this.toolbar, BorderLayout.PAGE_START);
@@ -160,6 +166,12 @@ public class AutomatonView implements IOwnEnumeration, Observer{
             case CELL_CHANGED:
                 repaint();
                 break;
+            case COLOR_CHANGED:
+                this.stateContainer.setColorMappting(this.automaton.getColorMapping());
+                this.populationContainer.setColorMapping(this.automaton.getColorMapping());
+                this.populationContainer.fitPopulation();
+                repaint();
+
             default:
                 System.out.printf("Undhandled Update from Model %s", evt);
         }

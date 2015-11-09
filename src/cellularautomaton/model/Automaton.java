@@ -305,7 +305,7 @@ public abstract class Automaton extends Observable {
      * die neue Farbrepr�sentation des Zustandes state
      */
     public void changeColor(int state, Color newColor) {
-        if(state > 0 && state < this.numberOfStates)
+        if(state >= 0 && state < this.numberOfStates)
             this.colors[state] = newColor;
     }
     /**

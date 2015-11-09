@@ -56,8 +56,19 @@ public class CAStateContainer extends JPanel implements IOwnEnumeration{
             this.removeCell(this.getCell(it));
     }
 
+    public void setColor(CAStateCell cell, Color color) {
+        if(this.cells.containsValue(cell))
+            this.cells.get(cell).setBackground(color);
+    }
+
     @Override
     public StringEnumeration getEnumeration() {
         return StringEnumeration.CA_STATECONTAINER;
+    }
+
+    public void setColorMappting(Color[] colorMapping) {
+        Set<Integer> set = this.cells.keySet();
+        for(Integer it: set)
+            this.getCell(it).getColorButton().setBackground(colorMapping[it]);
     }
 }

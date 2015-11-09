@@ -2,7 +2,6 @@ package cellularautomaton.view.gui.basicview.toolbar;
 
 import cellularautomaton.controller.locale.StringController;
 import cellularautomaton.controller.locale.StringEnumeration;
-import cellularautomaton.view.gui.basicview.CAChangeSizeWindow;
 import cellularautomaton.view.gui.basicview.components.CAJToggleButton;
 import cellularautomaton.view.util.IOwnEnumeration;
 

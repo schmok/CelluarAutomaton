@@ -1,4 +1,4 @@
-package cellularautomaton.view.gui.basicview;
+package cellularautomaton.view.gui.basicview.windows;
 
 import cellularautomaton.controller.locale.StringEnumeration;
 import cellularautomaton.view.gui.basicview.components.CAJButton;

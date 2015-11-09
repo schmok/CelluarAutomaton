@@ -42,6 +42,7 @@ public class CAStateCell extends JPanel implements IOwnEnumeration {
         setBorder(new EmptyBorder(0,0,0,5));
 
         // Style of inner components
+        this.state = counter;
         this.stateButton.setText(String.valueOf(counter));
         this.colorButton.setBackground(color);
         this.colorButton.setOpaque(true);

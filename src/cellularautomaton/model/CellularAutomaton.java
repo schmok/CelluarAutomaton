@@ -121,6 +121,8 @@ public class CellularAutomaton extends Observable {
 
     public void changeColor(int state, Color newColor) {
         this.automaton.changeColor(state, newColor);
+        this.setChanged();
+        this.notifyObservers(AutomatonEventEnum.COLOR_CHANGED);
     }
 
     public void step() {
