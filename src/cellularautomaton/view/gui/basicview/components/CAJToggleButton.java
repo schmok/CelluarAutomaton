@@ -17,7 +17,7 @@ public class CAJToggleButton extends JToggleButton implements IOwnEnumeration {
         this.type = text;
         if(icon != null)
             setIcon(FileHelper.getInstance().getIcon(icon));
-        setBorder(null);
+        //setBorder(null);
     }
 
     @Override

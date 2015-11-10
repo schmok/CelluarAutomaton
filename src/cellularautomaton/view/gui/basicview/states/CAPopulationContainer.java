@@ -3,7 +3,6 @@ package cellularautomaton.view.gui.basicview.states;
 import cellularautomaton.controller.locale.StringEnumeration;
 import cellularautomaton.model.Automaton;
 import cellularautomaton.model.Cell;
-import cellularautomaton.model.GameOfLifeAutomaton;
 import cellularautomaton.view.util.IOwnEnumeration;
 
 import javax.swing.*;
@@ -90,6 +89,7 @@ public class CAPopulationContainer extends JPanel implements IOwnEnumeration {
     }
 
     private void fillBuffer() {
+        long startTime = System.currentTimeMillis();
         BufferedImage buff = getNextBuffer();
         Graphics2D g2 = buff.createGraphics();
         boolean drawBorder = this.cellSize > 5;
@@ -101,15 +101,23 @@ public class CAPopulationContainer extends JPanel implements IOwnEnumeration {
         Automaton.iterator(this.lastPopulation, (cell, x, y) -> {
             g2.setColor(this.getColor(cell.getState()));
             g2.fillRect(x * this.cellSize, y * this.cellSize, this.cellSize, this.cellSize);
-            if(drawBorder) {
-                g2.setColor(Color.BLACK);
-                g2.drawRect(x * this.cellSize, y * this.cellSize, this.cellSize, this.cellSize);
-            }
             return cell;
         });
+        if(drawBorder) {
+            g2.setColor(Color.BLACK);
+            for(int x = 0; x < this.lastPopulation.length+1; x++) {
+                g2.drawLine(x*this.cellSize,0,x*this.cellSize,this.lastPopulation[0].length*this.cellSize);
+            }
+            for(int y = 0; y < this.lastPopulation.length+1; y++) {
+                g2.drawLine(0,y*this.cellSize,this.lastPopulation.length*this.cellSize,y*this.cellSize);
+            }
+        }
         g2.setColor(Color.BLACK);
         g2.drawRect(0, 0, getWidth()+1, getHeight()+1);
         this.repaint();
+        long stopTime = System.currentTimeMillis();
+        long elapsedTime = stopTime - startTime;
+        System.out.printf("Drawtime: %d this would be %dfps\n",elapsedTime, 1000/elapsedTime);
     }
 
     public void drawPopulation(Cell[][] cells) {

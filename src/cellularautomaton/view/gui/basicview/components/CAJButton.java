@@ -15,7 +15,7 @@ public class CAJButton extends JButton implements IOwnEnumeration{
         super();
         this.type = text;
         this.setText(text.toString());
-        setBorder(null);
+        //setBorder(null);
     }
 
     @Override

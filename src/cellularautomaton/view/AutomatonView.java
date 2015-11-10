@@ -16,11 +16,12 @@ import java.awt.*;
 import java.util.Observable;
 import java.util.Observer;
 
+
 /**
  * Created by Viktor Spadi on 14.10.2015.
  * Basic implementation of the interface AbstractAutomatonView
  */
-public class AutomatonView implements IOwnEnumeration, Observer{
+public class AutomatonView implements IOwnEnumeration, Observer {
     // Attributes //////////////////////////////////////////////////////////////////////////////////////////////////////
     private StringController stringController;
     private JFrame frame;
