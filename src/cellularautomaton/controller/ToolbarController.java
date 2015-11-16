@@ -20,6 +20,7 @@ public class ToolbarController extends AbstractController<CAToolbar, CellularAut
     public void actionPerformed(ActionEvent e) {
         StringEnumeration enm = ((IOwnEnumeration)e.getSource()).getEnumeration();
         switch (enm) {
+
             default:
                 System.out.println("ToolbarAction: "+ enm.name()+ " From:"+e.getSource().getClass().getName());
         }

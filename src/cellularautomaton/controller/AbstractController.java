@@ -1,5 +1,6 @@
 package cellularautomaton.controller;
 
+import cellularautomaton.event.AutomatonEventEnum;
 import cellularautomaton.model.CellularAutomaton;
 import cellularautomaton.view.util.IOwnEnumeration;
 
@@ -7,6 +8,7 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.lang.reflect.Field;
+import java.util.HashMap;
 
 /**
  * Created by vspadi on 08.11.15.
@@ -15,11 +17,12 @@ public abstract class AbstractController<T extends IOwnEnumeration,C> implements
     private CellularAutomaton cellularAutomaton;
     private C parent;
     private T view;
-    private int depth = 0;
+    private HashMap<AutomatonEventEnum, ControllerCallable> actions;
 
     AbstractController(T view, C parent) {
         this.view = view;
         this.parent = parent;
+        this.actions = new HashMap<>();
     }
 
     public T getView() {
@@ -56,5 +59,7 @@ public abstract class AbstractController<T extends IOwnEnumeration,C> implements
         }
     }
 
-    abstract public void actionPerformed(ActionEvent e);
+    public void actionPerformed(ActionEvent e) {
+        // Todo Event dispatcher
+    }
 }

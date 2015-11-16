@@ -117,7 +117,7 @@ public class CAPopulationContainer extends JPanel implements IOwnEnumeration {
         this.repaint();
         long stopTime = System.currentTimeMillis();
         long elapsedTime = stopTime - startTime;
-        System.out.printf("Drawtime: %d this would be %dfps\n",elapsedTime, 1000/elapsedTime);
+        //System.out.printf("Drawtime: %d this would be %dfps\n",elapsedTime, 1000/elapsedTime);
     }
 
     public void drawPopulation(Cell[][] cells) {
