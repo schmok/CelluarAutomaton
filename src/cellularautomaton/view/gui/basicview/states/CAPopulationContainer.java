@@ -22,6 +22,7 @@ public class CAPopulationContainer extends JPanel implements IOwnEnumeration {
     private Point location;
     private int screenWidth;
     private int screenHeight;
+    private int[] colors;
 
     private Cell[][] lastPopulation;
     private int cellSize = 10;
@@ -29,7 +30,6 @@ public class CAPopulationContainer extends JPanel implements IOwnEnumeration {
     private BufferedImage buffer = null;
     private Graphics graphics;
     private boolean turn = false;
-    private Color[] colors;
 
     public Cell[][] getLastPopulation() {
         return lastPopulation;
@@ -50,12 +50,6 @@ public class CAPopulationContainer extends JPanel implements IOwnEnumeration {
         this.fitPopulation();
         this.repaint();
     }
-
-    public Color[] getColors() {
-        return colors;
-    }
-
-
 
     public CAPopulationContainer() {
         super();
@@ -99,55 +93,51 @@ public class CAPopulationContainer extends JPanel implements IOwnEnumeration {
         this.viewPort.setSize(this.scrollPane.getSize());
         this.viewPort.setLocation(this.location);
 
-        boolean drawBorder = this.cellSize > 5;
-        this.graphics.setColor(Color.decode("0xFFFFDC"));
-        if(true) {
-            this.graphics.fillRect(0, 0, this.screenWidth+1, this.screenHeight+1);
-        }
-        //this.graphics.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-        this.graphics.setColor(Color.BLACK);
-        ///*
         long startTime = System.currentTimeMillis();
         /*for(int x = 0; x < this.lastPopulation.length; x++) {
             for(int y = 0; y < this.lastPopulation[0].length; y++) {
                 Cell cell = this.lastPopulation[x][y];
             }
         }*/
-        for(int x = 0; x < pixels.length; x++) {
-            pixels[x] = 0x0000FF00;
+
+        int oX = this.viewPort.getLocation().y;
+        int oY = this.viewPort.getLocation().x;
+        int mX = this.viewPort.width;
+        int mY = this.viewPort.height;
+        int maxX = this.lastPopulation.length;
+        int maxY = this.lastPopulation[0].length;
+
+        for(int x = 0; x < mX; x++) {
+            for(int y = 0; y < mY; y++) {
+                int i = x + (y* screenWidth);
+                int rY = x - oX;
+                int rX = y - oY;
+                int cX = rX / this.cellSize;
+                int cY = rY / this.cellSize;
+
+                if(rX <= this.cellSize* maxX && rY <= this.cellSize * maxY) {
+                    // draw lines
+                    if (this.cellSize > 5 && (rX % this.cellSize == 0 | rY % this.cellSize == 0)) {
+                        pixels[i] = 0x000000;
+                    } else {
+                        pixels[i] = this.colors[this.lastPopulation[cX][cY].getState()];
+                    }
+                } else {
+                    // outside!
+                    pixels[i] = 0xFFFFDC;
+                }
+            }
         }
 
-        /*
-        Automaton.iterator(this.lastPopulation, (cell, x, y) -> {
-            //g2.setColor(this.getColor(cell.getState()));
-            //g2.fillRect(x * this.cellSize, y * this.cellSize, this.cellSize, this.cellSize);
-            return cell;
-        });
-        */
         long stopTime = System.currentTimeMillis();
         long elapsedTime = stopTime - startTime;
         //System.out.printf("Drawtime: %d this would be %dfps\n",elapsedTime, 1000/((elapsedTime > 0)?elapsedTime:1));
-        //*/
-        this.graphics.fillRect(this.location.getLocation().x,this.location.getLocation().y,250,250);
-        if(drawBorder && true) {
-            this.graphics.setColor(Color.BLACK);
-            for(int x = 0; x < this.lastPopulation.length+1; x++) {
-                this.graphics.drawLine(x*this.cellSize,0,x*this.cellSize,this.lastPopulation[0].length*this.cellSize);
-            }
-            for(int y = 0; y < this.lastPopulation[0].length+1; y++) {
-                this.graphics.drawLine(0,y*this.cellSize,this.lastPopulation[0].length*this.cellSize,y*this.cellSize);
-            }
-        }
-        this.graphics.setColor(Color.BLACK);
-
-        if(this.buffer != null) {
-            g.drawImage(this.buffer, 5,5, this);
-        }
+        g.drawImage(this.buffer, 5,5, this);
     }
 
     private void setPopulationWindowSize(int width, int height) {
         this.setBorder(new EmptyBorder(0,0,height,width));
-        this.virtualDimension = new Dimension(width+1, height+1);
+        this.virtualDimension = new Dimension(width+10, height+10);
         this.setSize(this.virtualDimension);
     }
 
@@ -166,15 +156,15 @@ public class CAPopulationContainer extends JPanel implements IOwnEnumeration {
         this.repaint();
     }
 
-    private Color getColor(int state) {
-        if(colors != null && colors.length > state && state >= 0)
-            return this.colors[state];
-        else
-            return Color.BLACK;
-    }
 
     public void setColorMapping(Color[] colors) {
-        this.colors = colors;
+        this.colors = new int[colors.length];
+        for(int i = 0; i< colors.length; i++) {
+            this.colors[i] =    colors[i].getRed() << 16 |
+                                colors[i].getGreen() << 8 |
+                                colors[i].getBlue();
+
+        }
     }
 
     @Override

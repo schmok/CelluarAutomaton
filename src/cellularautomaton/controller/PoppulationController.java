@@ -69,8 +69,8 @@ public class PoppulationController extends AbstractController<CAPopulationContai
             Point end = new Point(e.getX()-5, e.getY()-5);
             end = div(end, this.tempCellSize);
             if(SwingUtilities.isRightMouseButton(e)) {
-                if(end.x >= 0 && end.y >= 0 && end.x < this.getModel().getNumberOfRows() && end.y < this.getModel().getNumberOfColumns())
-                    this.getModel().setState(end.x, end.y, this.tempCellState);
+                if(end.y >= 0 && end.x >= 0 && end.y < this.getModel().getNumberOfRows() && end.y < this.getModel().getNumberOfColumns())
+                    this.getModel().setState(end.y, end.x, this.tempCellState);
             } else if(SwingUtilities.isLeftMouseButton(e)) {
                 Cell[][] cells = this.getModel().getPopulation();
                 // Vorschau anzeigen
@@ -79,10 +79,10 @@ public class PoppulationController extends AbstractController<CAPopulationContai
                 int sX = (bX)?-1:1;
                 int sY = (bY)?-1:1;
 
-                for(int x = this.startPosition.x; ((bX)?x > end.x: x < end.x); x+=sX) {
+                for(int x = this.startPosition.x; ((bX)?x > end.y: x < end.x); x+=sX) {
                     for(int y = this.startPosition.y; ((bY)?y > end.y: y < end.y); y+=sY) {
-                        if(x >= 0 && y >= 0 && x < this.getModel().getNumberOfRows() && y < this.getModel().getNumberOfColumns())
-                            cells[x][y] = new Cell(this.tempCellState);
+                        if(x >= 0 && y >= 0 && y < this.getModel().getNumberOfRows() && x < this.getModel().getNumberOfColumns())
+                            cells[y][x] = new Cell(this.tempCellState);
                     }
                 }
                 this.getModel().setPopulation(cells);
