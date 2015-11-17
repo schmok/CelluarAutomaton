@@ -23,18 +23,6 @@ public class PoppulationController extends AbstractController<CAPopulationContai
         super(view, cac);
         this.getView().addMouseListener(this);
         this.getView().addMouseMotionListener(this);
-        this.getView().getScrollPane().getHorizontalScrollBar().addAdjustmentListener(new AdjustmentListener() {
-            @Override
-            public void adjustmentValueChanged(AdjustmentEvent e) {
-                getView().fillBuffer();
-            }
-        });
-        this.getView().getScrollPane().getVerticalScrollBar().addAdjustmentListener(new AdjustmentListener() {
-            @Override
-            public void adjustmentValueChanged(AdjustmentEvent e) {
-                getView().fillBuffer();
-            }
-        });
     }
 
     @Override
