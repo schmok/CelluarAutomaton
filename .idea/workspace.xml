@@ -1,21 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="56a1aa05-9f95-43b6-8f2a-2695f55cb5cc" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/CelluarAutomaton/cellularautomaton/view/AutomatonView.class" afterPath="$PROJECT_DIR$/out/production/CelluarAutomaton/cellularautomaton/view/AutomatonView.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/CelluarAutomaton/cellularautomaton/view/gui/basicview/states/CAPopulationContainer.class" afterPath="$PROJECT_DIR$/out/production/CelluarAutomaton/cellularautomaton/view/gui/basicview/states/CAPopulationContainer.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/CelluarAutomaton/cellularautomaton/view/gui/basicview/cells/CAStateCell.class" afterPath="$PROJECT_DIR$/out/production/CelluarAutomaton/cellularautomaton/view/gui/basicview/cells/CAStateCell.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/CelluarAutomaton/cellularautomaton/view/gui/basicview/states/CAStateContainer.class" afterPath="$PROJECT_DIR$/out/production/CelluarAutomaton/cellularautomaton/view/gui/basicview/states/CAStateContainer.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/CelluarAutomaton/cellularautomaton/view/gui/basicview/toolbar/CAToolbar.class" afterPath="$PROJECT_DIR$/out/production/CelluarAutomaton/cellularautomaton/view/gui/basicview/toolbar/CAToolbar.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/CelluarAutomaton/cellularautomaton/view/gui/basicview/toolbar/CAToolbarItem.class" afterPath="$PROJECT_DIR$/out/production/CelluarAutomaton/cellularautomaton/view/gui/basicview/toolbar/CAToolbarItem.class" />
+    <list default="true" id="56a1aa05-9f95-43b6-8f2a-2695f55cb5cc" name="Default" comment="Draw enhancement.">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/cellularautomaton/view/gui/basicview/components/CAJScrollPane.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/CelluarAutomaton/cellularautomaton/app/Main.class" afterPath="$PROJECT_DIR$/out/production/CelluarAutomaton/cellularautomaton/app/Main.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/CelluarAutomaton/cellularautomaton/controller/locale/AcceleratorMnemonicMapper.class" afterPath="$PROJECT_DIR$/out/production/CelluarAutomaton/cellularautomaton/controller/locale/AcceleratorMnemonicMapper.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/CelluarAutomaton/cellularautomaton/controller/locale/StringController.class" afterPath="$PROJECT_DIR$/out/production/CelluarAutomaton/cellularautomaton/controller/locale/StringController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/CelluarAutomaton/cellularautomaton/controller/locale/StringEnumeration.class" afterPath="$PROJECT_DIR$/out/production/CelluarAutomaton/cellularautomaton/controller/locale/StringEnumeration.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/CelluarAutomaton/cellularautomaton/model/CellularAutomaton.class" afterPath="$PROJECT_DIR$/out/production/CelluarAutomaton/cellularautomaton/model/CellularAutomaton.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/CelluarAutomaton/cellularautomaton/controller/CellularAutomatonController.class" afterPath="$PROJECT_DIR$/out/production/CelluarAutomaton/cellularautomaton/controller/CellularAutomatonController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cellularautomaton/view/AutomatonView.java" afterPath="$PROJECT_DIR$/src/cellularautomaton/view/AutomatonView.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cellularautomaton/view/gui/basicview/components/CAJButton.java" afterPath="$PROJECT_DIR$/src/cellularautomaton/view/gui/basicview/components/CAJButton.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cellularautomaton/view/gui/basicview/components/CAJToggleButton.java" afterPath="$PROJECT_DIR$/src/cellularautomaton/view/gui/basicview/components/CAJToggleButton.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cellularautomaton/view/gui/basicview/states/CAPopulationContainer.java" afterPath="$PROJECT_DIR$/src/cellularautomaton/view/gui/basicview/states/CAPopulationContainer.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cellularautomaton/view/gui/basicview/toolbar/CAToolbarItem.java" afterPath="$PROJECT_DIR$/src/cellularautomaton/view/gui/basicview/toolbar/CAToolbarItem.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/CelluarAutomaton/cellularautomaton/view/AutomatonView.class" afterPath="$PROJECT_DIR$/out/production/CelluarAutomaton/cellularautomaton/view/AutomatonView.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/CelluarAutomaton/cellularautomaton/view/gui/basicview/footer/CAFooter.class" afterPath="$PROJECT_DIR$/out/production/CelluarAutomaton/cellularautomaton/view/gui/basicview/footer/CAFooter.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/CelluarAutomaton/cellularautomaton/view/gui/basicview/menu/CAAutomatonMenu.class" afterPath="$PROJECT_DIR$/out/production/CelluarAutomaton/cellularautomaton/view/gui/basicview/menu/CAAutomatonMenu.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/CelluarAutomaton/cellularautomaton/view/gui/basicview/menu/CAHelpMenu.class" afterPath="$PROJECT_DIR$/out/production/CelluarAutomaton/cellularautomaton/view/gui/basicview/menu/CAHelpMenu.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/CelluarAutomaton/cellularautomaton/view/gui/basicview/menu/CAJMenuItem.class" afterPath="$PROJECT_DIR$/out/production/CelluarAutomaton/cellularautomaton/view/gui/basicview/menu/CAJMenuItem.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/CelluarAutomaton/cellularautomaton/view/gui/basicview/menu/CAJSubMenu.class" afterPath="$PROJECT_DIR$/out/production/CelluarAutomaton/cellularautomaton/view/gui/basicview/menu/CAJSubMenu.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/CelluarAutomaton/cellularautomaton/view/gui/basicview/menu/CAMenuBar.class" afterPath="$PROJECT_DIR$/out/production/CelluarAutomaton/cellularautomaton/view/gui/basicview/menu/CAMenuBar.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/CelluarAutomaton/cellularautomaton/view/gui/basicview/menu/CAPopulationMenu.class" afterPath="$PROJECT_DIR$/out/production/CelluarAutomaton/cellularautomaton/view/gui/basicview/menu/CAPopulationMenu.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/CelluarAutomaton/cellularautomaton/view/gui/basicview/menu/CASimulationMenu.class" afterPath="$PROJECT_DIR$/out/production/CelluarAutomaton/cellularautomaton/view/gui/basicview/menu/CASimulationMenu.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/CelluarAutomaton/cellularautomaton/view/gui/basicview/states/CAPopulationContainer.class" afterPath="$PROJECT_DIR$/out/production/CelluarAutomaton/cellularautomaton/view/gui/basicview/states/CAPopulationContainer.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/CelluarAutomaton/cellularautomaton/view/gui/basicview/toolbar/CAToolbar.class" afterPath="$PROJECT_DIR$/out/production/CelluarAutomaton/cellularautomaton/view/gui/basicview/toolbar/CAToolbar.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/CelluarAutomaton/cellularautomaton/view/util/ColorGenerator.class" afterPath="$PROJECT_DIR$/out/production/CelluarAutomaton/cellularautomaton/view/util/ColorGenerator.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/CelluarAutomaton/cellularautomaton/view/util/FileHelper.class" afterPath="$PROJECT_DIR$/out/production/CelluarAutomaton/cellularautomaton/view/util/FileHelper.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cellularautomaton/controller/PoppulationController.java" afterPath="$PROJECT_DIR$/src/cellularautomaton/controller/PoppulationController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cellularautomaton/model/CellularAutomaton.java" afterPath="$PROJECT_DIR$/src/cellularautomaton/model/CellularAutomaton.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cellularautomaton/view/AutomatonView.java" afterPath="$PROJECT_DIR$/src/cellularautomaton/view/AutomatonView.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cellularautomaton/view/gui/basicview/states/CAPopulationContainer.java" afterPath="$PROJECT_DIR$/src/cellularautomaton/view/gui/basicview/states/CAPopulationContainer.java" />
     </list>
     <ignored path="CellularAutomaton.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -37,12 +47,12 @@
     <favorites_list name="CellularAutomaton" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="AutomatonView.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/cellularautomaton/view/AutomatonView.java">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="CellularAutomatonController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/cellularautomaton/controller/CellularAutomatonController.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="173" column="22" selection-start-line="173" selection-start-column="22" selection-end-line="173" selection-end-column="22" />
+              <caret line="84" column="11" selection-start-line="84" selection-start-column="11" selection-end-line="84" selection-end-column="11" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -50,29 +60,43 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ToolbarController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/cellularautomaton/controller/ToolbarController.java">
+      <file leaf-file-name="MenuController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/cellularautomaton/controller/MenuController.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="23" column="16" selection-start-line="23" selection-start-column="16" selection-end-line="23" selection-end-column="16" />
+              <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#468#469#0" expanded="true" />
-                <element signature="e#500#501#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="StateController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/cellularautomaton/controller/StateController.java">
+      <file leaf-file-name="CAPopulationContainer.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/cellularautomaton/view/gui/basicview/states/CAPopulationContainer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="21" column="26" selection-start-line="21" selection-start-column="26" selection-end-line="21" selection-end-column="26" />
+            <state vertical-scroll-proportion="0.12903225">
+              <caret line="112" column="54" selection-start-line="112" selection-start-column="54" selection-end-line="112" selection-end-column="54" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#762#763#0" expanded="true" />
-                <element signature="e#795#796#0" expanded="true" />
+                <element signature="e#1079#1080#0" expanded="true" />
+                <element signature="e#1123#1124#0" expanded="true" />
+                <element signature="e#5288#5289#0" expanded="true" />
+                <element signature="e#5343#5344#0" expanded="true" />
+                <element signature="e#5388#5389#0" expanded="true" />
+                <element signature="e#5451#5452#0" expanded="true" />
+                <element signature="e#5699#5700#0" expanded="true" />
+                <element signature="e#5735#5736#0" expanded="true" />
+                <element signature="e#5798#5799#0" expanded="true" />
+                <element signature="e#5861#5862#0" expanded="true" />
+                <element signature="e#5918#5919#0" expanded="true" />
+                <element signature="e#5962#5963#0" expanded="true" />
+                <element signature="e#6004#6005#0" expanded="true" />
+                <element signature="e#6037#6038#0" expanded="true" />
+                <element signature="e#6096#6097#0" expanded="true" />
+                <element signature="e#6143#6144#0" expanded="true" />
+                <element signature="e#6191#6192#0" expanded="true" />
+                <element signature="e#6241#6242#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -82,54 +106,42 @@
         <entry file="file://$PROJECT_DIR$/src/cellularautomaton/controller/PoppulationController.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="71" column="58" selection-start-line="71" selection-start-column="58" selection-end-line="71" selection-end-column="58" />
+              <caret line="25" column="63" selection-start-line="25" selection-start-column="63" selection-end-line="25" selection-end-column="63" />
               <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="e#1110#1111#0" expanded="true" />
+                <element signature="e#1164#1165#0" expanded="true" />
+                <element signature="e#1377#1378#0" expanded="true" />
+                <element signature="e#1431#1432#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CAJToggleButton.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/cellularautomaton/view/gui/basicview/components/CAJToggleButton.java">
+      <file leaf-file-name="AutomatonView.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/cellularautomaton/view/AutomatonView.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="19" column="10" selection-start-line="19" selection-start-column="10" selection-end-line="19" selection-end-column="10" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CAPopulationMenu.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/cellularautomaton/view/gui/basicview/menu/CAPopulationMenu.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="113" column="96" selection-start-line="113" selection-start-column="96" selection-end-line="113" selection-end-column="96" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CAJButton.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/cellularautomaton/view/gui/basicview/components/CAJButton.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="17" column="10" selection-start-line="17" selection-start-column="10" selection-end-line="17" selection-end-column="10" />
+              <caret line="122" column="42" selection-start-line="122" selection-start-column="42" selection-end-line="122" selection-end-column="42" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#4774#4775#0" expanded="true" />
+                <element signature="e#4866#4867#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CAToolbarItem.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/cellularautomaton/view/gui/basicview/toolbar/CAToolbarItem.java">
+      <file leaf-file-name="CAJScrollPane.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/cellularautomaton/view/gui/basicview/components/CAJScrollPane.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="18" column="10" selection-start-line="18" selection-start-column="10" selection-end-line="18" selection-end-column="10" />
+              <caret line="15" column="19" selection-start-line="15" selection-start-column="19" selection-end-line="15" selection-end-column="19" />
               <folding>
-                <element signature="e#657#658#0" expanded="true" />
-                <element signature="e#684#685#0" expanded="true" />
+                <element signature="imports" expanded="true" />
+                <element signature="e#267#268#0" expanded="true" />
+                <element signature="e#316#317#0" expanded="true" />
+                <element signature="e#370#371#0" expanded="true" />
+                <element signature="e#406#407#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -139,23 +151,28 @@
         <entry file="file://$PROJECT_DIR$/src/cellularautomaton/model/CellularAutomaton.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="103" column="5" selection-start-line="103" selection-start-column="5" selection-end-line="103" selection-end-column="5" />
-              <folding>
-                <element signature="e#1581#1582#0" expanded="true" />
-                <element signature="e#1638#1639#0" expanded="true" />
-              </folding>
+              <caret line="96" column="56" selection-start-line="96" selection-start-column="56" selection-end-line="96" selection-end-column="56" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CAPopulationContainer.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/cellularautomaton/view/gui/basicview/states/CAPopulationContainer.java">
+      <file leaf-file-name="ControllerCallable.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/cellularautomaton/controller/ControllerCallable.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5069767">
-              <caret line="54" column="33" selection-start-line="54" selection-start-column="33" selection-end-line="54" selection-end-column="33" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state vertical-scroll-proportion="0.0">
+              <caret line="6" column="22" selection-start-line="6" selection-start-column="22" selection-end-line="6" selection-end-column="22" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AutomatonEventEnum.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/cellularautomaton/event/AutomatonEventEnum.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="7" column="4" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="4" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -187,8 +204,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/cellularautomaton/view/util/ColorGenerator.java" />
-        <option value="$PROJECT_DIR$/src/cellularautomaton/view/gui/basicview/states/CABasicStateContainer.java" />
         <option value="$PROJECT_DIR$/src/cellularautomaton/view/BasicAutomatonView.java" />
         <option value="$PROJECT_DIR$/src/cellularautomaton/view/gui/basicview/cells/CABasicStateCell.java" />
         <option value="$PROJECT_DIR$/src/cellularautomaton/view/gui/basicview/footer/CABasicFooter.java" />
@@ -217,40 +232,40 @@
         <option value="$PROJECT_DIR$/src/cellularautomaton/view/gui/basicview/toolbar/CAToolbarToggleItem.java" />
         <option value="$PROJECT_DIR$/src/cellularautomaton/view/gui/basicview/toolbar/CAToolbarToggleButton.java" />
         <option value="$PROJECT_DIR$/src/cellularautomaton/view/gui/basicview/components/CAToolbarToggleButton.java" />
-        <option value="$PROJECT_DIR$/src/cellularautomaton/controller/AbstractController.java" />
         <option value="$PROJECT_DIR$/src/cellularautomaton/controller/locale/StringEnumeration.java" />
         <option value="$PROJECT_DIR$/src/cellularautomaton/view/gui/basicview/toolbar/CAToolbar.java" />
         <option value="$PROJECT_DIR$/src/cellularautomaton/view/gui/basicview/CAChangeSizeWindow.java" />
         <option value="$PROJECT_DIR$/src/cellularautomaton/app/Main.java" />
-        <option value="$PROJECT_DIR$/src/cellularautomaton/controller/MenuController.java" />
-        <option value="$PROJECT_DIR$/src/cellularautomaton/controller/ToolbarController.java" />
         <option value="$PROJECT_DIR$/src/cellularautomaton/view/gui/basicview/windows/CAChangeCellColorWindow.java" />
         <option value="$PROJECT_DIR$/src/cellularautomaton/view/gui/basicview/cells/CAStateCell.java" />
-        <option value="$PROJECT_DIR$/src/cellularautomaton/model/Automaton.java" />
         <option value="$PROJECT_DIR$/src/cellularautomaton/view/gui/basicview/states/CAStateContainer.java" />
         <option value="$PROJECT_DIR$/src/cellularautomaton/model/GameOfLifeAutomaton2.java" />
-        <option value="$PROJECT_DIR$/src/cellularautomaton/view/AutomatonView.java" />
-        <option value="$PROJECT_DIR$/src/cellularautomaton/controller/CellularAutomatonController.java" />
         <option value="$PROJECT_DIR$/src/cellularautomaton/controller/StateController.java" />
-        <option value="$PROJECT_DIR$/src/cellularautomaton/model/CellularAutomaton.java" />
-        <option value="$PROJECT_DIR$/src/cellularautomaton/controller/PoppulationController.java" />
         <option value="$PROJECT_DIR$/src/cellularautomaton/view/gui/basicview/components/CAJToggleButton.java" />
         <option value="$PROJECT_DIR$/src/cellularautomaton/view/gui/basicview/toolbar/CAToolbarItem.java" />
         <option value="$PROJECT_DIR$/src/cellularautomaton/view/gui/basicview/components/CAJButton.java" />
+        <option value="$PROJECT_DIR$/src/cellularautomaton/controller/MenuController.java" />
+        <option value="$PROJECT_DIR$/src/cellularautomaton/controller/ToolbarController.java" />
+        <option value="$PROJECT_DIR$/src/cellularautomaton/controller/ControllerCallable.java" />
+        <option value="$PROJECT_DIR$/src/cellularautomaton/controller/AbstractController.java" />
+        <option value="$PROJECT_DIR$/src/cellularautomaton/model/CellularAutomaton.java" />
+        <option value="$PROJECT_DIR$/src/cellularautomaton/model/Automaton.java" />
+        <option value="$PROJECT_DIR$/src/cellularautomaton/controller/CellularAutomatonController.java" />
+        <option value="$PROJECT_DIR$/src/cellularautomaton/controller/PoppulationController.java" />
+        <option value="$PROJECT_DIR$/src/cellularautomaton/view/AutomatonView.java" />
+        <option value="$PROJECT_DIR$/src/cellularautomaton/view/gui/basicview/components/CAJScrollPane.java" />
         <option value="$PROJECT_DIR$/src/cellularautomaton/view/gui/basicview/states/CAPopulationContainer.java" />
       </list>
     </option>
   </component>
   <component name="JsBuildToolGruntFileManager" detection-done="true" />
+  <component name="JsBuildToolPackageJson" detection-done="true" />
   <component name="JsGulpfileManager">
     <detection-done>true</detection-done>
   </component>
-  <component name="NamedScopeManager">
-    <order />
-  </component>
   <component name="ProjectFrameBounds">
     <option name="y" value="23" />
-    <option name="width" value="1280" />
+    <option name="width" value="1274" />
     <option name="height" value="711" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -274,8 +289,13 @@
       <autoscrollToSource />
       <autoscrollFromSource />
       <sortByType />
+      <manualOrder />
+      <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -694,11 +714,22 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CellularAutomaton" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CelluarAutomaton" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value=".idea" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -716,6 +747,8 @@
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="restartRequiresConfirmation" value="true" />
+    <property name="ignore_missing_gitignore" value="true" />
+    <property name="js-jscs-nodeInterpreter" value="/usr/local/bin/node" />
   </component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
@@ -791,6 +824,15 @@
       <option name="CLEAR_LOGCAT" value="false" />
       <option name="SHOW_LOGCAT_AUTOMATICALLY" value="true" />
       <option name="FILTER_LOGCAT_AUTOMATICALLY" value="true" />
+      <option name="SELECTED_CLOUD_MATRIX_CONFIGURATION_ID" value="0" />
+      <option name="SELECTED_CLOUD_MATRIX_PROJECT_ID" value="" />
+      <option name="SELECTED_CLOUD_DEVICE_CONFIGURATION_ID" value="0" />
+      <option name="SELECTED_CLOUD_DEVICE_PROJECT_ID" value="" />
+      <option name="IS_VALID_CLOUD_MATRIX_SELECTION" value="false" />
+      <option name="INVALID_CLOUD_MATRIX_SELECTION_ERROR" value="" />
+      <option name="IS_VALID_CLOUD_DEVICE_SELECTION" value="false" />
+      <option name="INVALID_CLOUD_DEVICE_SELECTION_ERROR" value="" />
+      <option name="CLOUD_DEVICE_SERIAL_NUMBER" value="" />
       <method />
     </configuration>
     <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Tests">
@@ -812,6 +854,15 @@
       <option name="CLEAR_LOGCAT" value="false" />
       <option name="SHOW_LOGCAT_AUTOMATICALLY" value="true" />
       <option name="FILTER_LOGCAT_AUTOMATICALLY" value="true" />
+      <option name="SELECTED_CLOUD_MATRIX_CONFIGURATION_ID" value="0" />
+      <option name="SELECTED_CLOUD_MATRIX_PROJECT_ID" value="" />
+      <option name="SELECTED_CLOUD_DEVICE_CONFIGURATION_ID" value="0" />
+      <option name="SELECTED_CLOUD_DEVICE_PROJECT_ID" value="" />
+      <option name="IS_VALID_CLOUD_MATRIX_SELECTION" value="false" />
+      <option name="INVALID_CLOUD_MATRIX_SELECTION_ERROR" value="" />
+      <option name="IS_VALID_CLOUD_DEVICE_SELECTION" value="false" />
+      <option name="INVALID_CLOUD_DEVICE_SELECTION_ERROR" value="" />
+      <option name="CLOUD_DEVICE_SERIAL_NUMBER" value="" />
       <method />
     </configuration>
     <configuration default="true" type="Applet" factoryName="Applet">
@@ -834,6 +885,65 @@
       <option name="PASS_PARENT_ENVS" value="true" />
       <module name="" />
       <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="ArquillianJUnit" factoryName="">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
+    <configuration default="true" type="ArquillianTestNG" factoryName="">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SUITE_NAME" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="GROUP_NAME" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="VM_PARAMETERS" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="OUTPUT_DIRECTORY" />
+      <option name="ANNOTATION_TYPE" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <option name="USE_DEFAULT_REPORTERS" value="false" />
+      <option name="PROPERTIES_FILE" />
+      <envs />
+      <properties />
+      <listeners />
       <method />
     </configuration>
     <configuration default="true" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java">
@@ -951,15 +1061,62 @@
       <patterns />
       <method />
     </configuration>
+    <configuration default="true" type="JUnitTestDiscovery" factoryName="JUnit Test Discovery" changeList="All">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
     <configuration default="true" type="JarApplication" factoryName="JAR Application">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="Java Scratch" factoryName="Java Scratch">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="SCRATCH_FILE_ID" value="0" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="" />
       <envs />
       <method />
     </configuration>
     <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
       <method />
     </configuration>
-    <configuration default="true" type="NodeJSConfigurationType" factoryName="Node.js" working-dir="">
+    <configuration default="true" type="JetRunConfigurationType" factoryName="Kotlin">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="CelluarAutomaton" />
+      <envs />
       <method />
     </configuration>
     <configuration default="true" type="Remote" factoryName="Remote">
@@ -968,38 +1125,6 @@
       <option name="SHMEM_ADDRESS" value="javadebug" />
       <option name="HOST" value="localhost" />
       <option name="PORT" value="5005" />
-      <method />
-    </configuration>
-    <configuration default="true" type="ScalaTestRunConfiguration" factoryName="ScalaTest">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <extension name="scalaCoverage" />
-      <module name="" />
-      <setting name="path" value="" />
-      <setting name="package" value="" />
-      <setting name="vmparams" value="" />
-      <setting name="params" value="" />
-      <setting name="workingDirectory" value="" />
-      <setting name="searchForTest" value="Across module dependencies" />
-      <setting name="testName" value="" />
-      <setting name="testKind" value="Class" />
-      <setting name="showProgressMessages" value="true" />
-      <envs />
-      <method />
-    </configuration>
-    <configuration default="true" type="Specs2RunConfiguration" factoryName="Specs2">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <extension name="scalaCoverage" />
-      <module name="" />
-      <setting name="path" value="" />
-      <setting name="package" value="" />
-      <setting name="vmparams" value="" />
-      <setting name="params" value="" />
-      <setting name="workingDirectory" value="" />
-      <setting name="searchForTest" value="Across module dependencies" />
-      <setting name="testName" value="" />
-      <setting name="testKind" value="Class" />
-      <setting name="showProgressMessages" value="true" />
-      <envs />
       <method />
     </configuration>
     <configuration default="true" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
@@ -1036,6 +1161,34 @@
       <listeners />
       <method />
     </configuration>
+    <configuration default="true" type="TestNGTestDiscovery" factoryName="TestNG Test Discovery" changeList="All">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SUITE_NAME" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="GROUP_NAME" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="VM_PARAMETERS" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="OUTPUT_DIRECTORY" />
+      <option name="ANNOTATION_TYPE" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <option name="USE_DEFAULT_REPORTERS" value="false" />
+      <option name="PROPERTIES_FILE" />
+      <envs />
+      <properties />
+      <listeners />
+      <method />
+    </configuration>
     <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
       <node-options />
       <gulpfile />
@@ -1045,26 +1198,16 @@
       <envs />
       <method />
     </configuration>
+    <configuration default="true" type="js.build_tools.npm" factoryName="npm">
+      <command value="run-script" />
+      <scripts />
+      <envs />
+      <method />
+    </configuration>
     <configuration default="true" type="osgi.bnd.run" factoryName="Run Launcher">
       <method />
     </configuration>
     <configuration default="true" type="osgi.bnd.run" factoryName="Test Launcher (JUnit)">
-      <method />
-    </configuration>
-    <configuration default="true" type="uTestRunConfiguration" factoryName="utest">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <extension name="scalaCoverage" />
-      <module name="" />
-      <setting name="path" value="" />
-      <setting name="package" value="" />
-      <setting name="vmparams" value="" />
-      <setting name="params" value="" />
-      <setting name="workingDirectory" value="" />
-      <setting name="searchForTest" value="Across module dependencies" />
-      <setting name="testName" value="" />
-      <setting name="testKind" value="Class" />
-      <setting name="showProgressMessages" value="true" />
-      <envs />
       <method />
     </configuration>
     <list size="2">
@@ -1120,7 +1263,11 @@
       <workItem from="1447073754696" duration="5701000" />
       <workItem from="1447095451634" duration="13445000" />
       <workItem from="1447111021420" duration="267000" />
-      <workItem from="1447145889689" duration="1879000" />
+      <workItem from="1447145889689" duration="3153000" />
+      <workItem from="1447240742958" duration="68000" />
+      <workItem from="1447706372589" duration="265000" />
+      <workItem from="1447746976391" duration="319000" />
+      <workItem from="1447747496984" duration="5343000" />
     </task>
     <task id="LOCAL-00001" summary="Basic Userinterface is ready!">
       <created>1445112611846</created>
@@ -1170,41 +1317,53 @@
       <option name="project" value="LOCAL" />
       <updated>1447110523634</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Draw enhancement">
+      <created>1447148229941</created>
+      <option name="number" value="00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1447148229941</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Draw enhancement.">
+      <created>1447706526144</created>
+      <option name="number" value="00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1447706526144</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="91984000" />
+    <option name="totallyTimeSpent" value="99253000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1280" height="711" extended-state="6" />
+    <frame x="0" y="23" width="1274" height="711" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.31880733" sideWeight="0.49741602" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.26009694" sideWeight="0.5282714" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32721713" sideWeight="0.4921875" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24980392" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2786753" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.26009694" sideWeight="0.4717286" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Statistic" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="6" side_tool="false" content_ui="combo" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32874617" sideWeight="0.4984375" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32721713" sideWeight="0.4921875" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20355412" sideWeight="0.54464287" order="1" side_tool="true" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20355412" sideWeight="0.45535713" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2711039" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3279483" sideWeight="0.48538962" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24980392" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31825525" sideWeight="0.4943182" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="6" side_tool="false" content_ui="combo" />
+      <window_info id="Statistic" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -1219,6 +1378,7 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="OFFER_MOVE_TO_ANOTHER_CHANGELIST_ON_PARTIAL_COMMIT" value="false" />
     <MESSAGE value="Basic Userinterface is ready!" />
     <MESSAGE value="Now Able to draw Automaton, at this moment the automaton is in the wrong place . TODO" />
     <MESSAGE value="Basic Controller logic #2&#10;" />
@@ -1227,7 +1387,9 @@
     <MESSAGE value="Aufgabe 6 von AUfgabenblatt 4" />
     <MESSAGE value="Aufgabe 8 von AUfgabenblatt 4" />
     <MESSAGE value="Aufgabe 9 von AUfgabenblatt 4" />
-    <option name="LAST_COMMIT_MESSAGE" value="Aufgabe 9 von AUfgabenblatt 4" />
+    <MESSAGE value="Draw enhancement" />
+    <MESSAGE value="Draw enhancement." />
+    <option name="LAST_COMMIT_MESSAGE" value="Draw enhancement." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1240,76 +1402,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/cellularautomaton/controller/CellularAutomatonController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="21" column="47" selection-start-line="21" selection-start-column="47" selection-end-line="21" selection-end-column="47" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#823#824#0" expanded="true" />
-            <element signature="e#874#875#0" expanded="true" />
-            <element signature="e#912#913#0" expanded="true" />
-            <element signature="e#967#968#0" expanded="true" />
-            <element signature="e#1007#1008#0" expanded="true" />
-            <element signature="e#1070#1071#0" expanded="true" />
-            <element signature="e#1114#1115#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/cellularautomaton/controller/StateController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="21" column="26" selection-start-line="21" selection-start-column="26" selection-end-line="21" selection-end-column="26" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#762#763#0" expanded="true" />
-            <element signature="e#795#796#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/cellularautomaton/view/gui/basicview/cells/CAStateCell.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="30" column="0" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
-          <folding>
-            <element signature="e#869#870#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/cellularautomaton/controller/PoppulationController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/cellularautomaton/model/CellularAutomaton.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="103" column="5" selection-start-line="103" selection-start-column="5" selection-end-line="103" selection-end-column="5" />
-          <folding>
-            <element signature="e#1581#1582#0" expanded="true" />
-            <element signature="e#1638#1639#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/cellularautomaton/view/gui/basicview/states/CAPopulationContainer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="103" column="25" selection-start-line="103" selection-start-column="15" selection-end-line="103" selection-end-column="25" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/cellularautomaton/view/gui/basicview/menu/CAJSubMenu.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1323,6 +1415,8 @@
           <caret line="43" column="89" selection-start-line="43" selection-start-column="89" selection-end-line="43" selection-end-column="89" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#4774#4775#0" expanded="true" />
+            <element signature="e#4866#4867#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1354,6 +1448,8 @@
           <caret line="43" column="89" selection-start-line="43" selection-start-column="89" selection-end-line="43" selection-end-column="89" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#4774#4775#0" expanded="true" />
+            <element signature="e#4866#4867#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1463,35 +1559,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/cellularautomaton/view/gui/basicview/menu/CAAutomatonMenu.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="18" column="17" selection-start-line="18" selection-start-column="17" selection-end-line="18" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/cellularautomaton/app/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/cellularautomaton/view/gui/basicview/toolbar/CAToolbar.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="132" column="48" selection-start-line="132" selection-start-column="48" selection-end-line="132" selection-end-column="48" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/cellularautomaton/event/AutomatonEventEnum.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="9" column="4" selection-start-line="9" selection-start-column="4" selection-end-line="9" selection-end-column="4" />
         </state>
       </provider>
     </entry>
@@ -1502,33 +1573,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/cellularautomaton/controller/AbstractController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="36" column="0" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#658#659#0" expanded="true" />
-            <element signature="e#690#691#0" expanded="true" />
-            <element signature="e#1020#1021#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/cellularautomaton/view/gui/basicview/cells/CAStateCell.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="30" column="0" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
-          <folding>
-            <element signature="e#869#870#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/cellularautomaton/model/Automaton.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.61595744">
-          <caret line="301" column="19" selection-start-line="301" selection-start-column="19" selection-end-line="301" selection-end-column="19" />
         </state>
       </provider>
     </entry>
@@ -1536,28 +1584,67 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.17234042">
           <caret line="16" column="20" selection-start-line="16" selection-start-column="20" selection-end-line="16" selection-end-column="20" />
-          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cellularautomaton/view/gui/basicview/components/CAJButton.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="17" column="10" selection-start-line="17" selection-start-column="10" selection-end-line="17" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cellularautomaton/view/gui/basicview/components/CAJToggleButton.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="19" column="10" selection-start-line="19" selection-start-column="10" selection-end-line="19" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cellularautomaton/view/gui/basicview/menu/CAPopulationMenu.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="113" column="96" selection-start-line="113" selection-start-column="96" selection-end-line="113" selection-end-column="96" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cellularautomaton/view/gui/basicview/menu/CAAutomatonMenu.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="41" column="65" selection-start-line="41" selection-start-column="53" selection-end-line="41" selection-end-column="65" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/cellularautomaton/controller/locale/StringEnumeration.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4638298">
+        <state vertical-scroll-proportion="0.0">
           <caret line="60" column="36" selection-start-line="60" selection-start-column="36" selection-end-line="60" selection-end-column="36" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/cellularautomaton/view/gui/basicview/windows/CAChangeCellColorWindow.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.2106383">
+        <state vertical-scroll-proportion="0.0">
           <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/cellularautomaton/controller/MenuController.java">
+    <entry file="file://$PROJECT_DIR$/src/cellularautomaton/view/gui/basicview/toolbar/CAToolbar.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5170213">
-          <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="17" column="16" selection-start-line="17" selection-start-column="16" selection-end-line="17" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cellularautomaton/view/gui/basicview/toolbar/CAToolbarItem.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="11" column="69" selection-start-line="11" selection-start-column="54" selection-end-line="11" selection-end-column="69" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#657#658#0" expanded="false" />
+            <element signature="e#684#685#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1565,6 +1652,109 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="68" column="50" selection-start-line="68" selection-start-column="50" selection-end-line="68" selection-end-column="50" />
+          <folding>
+            <element signature="e#591#592#0" expanded="false" />
+            <element signature="e#623#624#0" expanded="false" />
+            <element signature="e#678#679#0" expanded="false" />
+            <element signature="e#706#707#0" expanded="false" />
+            <element signature="e#1385#1386#0" expanded="false" />
+            <element signature="e#1429#1430#0" expanded="false" />
+            <element signature="e#1816#1817#0" expanded="false" />
+            <element signature="e#1874#1875#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cellularautomaton/controller/StateController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="46" column="37" selection-start-line="46" selection-start-column="37" selection-end-line="46" selection-end-column="37" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cellularautomaton/controller/ToolbarController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#468#469#0" expanded="false" />
+            <element signature="e#500#501#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cellularautomaton/controller/AbstractController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="62" column="32" selection-start-line="62" selection-start-column="32" selection-end-line="62" selection-end-column="32" />
+          <folding>
+            <element signature="e#817#818#0" expanded="false" />
+            <element signature="e#849#850#0" expanded="false" />
+            <element signature="e#1134#1135#0" expanded="false" />
+            <element signature="e#1179#1180#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_45.jdk/Contents/Home/src.zip!/javax/swing/JComponent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33247423">
+          <caret line="4320" column="15" selection-start-line="4320" selection-start-column="15" selection-end-line="4320" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_45.jdk/Contents/Home/src.zip!/java/awt/Dimension.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33255813">
+          <caret line="129" column="18" selection-start-line="129" selection-start-column="18" selection-end-line="129" selection-end-column="18" />
+          <folding>
+            <element signature="e#3021#3022#0" expanded="false" />
+            <element signature="e#3049#3050#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cellularautomaton/model/Automaton.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.26744187">
+          <caret line="319" column="50" selection-start-line="319" selection-start-column="50" selection-end-line="319" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cellularautomaton/event/AutomatonEventEnum.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="7" column="4" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cellularautomaton/model/CellularAutomaton.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="96" column="56" selection-start-line="96" selection-start-column="56" selection-end-line="96" selection-end-column="56" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cellularautomaton/controller/ControllerCallable.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="6" column="22" selection-start-line="6" selection-start-column="22" selection-end-line="6" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cellularautomaton/controller/MenuController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1574,59 +1764,7 @@
     <entry file="file://$PROJECT_DIR$/src/cellularautomaton/controller/CellularAutomatonController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="21" column="47" selection-start-line="21" selection-start-column="47" selection-end-line="21" selection-end-column="47" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#823#824#0" expanded="true" />
-            <element signature="e#874#875#0" expanded="true" />
-            <element signature="e#912#913#0" expanded="true" />
-            <element signature="e#967#968#0" expanded="true" />
-            <element signature="e#1007#1008#0" expanded="true" />
-            <element signature="e#1070#1071#0" expanded="true" />
-            <element signature="e#1114#1115#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/cellularautomaton/controller/ToolbarController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="23" column="16" selection-start-line="23" selection-start-column="16" selection-end-line="23" selection-end-column="16" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#468#469#0" expanded="true" />
-            <element signature="e#500#501#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/cellularautomaton/controller/StateController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="21" column="26" selection-start-line="21" selection-start-column="26" selection-end-line="21" selection-end-column="26" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#762#763#0" expanded="true" />
-            <element signature="e#795#796#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/cellularautomaton/model/CellularAutomaton.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="103" column="5" selection-start-line="103" selection-start-column="5" selection-end-line="103" selection-end-column="5" />
-          <folding>
-            <element signature="e#1581#1582#0" expanded="true" />
-            <element signature="e#1638#1639#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/cellularautomaton/view/AutomatonView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="173" column="22" selection-start-line="173" selection-start-column="22" selection-end-line="173" selection-end-column="22" />
+          <caret line="84" column="11" selection-start-line="84" selection-start-column="11" selection-end-line="84" selection-end-column="11" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1636,56 +1774,88 @@
     <entry file="file://$PROJECT_DIR$/src/cellularautomaton/controller/PoppulationController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="71" column="58" selection-start-line="71" selection-start-column="58" selection-end-line="71" selection-end-column="58" />
+          <caret line="25" column="63" selection-start-line="25" selection-start-column="63" selection-end-line="25" selection-end-column="63" />
+          <folding>
+            <element signature="e#1110#1111#0" expanded="true" />
+            <element signature="e#1164#1165#0" expanded="true" />
+            <element signature="e#1377#1378#0" expanded="true" />
+            <element signature="e#1431#1432#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_45.jdk/Contents/Home/src.zip!/javax/swing/JScrollPane.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33333334">
+          <caret line="292" column="11" selection-start-line="292" selection-start-column="11" selection-end-line="292" selection-end-column="11" />
+          <folding>
+            <element signature="e#11832#11833#0" expanded="true" />
+            <element signature="e#11920#11921#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cellularautomaton/view/AutomatonView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="122" column="42" selection-start-line="122" selection-start-column="42" selection-end-line="122" selection-end-column="42" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#4774#4775#0" expanded="true" />
+            <element signature="e#4866#4867#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/cellularautomaton/view/gui/basicview/toolbar/CAToolbarItem.java">
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_45.jdk/Contents/Home/src.zip!/java/awt/Component.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="18" column="10" selection-start-line="18" selection-start-column="10" selection-end-line="18" selection-end-column="10" />
+        <state vertical-scroll-proportion="0.33333334">
+          <caret line="2120" column="16" selection-start-line="2120" selection-start-column="16" selection-end-line="2120" selection-end-column="16" />
           <folding>
-            <element signature="e#657#658#0" expanded="true" />
-            <element signature="e#684#685#0" expanded="true" />
+            <element signature="e#73039#73040#0" expanded="true" />
+            <element signature="e#73076#73077#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/cellularautomaton/view/gui/basicview/components/CAJButton.java">
+    <entry file="file://$PROJECT_DIR$/src/cellularautomaton/view/gui/basicview/components/CAJScrollPane.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="17" column="10" selection-start-line="17" selection-start-column="10" selection-end-line="17" selection-end-column="10" />
+          <caret line="15" column="19" selection-start-line="15" selection-start-column="19" selection-end-line="15" selection-end-column="19" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#267#268#0" expanded="true" />
+            <element signature="e#316#317#0" expanded="true" />
+            <element signature="e#370#371#0" expanded="true" />
+            <element signature="e#406#407#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/cellularautomaton/view/gui/basicview/components/CAJToggleButton.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="19" column="10" selection-start-line="19" selection-start-column="10" selection-end-line="19" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/cellularautomaton/view/gui/basicview/menu/CAPopulationMenu.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="113" column="96" selection-start-line="113" selection-start-column="96" selection-end-line="113" selection-end-column="96" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/cellularautomaton/view/gui/basicview/states/CAPopulationContainer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5069767">
-          <caret line="54" column="33" selection-start-line="54" selection-start-column="33" selection-end-line="54" selection-end-column="33" />
+        <state vertical-scroll-proportion="0.12903225">
+          <caret line="112" column="54" selection-start-line="112" selection-start-column="54" selection-end-line="112" selection-end-column="54" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#1079#1080#0" expanded="true" />
+            <element signature="e#1123#1124#0" expanded="true" />
+            <element signature="e#5288#5289#0" expanded="true" />
+            <element signature="e#5343#5344#0" expanded="true" />
+            <element signature="e#5388#5389#0" expanded="true" />
+            <element signature="e#5451#5452#0" expanded="true" />
+            <element signature="e#5699#5700#0" expanded="true" />
+            <element signature="e#5735#5736#0" expanded="true" />
+            <element signature="e#5798#5799#0" expanded="true" />
+            <element signature="e#5861#5862#0" expanded="true" />
+            <element signature="e#5918#5919#0" expanded="true" />
+            <element signature="e#5962#5963#0" expanded="true" />
+            <element signature="e#6004#6005#0" expanded="true" />
+            <element signature="e#6037#6038#0" expanded="true" />
+            <element signature="e#6096#6097#0" expanded="true" />
+            <element signature="e#6143#6144#0" expanded="true" />
+            <element signature="e#6191#6192#0" expanded="true" />
+            <element signature="e#6241#6242#0" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -8,10 +8,7 @@ import cellularautomaton.view.util.IOwnEnumeration;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
-import java.awt.event.MouseMotionListener;
+import java.awt.event.*;
 
 /**
  * Created by vspadi on 08.11.15.
@@ -26,6 +23,18 @@ public class PoppulationController extends AbstractController<CAPopulationContai
         super(view, cac);
         this.getView().addMouseListener(this);
         this.getView().addMouseMotionListener(this);
+        this.getView().getScrollPane().getHorizontalScrollBar().addAdjustmentListener(new AdjustmentListener() {
+            @Override
+            public void adjustmentValueChanged(AdjustmentEvent e) {
+                getView().fillBuffer();
+            }
+        });
+        this.getView().getScrollPane().getVerticalScrollBar().addAdjustmentListener(new AdjustmentListener() {
+            @Override
+            public void adjustmentValueChanged(AdjustmentEvent e) {
+                getView().fillBuffer();
+            }
+        });
     }
 
     @Override

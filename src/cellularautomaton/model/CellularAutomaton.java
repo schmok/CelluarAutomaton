@@ -130,7 +130,11 @@ public class CellularAutomaton extends Observable {
     }
 
     public void nextGeneration() {
+        long startTime = System.currentTimeMillis();
         this.automaton.setPopulation(this.automaton.calcNextGeneration());
+        long stopTime = System.currentTimeMillis();
+        long elapsedTime = stopTime - startTime;
+        System.out.printf("Simtime: %d this would be %dfps\n",elapsedTime, 1000/((elapsedTime>0)?elapsedTime:1));
         this.setChanged();
         this.notifyObservers(AutomatonEventEnum.CELL_CHANGED);
     }
