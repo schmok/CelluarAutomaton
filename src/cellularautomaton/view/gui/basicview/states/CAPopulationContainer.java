@@ -78,8 +78,11 @@ public class CAPopulationContainer extends JPanel implements IOwnEnumeration {
     }
 
     public void decreaseCellSize() {
-        if(this.cellSize > 1)
+        if(this.cellSize > 1) {
             this.cellSize = (int)((float)this.cellSize / 1.1);
+            if(this.cellSize < 1)
+                this.cellSize = 1;
+        }
         this.fitPopulation();
         this.repaint();
     }
@@ -87,21 +90,15 @@ public class CAPopulationContainer extends JPanel implements IOwnEnumeration {
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
+        long startTime = System.currentTimeMillis();
         int[] pixels = ((DataBufferInt) this.buffer.getRaster().getDataBuffer()).getData();
 
         // adjust scrollpos
         this.viewPort.setSize(this.scrollPane.getSize());
         this.viewPort.setLocation(this.location);
 
-        long startTime = System.currentTimeMillis();
-        /*for(int x = 0; x < this.lastPopulation.length; x++) {
-            for(int y = 0; y < this.lastPopulation[0].length; y++) {
-                Cell cell = this.lastPopulation[x][y];
-            }
-        }*/
-
-        int oX = this.viewPort.getLocation().y;
-        int oY = this.viewPort.getLocation().x;
+        int oX = this.viewPort.getLocation().x;
+        int oY = this.viewPort.getLocation().y;
         int mX = this.viewPort.width;
         int mY = this.viewPort.height;
         int maxX = this.lastPopulation.length;
@@ -120,7 +117,8 @@ public class CAPopulationContainer extends JPanel implements IOwnEnumeration {
                     if (this.cellSize > 5 && (rX % this.cellSize == 0 | rY % this.cellSize == 0)) {
                         pixels[i] = 0x000000;
                     } else {
-                        pixels[i] = this.colors[this.lastPopulation[cX][cY].getState()];
+                        if(cX >= 0 && cY >= 0 && cX < this.lastPopulation.length && cY < this.lastPopulation[0].length)
+                            pixels[i] = this.colors[this.lastPopulation[cX][cY].getState()];
                     }
                 } else {
                     // outside!
@@ -131,8 +129,8 @@ public class CAPopulationContainer extends JPanel implements IOwnEnumeration {
 
         long stopTime = System.currentTimeMillis();
         long elapsedTime = stopTime - startTime;
-        //System.out.printf("Drawtime: %d this would be %dfps\n",elapsedTime, 1000/((elapsedTime > 0)?elapsedTime:1));
         g.drawImage(this.buffer, 5,5, this);
+        System.out.printf("Drawtime: %d this would be %dfps\n",elapsedTime, 1000/((elapsedTime > 0)?elapsedTime:1));
     }
 
     private void setPopulationWindowSize(int width, int height) {
