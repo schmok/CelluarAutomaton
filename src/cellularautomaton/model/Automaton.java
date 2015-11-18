@@ -30,6 +30,11 @@ public abstract class Automaton extends Observable {
 
     private cl_program program;
     private cl_kernel kernel;
+    private cl_mem input_data_mem;
+    private cl_mem output_data_mem;
+    private cl_command_queue command_queue;
+    private int[] data;
+    private int[] data_processed;
 
     /**
      * Konstruktor
@@ -64,11 +69,68 @@ public abstract class Automaton extends Observable {
         }
     }
 
+    private void allocateMemory() {
+        int width = this.getNumberOfColumns();
+        int height = this.getNumberOfRows();
+        this.data = new int[width*height];
+        this.data_processed = new int[width*height];
+        input_data_mem = clCreateBuffer(context, CL_MEM_READ_ONLY | CL_MEM_USE_HOST_PTR,data.length * Sizeof.cl_int, Pointer.to(data), null);
+        output_data_mem = clCreateBuffer(context, CL_MEM_WRITE_ONLY, data.length * Sizeof.cl_int, null, null);
+    }
+
+    private void writeData() {
+        int width = this.getNumberOfColumns();
+        int height = this.getNumberOfRows();
+        for(int x = 0; x < width; x++) {
+            for(int y = 0; y < height; y++) {
+                this.data[x+(y*height)] = this.cells[x][y].getState();
+            }
+        }
+    }
+    private static long round(long groupSize, long globalSize) {
+        long r = globalSize % groupSize;
+        if(r == 0) {
+            return globalSize;
+        } else {
+            return globalSize + groupSize - r;
+        }
+    }
+
+    private void calculateNextGenCL() {
+        int width = this.getNumberOfColumns();
+        int height = this.getNumberOfRows();
+        long localWorkSize[] = new long[2];
+        localWorkSize[0] = 1;
+        localWorkSize[1] = 1;
+
+        long globalWorkSize[] = new long[2];
+        globalWorkSize[0] = width;
+        globalWorkSize[1] = height;
+
+        int cellSize[] = new int[]{width, height};
+
+
+
+        clSetKernelArg(kernel, 0, Sizeof.cl_mem, Pointer.to(input_data_mem));
+        clSetKernelArg(kernel, 1, Sizeof.cl_mem, Pointer.to(output_data_mem));
+        clSetKernelArg(kernel, 2, Sizeof.cl_int2, Pointer.to(cellSize));
+
+        System.out.println("Calculate");
+        clEnqueueNDRangeKernel(command_queue, kernel, 2, null, globalWorkSize, localWorkSize, 0, null, null);
+        System.out.println("Calculation Done");
+        clEnqueueReadBuffer(command_queue, output_data_mem, CL_TRUE, 0, data_processed.length *Sizeof.cl_int,Pointer.to(data_processed), 0, null,null);
+        System.out.println("Write Back!");
+        //*/
+    }
+
     private void createKernel(String str_kernel) {
         program = clCreateProgramWithSource(context,1, new String[]{str_kernel}, null,null);
         clBuildProgram(program, 0, null, "-cl-kernel-arg-info", null, null);
         kernel = clCreateKernel(program, "calcNextGeneration", null);
-
+        clReleaseProgram(program);
+        command_queue = clCreateCommandQueue(context, device, 0, null);
+        allocateMemory();
+        writeData();
     }
 
     private String loadAndInitKernel() {
@@ -216,8 +278,10 @@ public abstract class Automaton extends Observable {
                 return new Cell();
         });
         defineColors();
+        allocateMemory();
         this.setChanged();
         this.notifyObservers(AutomatonEventEnum.SIZE_CHANGED);
+
     }
     /**
      * �ndert die Anzahl an Reihen des Automaten
@@ -283,6 +347,7 @@ public abstract class Automaton extends Observable {
      */
     public void setPopulation(Cell[][] cells) {
         this.cells = cells;
+        writeData();
         this.setChanged();
         this.notifyObservers(AutomatonEventEnum.CELL_CHANGED);
     }
@@ -337,6 +402,7 @@ public abstract class Automaton extends Observable {
      */
     public void setState(int row, int column, int state) {
         this.cells[row][column].setState(state);
+        writeData();
         this.setChanged();
         this.notifyObservers(AutomatonEventEnum.CELL_CHANGED);
     }
@@ -426,6 +492,8 @@ public abstract class Automaton extends Observable {
      * @return
      */
     public Cell[][] calcNextGeneration() {
+        calculateNextGenCL();
+
         Cell[][] newCells = new Cell[this.getNumberOfRows()][this.getNumberOfColumns()];
         int mod = (this.isMooreNeighborHood)?-1:0;
         iterator(newCells, (cell, row, col) -> {

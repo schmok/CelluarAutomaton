@@ -3,4 +3,9 @@ __kernel void calcNextGeneration(__global int2 *inCells,
                                     const int2 size) {
     int cX = get_global_id(0);
     int cY = get_global_id(1);
+    if(inCells[cX][cY] == 1) {
+        outCells[cX][cY] = 0;
+    } else {
+        outCells[cX][cY] = 1;
+    }
 }
