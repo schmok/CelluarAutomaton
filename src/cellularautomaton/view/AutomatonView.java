@@ -140,7 +140,7 @@ public class AutomatonView implements IOwnEnumeration, Observer {
     }
 
     public void repaint() {
-        this.getPopulationContainer().drawPopulation(this.automaton.getPopulation());
+        this.getPopulationContainer().drawPopulation(this.automaton.getPopulation(), this.automaton.getNumberOfColumns(), this.automaton.getNumberOfRows());
     }
 
     @Override

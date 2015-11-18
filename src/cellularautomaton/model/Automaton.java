@@ -33,8 +33,7 @@ public abstract class Automaton extends Observable {
     private cl_mem input_data_mem;
     private cl_mem output_data_mem;
     private cl_command_queue command_queue;
-    private int[] data;
-    private int[] data_processed;
+    public int[] data;
 
     /**
      * Konstruktor
@@ -73,8 +72,7 @@ public abstract class Automaton extends Observable {
         int width = this.getNumberOfColumns();
         int height = this.getNumberOfRows();
         this.data = new int[width*height];
-        this.data_processed = new int[width*height];
-        input_data_mem = clCreateBuffer(context, CL_MEM_READ_ONLY | CL_MEM_USE_HOST_PTR,data.length * Sizeof.cl_int, Pointer.to(data), null);
+        input_data_mem = clCreateBuffer(context, CL_MEM_READ_ONLY | CL_MEM_USE_HOST_PTR ,data.length * Sizeof.cl_int, Pointer.to(data), null);
         output_data_mem = clCreateBuffer(context, CL_MEM_WRITE_ONLY, data.length * Sizeof.cl_int, null, null);
     }
 
@@ -83,7 +81,7 @@ public abstract class Automaton extends Observable {
         int height = this.getNumberOfRows();
         for(int x = 0; x < width; x++) {
             for(int y = 0; y < height; y++) {
-                this.data[x+(y*height)] = this.cells[x][y].getState();
+                this.data[x+(y*width)] = this.cells[y][x].getState();
             }
         }
     }
@@ -97,28 +95,34 @@ public abstract class Automaton extends Observable {
     }
 
     private void calculateNextGenCL() {
+        long startTime = System.currentTimeMillis();
         int width = this.getNumberOfColumns();
         int height = this.getNumberOfRows();
-        long localWorkSize[] = new long[2];
-        localWorkSize[0] = 1;
-        localWorkSize[1] = 1;
+        cl_event event = new cl_event();
+
 
         long globalWorkSize[] = new long[2];
         globalWorkSize[0] = width;
         globalWorkSize[1] = height;
 
         int cellSize[] = new int[]{width, height};
+        int torus[] = new int[]{(isTorus)?1:0};
+        int isMoore[] = new int[]{(isMooreNeighborHood)?1:0};
 
         clSetKernelArg(kernel, 0, Sizeof.cl_mem, Pointer.to(input_data_mem));
         clSetKernelArg(kernel, 1, Sizeof.cl_mem, Pointer.to(output_data_mem));
         clSetKernelArg(kernel, 2, Sizeof.cl_int2, Pointer.to(cellSize));
+        clSetKernelArg(kernel, 3, Sizeof.cl_int, Pointer.to(torus));
+        clSetKernelArg(kernel, 4, Sizeof.cl_int, Pointer.to(isMoore));
 
-        System.out.println("Calculate");
-        clEnqueueNDRangeKernel(command_queue, kernel, 2, null, globalWorkSize, localWorkSize, 0, null, null);
-        System.out.println("Calculation Done");
-        clEnqueueReadBuffer(command_queue, output_data_mem, CL_TRUE, 0, data_processed.length *Sizeof.cl_int,Pointer.to(data_processed), 0, null,null);
-        System.out.println("Write Back!");
-        //*/
+        clEnqueueNDRangeKernel(command_queue, kernel, 2, null, globalWorkSize, null, 0, null, event);
+        clWaitForEvents(1, new cl_event[]{event});
+        clEnqueueReadBuffer(command_queue, output_data_mem, CL_TRUE, 0, data.length *Sizeof.cl_int,Pointer.to(data), 0, null,null);
+
+
+        long stopTime = System.currentTimeMillis();
+        long elapsedTime = stopTime - startTime;
+        System.out.printf("Calculationtime: %d ms\n",elapsedTime);
     }
 
     private void createKernel(String str_kernel) {
@@ -277,6 +281,7 @@ public abstract class Automaton extends Observable {
         });
         defineColors();
         allocateMemory();
+        writeData();
         this.setChanged();
         this.notifyObservers(AutomatonEventEnum.SIZE_CHANGED);
 
@@ -354,6 +359,7 @@ public abstract class Automaton extends Observable {
      */
     public void clearPopulation() {
         iterator(this.cells, (cell, row, col) -> new Cell());
+        writeData();
         this.setChanged();
         this.notifyObservers(AutomatonEventEnum.CELL_CHANGED);
     }
@@ -371,6 +377,7 @@ public abstract class Automaton extends Observable {
      */
     public void randomPopulation() {
         iterator(this.cells, (cell, row, col) -> new Cell((int)(Math.random() * this.numberOfStates)));
+        writeData();
         this.setChanged();
         this.notifyObservers(AutomatonEventEnum.CELL_CHANGED);
     }
@@ -489,9 +496,19 @@ public abstract class Automaton extends Observable {
      *
      * @return
      */
-    public Cell[][] calcNextGeneration() {
+    public void calcNextGeneration() {
         calculateNextGenCL();
+        //Cell[][] newCells = new Cell[this.getNumberOfRows()][this.getNumberOfColumns()];
 
+        /*int width = this.getNumberOfColumns();
+
+        for(int i = 0; i < data_processed.length; i++){
+            int x = i % width;
+            int y = (i - x) / width;
+            data[i] = data_processed[i];
+        }
+        */
+        /*
         Cell[][] newCells = new Cell[this.getNumberOfRows()][this.getNumberOfColumns()];
         int mod = (this.isMooreNeighborHood)?-1:0;
         iterator(newCells, (cell, row, col) -> {
@@ -507,5 +524,7 @@ public abstract class Automaton extends Observable {
         this.setChanged();
         this.notifyObservers(AutomatonEventEnum.CELL_CHANGED);
         return newCells;
+
+        */
     }
 }

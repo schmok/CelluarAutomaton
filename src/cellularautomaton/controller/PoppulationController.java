@@ -75,7 +75,7 @@ public class PoppulationController extends AbstractController<CAPopulationContai
                 if(end.x >= 0 && end.y >= 0 && end.x < this.getModel().getNumberOfRows() && end.y < this.getModel().getNumberOfColumns())
                     this.getModel().setState(end.x, end.y, this.tempCellState);
             } else if(SwingUtilities.isLeftMouseButton(e)) {
-                Cell[][] cells = this.getModel().getPopulation();
+                Cell[][] cells = this.getModel().getPopulationCells();
                 // Vorschau anzeigen
                 boolean bX = end.x < this.startPosition.x;
                 boolean bY = end.y < this.startPosition.y;

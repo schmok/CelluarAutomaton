@@ -27,7 +27,7 @@ public class CellularAutomaton extends Observable {
      * @param automatonController
      */
     public CellularAutomaton(CellularAutomatonController automatonController) {
-        this.setAutomaton(new GameOfLifeAutomaton(15, 15, true));
+        this.setAutomaton(new GameOfLifeAutomaton(2500, 2500, true));
         this.automatonController = automatonController;
         this.automatonController.bindModel(this);
         System.out.println(this.automaton.getNumberOfStates());
@@ -87,8 +87,8 @@ public class CellularAutomaton extends Observable {
         return this.automaton.isMooreNeighborHood();
     }
 
-    public Cell[][] getPopulation() {
-        return this.automaton.getPopulation();
+    public int[] getPopulation() {
+        return this.automaton.data;
     }
 
     public void setPopulation(Cell[][] cells) {
@@ -130,8 +130,13 @@ public class CellularAutomaton extends Observable {
     }
 
     public void nextGeneration() {
-        this.automaton.setPopulation(this.automaton.calcNextGeneration());
+        //this.automaton.setPopulation(this.automaton.calcNextGeneration());
+        this.automaton.calcNextGeneration();
         this.setChanged();
         this.notifyObservers(AutomatonEventEnum.CELL_CHANGED);
+    }
+
+    public Cell[][] getPopulationCells() {
+        return this.automaton.getPopulation();
     }
 }

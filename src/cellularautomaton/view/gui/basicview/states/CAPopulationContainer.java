@@ -24,14 +24,16 @@ public class CAPopulationContainer extends JPanel implements IOwnEnumeration {
     private int screenHeight;
     private int[] colors;
 
-    private Cell[][] lastPopulation;
+    private int[] lastPopulation;
+    private int cWidth = 0;
+    private int cHeight = 0;
     private int cellSize = 10;
     private Dimension virtualDimension;
     private BufferedImage buffer = null;
     private Graphics graphics;
     private boolean turn = false;
 
-    public Cell[][] getLastPopulation() {
+    public int[] getLastPopulation() {
         return lastPopulation;
     }
 
@@ -67,8 +69,8 @@ public class CAPopulationContainer extends JPanel implements IOwnEnumeration {
     public void fitPopulation() {
         int newSize = 5;
         if(this.lastPopulation != null)
-            newSize = this.cellSize * this.lastPopulation.length;
-        this.setPopulationWindowSize(newSize, newSize);
+            newSize = this.cellSize * cWidth;
+        this.setPopulationWindowSize(this.cellSize * cWidth, this.cellSize * cHeight);
     }
 
     public void increaseCellSize() {
@@ -101,8 +103,8 @@ public class CAPopulationContainer extends JPanel implements IOwnEnumeration {
         int oY = this.viewPort.getLocation().y;
         int mX = this.viewPort.width;
         int mY = this.viewPort.height;
-        int maxX = this.lastPopulation.length;
-        int maxY = this.lastPopulation[0].length;
+        int maxX = cWidth;
+        int maxY = cHeight;
 
         for(int x = 0; x < mX; x++) {
             for(int y = 0; y < mY; y++) {
@@ -111,14 +113,15 @@ public class CAPopulationContainer extends JPanel implements IOwnEnumeration {
                 int rX = y - oY;
                 int cX = rX / this.cellSize;
                 int cY = rY / this.cellSize;
+                int index =  cX + (cY* cWidth);
 
-                if(rX <= this.cellSize* maxX && rY <= this.cellSize * maxY) {
+                if(i < pixels.length && rX <= this.cellSize* maxX && rY <= this.cellSize * maxY) {
                     // draw lines
                     if (this.cellSize > 5 && (rX % this.cellSize == 0 | rY % this.cellSize == 0)) {
                         pixels[i] = 0x000000;
                     } else {
-                        if(cX >= 0 && cY >= 0 && cX < this.lastPopulation.length && cY < this.lastPopulation[0].length)
-                            pixels[i] = this.colors[this.lastPopulation[cX][cY].getState()];
+                        if(cX >= 0 && cY >= 0 && cX < cWidth && cY < cHeight)
+                            pixels[i] = this.colors[this.lastPopulation[index]];
                     }
                 } else {
                     // outside!
@@ -146,8 +149,10 @@ public class CAPopulationContainer extends JPanel implements IOwnEnumeration {
         this.repaint();
     }
 
-    public void drawPopulation(Cell[][] cells) {
+    public void drawPopulation(int[] cells, int width, int height) {
         boolean firstPaint = this.lastPopulation == null;
+        this.cWidth = width;
+        this.cHeight = height;
         this.lastPopulation = cells;
         if(firstPaint)
             fitPopulation();
