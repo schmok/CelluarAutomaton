@@ -4,7 +4,11 @@ package cellularautomaton.model;
  * Created by Viktor Spadi on 18.10.2015.
  */
 import cellularautomaton.event.AutomatonEventEnum;
+import static org.jocl.CL.*;
+import  org.jocl.*;
 
+import java.io.*;
+import java.net.URL;
 import java.util.Observable;
 
 import java.awt.Color;
@@ -15,6 +19,17 @@ public abstract class Automaton extends Observable {
     private int numberOfStates;
     private boolean isTorus;
     private boolean isMooreNeighborHood;
+
+    // opencl
+    private static final int platformIndex = 0;
+    private static final long deviceType = CL_DEVICE_TYPE_ALL;
+    private static final int deviceIndex = 0;
+
+    private static cl_context context;
+    private static cl_device_id device;
+
+    private cl_program program;
+    private cl_kernel kernel;
 
     /**
      * Konstruktor
@@ -40,6 +55,101 @@ public abstract class Automaton extends Observable {
         this.isTorus = isTorus;
         this.isMooreNeighborHood = isMooreNeighborHood;
         defineColors();
+
+        // opencl
+        defaultInitialisation();
+        String kernel = loadAndInitKernel();
+        if(kernel != "") {
+            createKernel(kernel);
+        }
+    }
+
+    private void createKernel(String str_kernel) {
+        program = clCreateProgramWithSource(context,1, new String[]{str_kernel}, null,null);
+        clBuildProgram(program, 0, null, "-cl-kernel-arg-info", null, null);
+        kernel = clCreateKernel(program, "calcNextGeneration", null);
+
+    }
+
+    private String loadAndInitKernel() {
+        URL res = this.getClass().getResource("/kernel/next_generation_kernel.cl");
+        try {
+            BufferedReader in = new BufferedReader(
+                    new InputStreamReader(res.openStream()));
+
+            StringBuffer sb = new StringBuffer();
+            String inputLine;
+            while ((inputLine = in.readLine()) != null)
+                sb.append(inputLine+"\n");
+            in.close();
+            return sb.toString();
+        }catch (Exception e) {
+            e.printStackTrace();
+        }
+        return "";
+    }
+    private static void defaultInitialisation() {
+        // Enable exceptions and subsequently omit error checks in this sample
+        CL.setExceptionsEnabled(true);
+
+        // Obtain the number of platforms
+        int numPlatformsArray[] = new int[1];
+        clGetPlatformIDs(0, null, numPlatformsArray);
+        int numPlatforms = numPlatformsArray[0];
+
+        // Obtain a platform ID
+        cl_platform_id platforms[] = new cl_platform_id[numPlatforms];
+        clGetPlatformIDs(platforms.length, platforms, null);
+        cl_platform_id platform = platforms[platformIndex];
+
+        // Check if the platform supports OpenCL 1.2
+        long sizeArray[] = { 0 };
+        clGetPlatformInfo(platform, CL_PLATFORM_VERSION, 0, null, sizeArray);
+        byte buffer[] = new byte[(int)sizeArray[0]];
+        clGetPlatformInfo(platform, CL_PLATFORM_VERSION,
+                buffer.length, Pointer.to(buffer), null);
+        String versionString = new String(buffer, 0, buffer.length-1);
+        System.out.println("Platform version: "+versionString);
+        String versionNumberString = versionString.substring(7, 10);
+        try
+        {
+            String majorString = versionNumberString.substring(0, 1);
+            String minorString = versionNumberString.substring(2, 3);
+            int major = Integer.parseInt(majorString);
+            int minor = Integer.parseInt(minorString);
+            if (major == 1 && minor < 2)
+            {
+                System.err.println(
+                        "Platform only supports OpenCL "+versionNumberString);
+                System.exit(1);
+            }
+        }
+        catch (NumberFormatException e)
+        {
+            System.err.println(
+                    "Invalid version number: "+versionNumberString);
+            System.exit(1);
+        }
+
+        // Initialize the context properties
+        cl_context_properties contextProperties = new cl_context_properties();
+        contextProperties.addProperty(CL_CONTEXT_PLATFORM, platform);
+
+        // Obtain the number of devices for the platform
+        int numDevicesArray[] = new int[1];
+        clGetDeviceIDs(platform, deviceType, 0, null, numDevicesArray);
+        int numDevices = numDevicesArray[0];
+
+        // Obtain a device ID
+        cl_device_id devices[] = new cl_device_id[numDevices];
+        clGetDeviceIDs(platform, deviceType, numDevices, devices, null);
+        device = devices[deviceIndex];
+
+        // Create a context for the selected device
+        context = clCreateContext(
+                contextProperties, 1, new cl_device_id[]{device},
+                null, null, null);
+
     }
     /**
      * Implementierung der Transformationsregel
