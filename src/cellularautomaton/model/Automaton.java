@@ -109,8 +109,6 @@ public abstract class Automaton extends Observable {
 
         int cellSize[] = new int[]{width, height};
 
-
-
         clSetKernelArg(kernel, 0, Sizeof.cl_mem, Pointer.to(input_data_mem));
         clSetKernelArg(kernel, 1, Sizeof.cl_mem, Pointer.to(output_data_mem));
         clSetKernelArg(kernel, 2, Sizeof.cl_int2, Pointer.to(cellSize));

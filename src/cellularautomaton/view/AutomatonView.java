@@ -3,6 +3,7 @@ package cellularautomaton.view;
 import cellularautomaton.controller.locale.*;
 import cellularautomaton.event.AutomatonEventEnum;
 import cellularautomaton.model.CellularAutomaton;
+import cellularautomaton.view.gui.basicview.components.CAJScrollPane;
 import cellularautomaton.view.gui.basicview.windows.CAChangeCellColorWindow;
 import cellularautomaton.view.gui.basicview.windows.CAChangeSizeWindow;
 import cellularautomaton.view.gui.basicview.footer.CAFooter;
@@ -16,11 +17,12 @@ import java.awt.*;
 import java.util.Observable;
 import java.util.Observer;
 
+
 /**
  * Created by Viktor Spadi on 14.10.2015.
  * Basic implementation of the interface AbstractAutomatonView
  */
-public class AutomatonView implements IOwnEnumeration, Observer{
+public class AutomatonView implements IOwnEnumeration, Observer {
     // Attributes //////////////////////////////////////////////////////////////////////////////////////////////////////
     private StringController stringController;
     private JFrame frame;
@@ -30,7 +32,7 @@ public class AutomatonView implements IOwnEnumeration, Observer{
     private CAStateContainer stateContainer;
     private JScrollPane stateScrollPane;
     private CAPopulationContainer populationContainer;
-    private JScrollPane populationScrollPane;
+    private CAJScrollPane populationScrollPane;
     private CellularAutomaton automaton;
 
     private CAChangeSizeWindow changeSizeWindow;
@@ -112,9 +114,10 @@ public class AutomatonView implements IOwnEnumeration, Observer{
         this.toolbar = new CAToolbar(StringController.getInstance());
         this.footer = new CAFooter();
         this.populationContainer = new CAPopulationContainer();
-        this.populationScrollPane = new JScrollPane(this.populationContainer,
+        this.populationScrollPane = new CAJScrollPane(this.populationContainer,
                 ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED,
                 ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+        this.populationContainer.setScrollPane(this.populationScrollPane);
 
         this.stateContainer = new CAStateContainer();
         this.stateScrollPane = new JScrollPane(this.stateContainer,

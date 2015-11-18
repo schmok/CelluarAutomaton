@@ -3,24 +3,33 @@ package cellularautomaton.view.gui.basicview.states;
 import cellularautomaton.controller.locale.StringEnumeration;
 import cellularautomaton.model.Automaton;
 import cellularautomaton.model.Cell;
-import cellularautomaton.model.GameOfLifeAutomaton;
 import cellularautomaton.view.util.IOwnEnumeration;
 
 import javax.swing.*;
+import javax.swing.border.Border;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
 import java.awt.image.BufferedImage;
+import java.awt.image.DataBuffer;
+import java.awt.image.DataBufferInt;
 
 /**
  * Created by Viktor Spadi on 17.10.2015.
  */
 public class CAPopulationContainer extends JPanel implements IOwnEnumeration {
+    private JScrollPane scrollPane;
+    private Rectangle viewPort;
+    private Point location;
+    private int screenWidth;
+    private int screenHeight;
+    private int[] colors;
+
     private Cell[][] lastPopulation;
     private int cellSize = 10;
-    private BufferedImage bufferA = null;
-    private BufferedImage bufferB = null;
+    private Dimension virtualDimension;
+    private BufferedImage buffer = null;
+    private Graphics graphics;
     private boolean turn = false;
-    private Color[] colors;
 
     public Cell[][] getLastPopulation() {
         return lastPopulation;
@@ -30,25 +39,27 @@ public class CAPopulationContainer extends JPanel implements IOwnEnumeration {
         return cellSize;
     }
 
+    @Override
+    public Dimension getPreferredSize() {
+        return this.virtualDimension;
+    }
+
     public void setCellSize(int cellSize) {
         if(cellSize >= 1)
             this.cellSize = cellSize;
         this.fitPopulation();
-        this.fillBuffer();
-
+        this.repaint();
     }
-
-    public Color[] getColors() {
-        return colors;
-    }
-
-
 
     public CAPopulationContainer() {
         super();
-        setPopulationWindowSize(900, 900);
-        fitPopulation();
-
+        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+        this.screenWidth = (int)screenSize.getWidth();
+        this.screenHeight = (int)screenSize.getHeight();
+        this.location = new Point();
+        this.viewPort = new Rectangle();
+        this.buffer = new BufferedImage(this.screenWidth,this.screenHeight,BufferedImage.TYPE_INT_RGB);
+        this.graphics = this.buffer.createGraphics();
         // Componentstyle
         this.setBackground(Color.decode("0xFFFFDC"));
     }
@@ -58,57 +69,80 @@ public class CAPopulationContainer extends JPanel implements IOwnEnumeration {
         if(this.lastPopulation != null)
             newSize = this.cellSize * this.lastPopulation.length;
         this.setPopulationWindowSize(newSize, newSize);
-        this.bufferA = new BufferedImage(getWidth(),getHeight(),BufferedImage.TYPE_INT_RGB);
-        this.bufferB = new BufferedImage(getWidth(),getHeight(),BufferedImage.TYPE_INT_RGB);
     }
 
     public void increaseCellSize() {
         this.cellSize = (int)((float)this.cellSize * 1.1)+1;
         this.fitPopulation();
-        this.fillBuffer();
+        this.repaint();
     }
 
     public void decreaseCellSize() {
-        if(this.cellSize > 1)
+        if(this.cellSize > 1) {
             this.cellSize = (int)((float)this.cellSize / 1.1);
+            if(this.cellSize < 1)
+                this.cellSize = 1;
+        }
         this.fitPopulation();
-        this.fillBuffer();
+        this.repaint();
     }
 
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
-        BufferedImage buff = getCurrentBuffer();
-        if(buff != null) {
-            g.drawImage(buff, 5,5, this);
+        long startTime = System.currentTimeMillis();
+        int[] pixels = ((DataBufferInt) this.buffer.getRaster().getDataBuffer()).getData();
+
+        // adjust scrollpos
+        this.viewPort.setSize(this.scrollPane.getSize());
+        this.viewPort.setLocation(this.location);
+
+        int oX = this.viewPort.getLocation().x;
+        int oY = this.viewPort.getLocation().y;
+        int mX = this.viewPort.width;
+        int mY = this.viewPort.height;
+        int maxX = this.lastPopulation.length;
+        int maxY = this.lastPopulation[0].length;
+
+        for(int x = 0; x < mX; x++) {
+            for(int y = 0; y < mY; y++) {
+                int i = x + (y* screenWidth);
+                int rY = x - oX;
+                int rX = y - oY;
+                int cX = rX / this.cellSize;
+                int cY = rY / this.cellSize;
+
+                if(rX <= this.cellSize* maxX && rY <= this.cellSize * maxY) {
+                    // draw lines
+                    if (this.cellSize > 5 && (rX % this.cellSize == 0 | rY % this.cellSize == 0)) {
+                        pixels[i] = 0x000000;
+                    } else {
+                        if(cX >= 0 && cY >= 0 && cX < this.lastPopulation.length && cY < this.lastPopulation[0].length)
+                            pixels[i] = this.colors[this.lastPopulation[cX][cY].getState()];
+                    }
+                } else {
+                    // outside!
+                    pixels[i] = 0xFFFFDC;
+                }
+            }
         }
+
+        long stopTime = System.currentTimeMillis();
+        long elapsedTime = stopTime - startTime;
+        g.drawImage(this.buffer, 5,5, this);
+        System.out.printf("Drawtime: %d this would be %dfps\n",elapsedTime, 1000/((elapsedTime > 0)?elapsedTime:1));
     }
 
     private void setPopulationWindowSize(int width, int height) {
         this.setBorder(new EmptyBorder(0,0,height,width));
-        this.setSize(width+1, height+1);
+        this.virtualDimension = new Dimension(width+10, height+10);
+        this.setSize(this.virtualDimension);
     }
 
-    private void fillBuffer() {
-        BufferedImage buff = getNextBuffer();
-        Graphics2D g2 = buff.createGraphics();
-        boolean drawBorder = this.cellSize > 5;
-        g2.setColor(Color.decode("0xFFFFDC"));
-        if(drawBorder)
-            g2.fillRect(0, 0, getWidth()+1, getHeight()+1);
-        g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-        g2.setColor(Color.BLACK);
-        Automaton.iterator(this.lastPopulation, (cell, x, y) -> {
-            g2.setColor(this.getColor(cell.getState()));
-            g2.fillRect(x * this.cellSize, y * this.cellSize, this.cellSize, this.cellSize);
-            if(drawBorder) {
-                g2.setColor(Color.BLACK);
-                g2.drawRect(x * this.cellSize, y * this.cellSize, this.cellSize, this.cellSize);
-            }
-            return cell;
-        });
-        g2.setColor(Color.BLACK);
-        g2.drawRect(0, 0, getWidth()+1, getHeight()+1);
+    public void fillBuffer() {
+
+
+        //g2.drawRect(0, 0, getWidth()+1, getHeight()+1);
         this.repaint();
     }
 
@@ -117,30 +151,41 @@ public class CAPopulationContainer extends JPanel implements IOwnEnumeration {
         this.lastPopulation = cells;
         if(firstPaint)
             fitPopulation();
-        this.fillBuffer();
+        this.repaint();
     }
 
-    private BufferedImage getCurrentBuffer() {
-        return (turn)?this.bufferA:this.bufferB;
-    }
-
-    private BufferedImage getNextBuffer() {
-        return (turn = !turn)?this.bufferA:this.bufferB;
-    }
-
-    private Color getColor(int state) {
-        if(colors != null && colors.length > state && state >= 0)
-            return this.colors[state];
-        else
-            return Color.BLACK;
-    }
 
     public void setColorMapping(Color[] colors) {
-        this.colors = colors;
+        this.colors = new int[colors.length];
+        for(int i = 0; i< colors.length; i++) {
+            this.colors[i] =    colors[i].getRed() << 16 |
+                                colors[i].getGreen() << 8 |
+                                colors[i].getBlue();
+
+        }
     }
 
     @Override
     public StringEnumeration getEnumeration() {
         return StringEnumeration.CA_POPULATIONCONTAINER;
+    }
+
+    public void setScrollPane(JScrollPane scrollPane) {
+        this.scrollPane = scrollPane;
+    }
+
+    public JScrollPane getScrollPane() {
+        return scrollPane;
+    }
+
+    @Override
+    public void setLocation(int x, int y) {
+        this.location.setLocation(x, y);
+    }
+
+    @Override
+    public Point getLocation() {
+        this.repaint();
+        return this.location.getLocation();
     }
 }
