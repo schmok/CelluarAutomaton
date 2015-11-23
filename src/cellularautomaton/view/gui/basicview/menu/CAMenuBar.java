@@ -55,4 +55,16 @@ public class CAMenuBar extends JMenuBar implements Observer, IOwnEnumeration {
     public StringEnumeration getEnumeration() {
         return StringEnumeration.CA_MENUBAR;
     }
+
+    public void updateSimulationState(boolean running) {
+        if(running) {
+            this.simulationMenu.getStepItem().setEnabled(false);
+            this.simulationMenu.getStartItem().setEnabled(false);
+            this.simulationMenu.getStopItem().setEnabled(true);
+        } else {
+            this.simulationMenu.getStepItem().setEnabled(true);
+            this.simulationMenu.getStartItem().setEnabled(true);
+            this.simulationMenu.getStopItem().setEnabled(false);
+        }
+    }
 }

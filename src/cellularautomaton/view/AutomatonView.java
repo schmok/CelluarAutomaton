@@ -34,7 +34,6 @@ public class AutomatonView implements IOwnEnumeration, Observer {
     private CAPopulationContainer populationContainer;
     private CAJScrollPane populationScrollPane;
     private CellularAutomaton automaton;
-
     private CAChangeSizeWindow changeSizeWindow;
     private CAChangeCellColorWindow changeCellColorWindow;
 
@@ -174,6 +173,12 @@ public class AutomatonView implements IOwnEnumeration, Observer {
                 this.populationContainer.setColorMapping(this.automaton.getColorMapping());
                 this.populationContainer.fitPopulation();
                 repaint();
+                break;
+            case INTERVAL_CHANGED:
+                break;
+            case SIMSTATE_CHANGED:
+                this.toolbar.updateSimulationState(this.automaton.isRunning());
+                this.menuBar.updateSimulationState(this.automaton.isRunning());
                 break;
             default:
                 System.out.printf("Undhandled Update from Model %s", evt);

@@ -15,6 +15,7 @@ import java.awt.event.*;
  */
 public class PoppulationController extends AbstractController<CAPopulationContainer, CellularAutomatonController> implements MouseListener, MouseMotionListener{
     private Point startPosition;
+    private Cell[][] tempCells;
     private int tempCellSize;
     private int tempCellState;
 
@@ -46,11 +47,20 @@ public class PoppulationController extends AbstractController<CAPopulationContai
         this.startPosition = div(this.startPosition, this.tempCellSize);
         CAStateCell cell = this.getParent().getStateController().getActiveCell();
         this.tempCellState = (cell == null)?-1:cell.getState();
+        if(this.tempCellState != -1) {
+            this.getModel().pause();
+        }
+
     }
 
     @Override
     public void mouseReleased(MouseEvent e) {
-
+        if(this.tempCellState != -1) {
+            if(SwingUtilities.isLeftMouseButton(e)) {
+                this.getModel().setPopulation(tempCells);
+            }
+            this.getModel().resume();
+        }
     }
 
     @Override
@@ -72,7 +82,7 @@ public class PoppulationController extends AbstractController<CAPopulationContai
                 if(end.y >= 0 && end.x >= 0 && end.y < this.getModel().getNumberOfRows() && end.y < this.getModel().getNumberOfColumns())
                     this.getModel().setState(end.y, end.x, this.tempCellState);
             } else if(SwingUtilities.isLeftMouseButton(e)) {
-                Cell[][] cells = this.getModel().getPopulation();
+                tempCells = this.getModel().getPopulation();
                 // Vorschau anzeigen
                 boolean bX = end.x < this.startPosition.x;
                 boolean bY = end.y < this.startPosition.y;
@@ -82,10 +92,10 @@ public class PoppulationController extends AbstractController<CAPopulationContai
                 for(int x = this.startPosition.x; ((bX)?x > end.y: x < end.x); x+=sX) {
                     for(int y = this.startPosition.y; ((bY)?y > end.y: y < end.y); y+=sY) {
                         if(x >= 0 && y >= 0 && y < this.getModel().getNumberOfRows() && x < this.getModel().getNumberOfColumns())
-                            cells[y][x] = new Cell(this.tempCellState);
+                            tempCells[y][x] = new Cell(this.tempCellState);
                     }
                 }
-                this.getModel().setPopulation(cells);
+                
             }
         }
 

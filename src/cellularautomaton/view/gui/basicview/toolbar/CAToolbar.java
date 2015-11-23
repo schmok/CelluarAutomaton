@@ -137,4 +137,16 @@ public class CAToolbar extends JToolBar implements IOwnEnumeration {
     public StringEnumeration getEnumeration() {
         return StringEnumeration.CA_TOOLBAR;
     }
+
+    public void updateSimulationState(boolean running) {
+        if(running) {
+            this.stepButton.setEnabled(false);
+            this.simulateButton.setEnabled(false);
+            this.stopButton.setEnabled(true);
+        } else {
+            this.stepButton.setEnabled(true);
+            this.simulateButton.setEnabled(true);
+            this.stopButton.setEnabled(false);
+        }
+    }
 }

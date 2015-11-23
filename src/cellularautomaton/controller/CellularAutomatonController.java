@@ -5,6 +5,9 @@ import cellularautomaton.model.CellularAutomaton;
 import cellularautomaton.view.AutomatonView;
 import cellularautomaton.view.util.IOwnEnumeration;
 
+import javax.swing.*;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 import java.awt.event.*;
 
 /**
@@ -83,6 +86,13 @@ public class CellularAutomatonController extends AbstractController<AutomatonVie
                 getModel().terminate();
             }
         });
+
+        this.getView().getToolbar().getSlider().addChangeListener(new ChangeListener() {
+            @Override
+            public void stateChanged(ChangeEvent e) {
+                getModel().setSimInterval(((JSlider)e.getSource()).getValue());
+            }
+        });
     }
 
     public void getNewAutomatonSize() {
@@ -141,6 +151,12 @@ public class CellularAutomatonController extends AbstractController<AutomatonVie
                 break;
             case MI_STEP:
                 this.getModel().nextGeneration();
+                break;
+            case MI_START:
+                this.getModel().setRunning(true);
+                break;
+            case MI_STOP:
+                this.getModel().setRunning(false);
                 break;
             default:
                 //System.out.println("Event: "+ enm.name());

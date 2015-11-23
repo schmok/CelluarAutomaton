@@ -14,23 +14,22 @@ import java.util.Locale;
  */
 public class Main {
     public static void main(String[] args) {
-        // Start Automaton
-        // Choose View
-        AutomatonView automatonView = new AutomatonView();
 
-        // Init AutomatonController
-        CellularAutomatonController automatonController = new CellularAutomatonController(automatonView);
+        javax.swing.SwingUtilities.invokeLater(new Runnable() {
+            public void run() {
+                // Start Automaton
+                // Choose View
+                AutomatonView automatonView = new AutomatonView();
 
-        // Create Automaton
-        CellularAutomaton automaton = new CellularAutomaton(automatonController);
+                // Init AutomatonController
+                CellularAutomatonController automatonController = new CellularAutomatonController(automatonView);
 
-        // Start it
-        automaton.start();
-        /*
-        String currentDir = System.getProperty("user.dir");
-        System.out.println("Current dir using System: " +currentDir);
-        */
-        Locale loc = new Locale.Builder().setLanguage("de").setRegion("DE").build();
-        
+                // Create Automaton
+                CellularAutomaton automaton = new CellularAutomaton(automatonController);
+
+                // Start it
+                automaton.start();
+            }
+        });
     }
 }

@@ -9,6 +9,8 @@ public enum AutomatonEventEnum {
     TORUS_CHANGED,
     SIZE_CHANGED,
     NEW_AUTOMATON,
+    SIMSTATE_CHANGED,
+    INTERVAL_CHANGED,
     CLOSE;
 
     AutomatonEventEnum() {

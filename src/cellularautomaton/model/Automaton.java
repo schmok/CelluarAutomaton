@@ -9,7 +9,7 @@ import java.util.Observable;
 
 import java.awt.Color;
 
-public abstract class Automaton extends Observable {
+public abstract class Automaton{
     private Cell[][] cells;
     private Color[] colors;
     private int numberOfStates;
@@ -106,8 +106,6 @@ public abstract class Automaton extends Observable {
                 return new Cell();
         });
         defineColors();
-        this.setChanged();
-        this.notifyObservers(AutomatonEventEnum.SIZE_CHANGED);
     }
     /**
      * �ndert die Anzahl an Reihen des Automaten
@@ -144,8 +142,6 @@ public abstract class Automaton extends Observable {
      */
     public void setTorus(boolean isTorus) {
         this.isTorus = isTorus;
-        this.setChanged();
-        this.notifyObservers(AutomatonEventEnum.TORUS_CHANGED);
     }
     /**
      * Liefert Informationen �ber die Nachbarschaft-Eigenschaft des Automaten
@@ -173,16 +169,12 @@ public abstract class Automaton extends Observable {
      */
     public void setPopulation(Cell[][] cells) {
         this.cells = cells;
-        this.setChanged();
-        this.notifyObservers(AutomatonEventEnum.CELL_CHANGED);
     }
     /**
      * setzt alle Zellen in den Zustand 0
      */
     public void clearPopulation() {
         iterator(this.cells, (cell, row, col) -> new Cell());
-        this.setChanged();
-        this.notifyObservers(AutomatonEventEnum.CELL_CHANGED);
     }
 
     public void drawCells() {
@@ -198,8 +190,6 @@ public abstract class Automaton extends Observable {
      */
     public void randomPopulation() {
         iterator(this.cells, (cell, row, col) -> new Cell((int)(Math.random() * this.numberOfStates)));
-        this.setChanged();
-        this.notifyObservers(AutomatonEventEnum.CELL_CHANGED);
     }
 
     /**
@@ -227,8 +217,6 @@ public abstract class Automaton extends Observable {
      */
     public void setState(int row, int column, int state) {
         this.cells[row][column].setState(state);
-        this.setChanged();
-        this.notifyObservers(AutomatonEventEnum.CELL_CHANGED);
     }
     /**
      * Liefert eine Zelle des Automaten
@@ -273,8 +261,6 @@ public abstract class Automaton extends Observable {
                     this.colors[i] = Color.getHSBColor( (float)(((Math.random() * 2) * 180) % 360),
                             (float)Math.random() / 2.0f + 0.5f, (float)Math.random() / 2.0f + 0.5f);
         }
-        this.setChanged();
-        this.notifyObservers(AutomatonEventEnum.COLOR_CHANGED);
     }
     /**
      * Liefert die Farbrepr�sentation eines Zustandes
@@ -318,18 +304,21 @@ public abstract class Automaton extends Observable {
     public Cell[][] calcNextGeneration() {
         Cell[][] newCells = new Cell[this.getNumberOfRows()][this.getNumberOfColumns()];
         int mod = (this.isMooreNeighborHood)?-1:0;
-        iterator(newCells, (cell, row, col) -> {
-            Cell[] neighbors = new Cell[(mod == -1)?8:4];
-            int ctr = 0;
-            for(int i = 0; i < 9; i++)
-                if(i % 2 > mod && i != 4) {
-                    int y = i % 3, x = (i / 3);
-                    neighbors[ctr++] = this.getCell((row-1)+x, (col-1)+y);
-                }
-            return transform(getCell(row,col), neighbors);
-        });
-        this.setChanged();
-        this.notifyObservers(AutomatonEventEnum.CELL_CHANGED);
+        int width = this.getNumberOfColumns();
+        int height = this.getNumberOfRows();
+
+        for(int col = 0; col < width; col++) {
+            for(int row = 0; row < height; row++) {
+                Cell[] neighbors = new Cell[(mod == -1)?8:4];
+                int ctr = 0;
+                for(int i = 0; i < 9; i++)
+                    if(i % 2 > mod && i != 4) {
+                        int y = i % 3, x = (i / 3);
+                        neighbors[ctr++] = this.getCell((row-1)+x, (col-1)+y);
+                    }
+                newCells[row][col] =  transform(getCell(row,col), neighbors);
+            }
+        }
         return newCells;
     }
 }
