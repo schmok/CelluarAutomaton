@@ -123,7 +123,7 @@ public class CAPopulationContainer extends JPanel implements IOwnEnumeration {
                         if(cX >= 0 && cY >= 0 && cX < cWidth && cY < cHeight)
                             pixels[i] = this.colors[this.lastPopulation[index]];
                     }
-                } else {
+                } else if(i < pixels.length) {
                     // outside!
                     pixels[i] = 0xFFFFDC;
                 }
@@ -133,7 +133,7 @@ public class CAPopulationContainer extends JPanel implements IOwnEnumeration {
         long stopTime = System.currentTimeMillis();
         long elapsedTime = stopTime - startTime;
         g.drawImage(this.buffer, 5,5, this);
-        System.out.printf("Drawtime: %d this would be %dfps\n",elapsedTime, 1000/((elapsedTime > 0)?elapsedTime:1));
+        //System.out.printf("Drawtime: %d this would be %dfps\n",elapsedTime, 1000/((elapsedTime > 0)?elapsedTime:1));
     }
 
     private void setPopulationWindowSize(int width, int height) {

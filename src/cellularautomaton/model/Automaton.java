@@ -19,6 +19,7 @@ public abstract class Automaton extends Observable {
     private int numberOfStates;
     private boolean isTorus;
     private boolean isMooreNeighborHood;
+    private boolean lock;
 
     // opencl
     private static final int platformIndex = 0;
@@ -95,6 +96,7 @@ public abstract class Automaton extends Observable {
     }
 
     private void calculateNextGenCL() {
+        lock = true;
         long startTime = System.currentTimeMillis();
         int width = this.getNumberOfColumns();
         int height = this.getNumberOfRows();
@@ -108,12 +110,14 @@ public abstract class Automaton extends Observable {
         int cellSize[] = new int[]{width, height};
         int torus[] = new int[]{(isTorus)?1:0};
         int isMoore[] = new int[]{(isMooreNeighborHood)?1:0};
+        int numStates[] = new int[]{numberOfStates};
 
         clSetKernelArg(kernel, 0, Sizeof.cl_mem, Pointer.to(input_data_mem));
         clSetKernelArg(kernel, 1, Sizeof.cl_mem, Pointer.to(output_data_mem));
         clSetKernelArg(kernel, 2, Sizeof.cl_int2, Pointer.to(cellSize));
         clSetKernelArg(kernel, 3, Sizeof.cl_int, Pointer.to(torus));
         clSetKernelArg(kernel, 4, Sizeof.cl_int, Pointer.to(isMoore));
+        //clSetKernelArg(kernel, 5, Sizeof.cl_int, Pointer.to(numStates));
 
         clEnqueueNDRangeKernel(command_queue, kernel, 2, null, globalWorkSize, null, 0, null, event);
         clWaitForEvents(1, new cl_event[]{event});
@@ -122,7 +126,8 @@ public abstract class Automaton extends Observable {
 
         long stopTime = System.currentTimeMillis();
         long elapsedTime = stopTime - startTime;
-        System.out.printf("Calculationtime: %d ms\n",elapsedTime);
+        //System.out.printf("Calculationtime: %d ms\n",elapsedTime);
+        lock = false;
     }
 
     private void createKernel(String str_kernel) {
@@ -497,6 +502,9 @@ public abstract class Automaton extends Observable {
      * @return
      */
     public void calcNextGeneration() {
+        while(lock){
+
+        }
         calculateNextGenCL();
         //Cell[][] newCells = new Cell[this.getNumberOfRows()][this.getNumberOfColumns()];
 

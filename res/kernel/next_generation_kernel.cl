@@ -36,12 +36,8 @@ __kernel void calcNextGeneration(__global int *inCells,
     if(target != -1) {
         outCells[index] = transform(ctr, inCells[target]);
     }
-    //outCells[index] = !state;
-
-    // getCell(&inCells, width, height, isTorus, x+1, y+1)
 }
 
-// transform
 int transform(int living, int state) {
     if(state == 0) {
         if(living == 3) {
@@ -57,7 +53,6 @@ int transform(int living, int state) {
     return state;
 }
 
-// helper
 int torusMod(int val, int max) {
     return ((val > 0)?val:max+val) % max;
 }

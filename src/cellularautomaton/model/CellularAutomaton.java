@@ -15,6 +15,9 @@ public class CellularAutomaton extends Observable {
     // Attriubues //////////////////////////////////////////////////////////////////////////////////////////////////////
     private CellularAutomatonController automatonController;
     private Automaton automaton;
+    private boolean isRunning;
+    private Runner r;
+    private int interVal;
     // Methods /////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     public void setAutomaton(Automaton automaton) {
@@ -27,7 +30,7 @@ public class CellularAutomaton extends Observable {
      * @param automatonController
      */
     public CellularAutomaton(CellularAutomatonController automatonController) {
-        this.setAutomaton(new GameOfLifeAutomaton(2500, 2500, true));
+        this.setAutomaton(new GameOfLifeAutomaton(900 , 900, true));
         this.automatonController = automatonController;
         this.automatonController.bindModel(this);
         System.out.println(this.automaton.getNumberOfStates());
@@ -38,6 +41,8 @@ public class CellularAutomaton extends Observable {
      */
     public void start() {
         this.automatonController.open();
+        this.r = new Runner();
+        this.r.start(this);
     }
 
     public void terminate() {
@@ -138,5 +143,30 @@ public class CellularAutomaton extends Observable {
 
     public Cell[][] getPopulationCells() {
         return this.automaton.getPopulation();
+    }
+
+    public void setIsRunning(boolean running) {
+        this.isRunning = running;
+    }
+
+    public void setInterVal(int interVal) {
+        this.interVal = interVal;
+    }
+
+    public class Runner extends Thread{
+        public void start(CellularAutomaton inst) {
+            boolean runnable = true;
+            while(runnable) {
+                try {
+                    sleep(inst.interVal*2);
+                    if(inst.isRunning) {
+                        inst.nextGeneration();
+                    }
+                } catch (InterruptedException e) {
+                    runnable = false;
+                }
+            }
+
+        }
     }
 }
