@@ -1,5 +1,6 @@
 package cellularautomaton.view.gui.basicview.components;
 
+import cellularautomaton.controller.locale.StringController;
 import cellularautomaton.controller.locale.StringEnumeration;
 import cellularautomaton.view.util.IOwnEnumeration;
 
@@ -14,8 +15,7 @@ public class CAJButton extends JButton implements IOwnEnumeration{
     public CAJButton(StringEnumeration text) {
         super();
         this.type = text;
-        this.setText(text.toString());
-        //setBorder(null);
+        this.setText(StringController.getInstance().get(text));
     }
 
     @Override

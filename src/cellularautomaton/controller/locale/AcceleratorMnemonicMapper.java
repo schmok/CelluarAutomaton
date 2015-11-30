@@ -2,113 +2,84 @@ package cellularautomaton.controller.locale;
 
 import javax.swing.*;
 import java.awt.event.KeyEvent;
+import java.util.HashMap;
 
 /**
  * Created by Viktor Spadi on 14.10.2015.
  */
 public class AcceleratorMnemonicMapper {
-    public int getMnemonic(StringEnumeration text) {
-        switch(text) {
-            case MB_AUTOMATON:
-                return KeyEvent.VK_N;
-            case MI_NEW:
-                return KeyEvent.VK_N;
-            case MI_LOAD:
-                return KeyEvent.VK_L;
-            case MI_EDITOR:
-                return KeyEvent.VK_E;
-            case MI_QUIT:
-                return KeyEvent.VK_B;
-            case MB_POPULATION:
-                return KeyEvent.VK_P;
-            case MI_CHANGE_SIZE:
-                return KeyEvent.VK_G;
-            case MI_DELETE:
-                return KeyEvent.VK_L;
-            case MI_CREATE:
-                return KeyEvent.VK_E;
-            case MI_TORUS:
-                return KeyEvent.VK_T;
-            case MI_ZOOM_IN:
-                return KeyEvent.VK_V;
-            case MI_ZOOM_OUT:
-                return KeyEvent.VK_E;
-            case MS_SAVE:
-                return KeyEvent.VK_S;
-            case MS_LOAD:
-                return KeyEvent.VK_A;
-            case MI_SAVE_XML:
-                return KeyEvent.VK_X;
-            case MI_SAVE_SERIAL:
-                return KeyEvent.VK_S;
-            case MI_PRINT:
-                return KeyEvent.VK_D;
-            case MS_SAVE_AS_IMG:
-                return KeyEvent.VK_R;
-            case MI_GIF:
-                return KeyEvent.VK_G;
-            case MI_PNG:
-                return KeyEvent.VK_P;
-            case MB_SIMULATION:
-                return KeyEvent.VK_S;
-            case MI_STEP:
-                return KeyEvent.VK_S;
-            case MI_START:
-                return KeyEvent.VK_A;
-            case MI_STOP:
-                return KeyEvent.VK_O;
-            case MB_HELP:
-                return KeyEvent.VK_H;
-            case MI_HELP:
-                return KeyEvent.VK_H;
-            case MI_INFO:
-                return KeyEvent.VK_I;
+    private HashMap<StringEnumeration, Character> usedMnemonics;
+
+    public AcceleratorMnemonicMapper() {
+        this.usedMnemonics = new HashMap<>();
+    }
+
+    private char getCharForString(StringEnumeration text) {
+        if(usedMnemonics.containsKey(text)) {
+            return usedMnemonics.get(text);
         }
-        return KeyEvent.VK_SPACE;
+
+        String val = StringController.getInstance().get(text);
+        if(usedMnemonics.containsValue(val.charAt(0))) {
+            for(int i = 0; i < val.length();i++) {
+                if(!usedMnemonics.containsValue(val.charAt(i))) {
+                    usedMnemonics.put(text,Character.toUpperCase(val.charAt(i)));
+                    return Character.toUpperCase(val.charAt(i));
+                }
+            }
+            return Character.toUpperCase(val.charAt(0));
+        } else {
+            usedMnemonics.put(text,Character.toUpperCase(val.charAt(0)));
+            return Character.toUpperCase(val.charAt(0));
+        }
+    }
+
+    public int getMnemonic(StringEnumeration text) {
+        return KeyEvent.getExtendedKeyCodeForChar(getCharForString(text));
     }
 
     public KeyStroke getAccelerator(StringEnumeration text) {
         switch(text) {
             case MI_LOAD:
-                return KeyStroke.getKeyStroke("ctrl L");
+                return KeyStroke.getKeyStroke("ctrl "+getCharForString(text));
             case MI_NEW:
-                return KeyStroke.getKeyStroke("ctrl N");
+                return KeyStroke.getKeyStroke("ctrl "+getCharForString(text));
             case MI_EDITOR:
-                return KeyStroke.getKeyStroke("ctrl E");
+                return KeyStroke.getKeyStroke("ctrl "+getCharForString(text));
             case MI_QUIT:
-                return KeyStroke.getKeyStroke("ctrl Q");
+                return KeyStroke.getKeyStroke("ctrl "+getCharForString(text));
             case MI_CHANGE_SIZE:
-                return KeyStroke.getKeyStroke("ctrl shift G");
+                return KeyStroke.getKeyStroke("ctrl shift "+getCharForString(text));
             case MI_DELETE:
-                return KeyStroke.getKeyStroke("ctrl shift C");
+                return KeyStroke.getKeyStroke("ctrl shift "+getCharForString(text));
             case MI_CREATE:
-                return KeyStroke.getKeyStroke("ctrl shift E");
+                return KeyStroke.getKeyStroke("ctrl shift "+getCharForString(text));
             case MI_TORUS:
-                return KeyStroke.getKeyStroke("ctrl shift T");
+                return KeyStroke.getKeyStroke("ctrl shift "+getCharForString(text));
             case MI_ZOOM_IN:
-                return KeyStroke.getKeyStroke("ctrl shift I");
+                return KeyStroke.getKeyStroke("ctrl shift "+getCharForString(text));
             case MI_ZOOM_OUT:
-                return KeyStroke.getKeyStroke("ctrl shift O");
+                return KeyStroke.getKeyStroke("ctrl shift "+getCharForString(text));
             case MI_SAVE_XML:
-                return KeyStroke.getKeyStroke("ctrl shift X");
+                return KeyStroke.getKeyStroke("ctrl shift "+getCharForString(text));
             case MI_SAVE_SERIAL:
-                return KeyStroke.getKeyStroke("ctrl shift R");
+                return KeyStroke.getKeyStroke("ctrl shift "+getCharForString(text));
             case MI_PRINT:
-                return KeyStroke.getKeyStroke("ctrl P");
+                return KeyStroke.getKeyStroke("ctrl "+getCharForString(text));
             case MI_GIF:
-                return KeyStroke.getKeyStroke("ctrl shift F");
+                return KeyStroke.getKeyStroke("ctrl shift "+getCharForString(text));
             case MI_PNG:
-                return KeyStroke.getKeyStroke("ctrl shift P");
+                return KeyStroke.getKeyStroke("ctrl shift "+getCharForString(text));
             case MI_STEP:
-                return KeyStroke.getKeyStroke("ctrl alt S");
+                return KeyStroke.getKeyStroke("ctrl alt "+getCharForString(text));
             case MI_START:
-                return KeyStroke.getKeyStroke("ctrl alt A");
+                return KeyStroke.getKeyStroke("ctrl alt "+getCharForString(text));
             case MI_STOP:
-                return KeyStroke.getKeyStroke("ctrl alt O");
+                return KeyStroke.getKeyStroke("ctrl alt "+getCharForString(text));
             case MI_HELP:
-                return KeyStroke.getKeyStroke("ctrl H");
+                return KeyStroke.getKeyStroke("ctrl "+getCharForString(text));
             case MI_INFO:
-                return KeyStroke.getKeyStroke("ctrl A");
+                return KeyStroke.getKeyStroke("ctrl "+getCharForString(text));
         }
         return null;
     }

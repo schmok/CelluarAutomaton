@@ -1,5 +1,6 @@
 package cellularautomaton.view.gui.basicview.windows;
 
+import cellularautomaton.controller.locale.StringController;
 import cellularautomaton.controller.locale.StringEnumeration;
 import cellularautomaton.view.gui.basicview.components.CAJButton;
 import cellularautomaton.view.util.IOwnEnumeration;
@@ -30,7 +31,7 @@ public class CAChangeSizeWindow extends JFrame implements IOwnEnumeration{
     }
 
     public CAChangeSizeWindow() {
-        super(StringEnumeration.W_CHANGE_SIZE_WINDOW.toString());
+        super(StringController.getInstance().get(StringEnumeration.W_CHANGE_SIZE_WINDOW));
 
         this.submitButton = new CAJButton(StringEnumeration.W_CHANGED_SIZE);
         this.widthField = new JTextField();

@@ -16,7 +16,7 @@ public class CAJMenuItem extends JMenuItem implements IOwnEnumeration {
     private StringEnumeration type;
 
     public CAJMenuItem(StringEnumeration text) {
-        super(text.toString());
+        super(StringController.getInstance().get(text));
         this.type = text;
         stringController = StringController.getInstance();
         setAccelerator(stringController.getAccelerator(text));

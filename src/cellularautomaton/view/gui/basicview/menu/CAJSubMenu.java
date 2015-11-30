@@ -14,7 +14,7 @@ public class CAJSubMenu extends JMenu implements IOwnEnumeration {
     private StringEnumeration type;
 
     public CAJSubMenu(StringEnumeration text) {
-        super(text.toString());
+        super(StringController.getInstance().get(text));
         this.type = text;
         this.stringController = StringController.getInstance();
     }
