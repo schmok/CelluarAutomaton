@@ -105,7 +105,7 @@ public abstract class Automaton{
             else
                 return new Cell();
         });
-        defineColors();
+        //defineColors();
     }
     /**
      * �ndert die Anzahl an Reihen des Automaten
@@ -290,6 +290,11 @@ public abstract class Automaton{
      * @param newColor
      * die neue Farbrepr�sentation des Zustandes state
      */
+    public void setColors(Color[] colors) {
+        if(colors.length == this.getNumberOfStates())
+            this.colors = colors;
+    }
+
     public void changeColor(int state, Color newColor) {
         if(state >= 0 && state < this.numberOfStates)
             this.colors[state] = newColor;

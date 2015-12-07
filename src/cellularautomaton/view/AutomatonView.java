@@ -145,6 +145,7 @@ public class AutomatonView implements IOwnEnumeration, Observer {
         this.frame.add(this.footer, BorderLayout.SOUTH);
         this.frame.add(this.stateScrollPane, BorderLayout.WEST);
         this.frame.add(this.populationScrollPane, BorderLayout.CENTER);
+        this.frame.setPreferredSize(new Dimension(850,600));
     }
 
     public void repaint() {
