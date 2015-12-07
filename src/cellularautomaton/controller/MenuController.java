@@ -21,9 +21,8 @@ public class MenuController extends AbstractController<CAMenuBar, CellularAutoma
         switch (enm) {
             // Automatonmenu
 
-            //
             default:
-                System.out.println("MenuAction: "+ enm.name()+ " From:"+e.getSource().getClass().getName());
+                //System.out.println("MenuAction: "+ enm.name()+ " From:"+e.getSource().getClass().getName());
         }
     }
 }

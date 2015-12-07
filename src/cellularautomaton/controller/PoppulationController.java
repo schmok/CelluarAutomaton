@@ -18,6 +18,7 @@ public class PoppulationController extends AbstractController<CAPopulationContai
     private Cell[][] tempCells;
     private int tempCellSize;
     private int tempCellState;
+    private boolean dragging = false;
 
 
     PoppulationController(CAPopulationContainer view, CellularAutomatonController cac) {
@@ -50,7 +51,7 @@ public class PoppulationController extends AbstractController<CAPopulationContai
         if(this.tempCellState != -1) {
             this.getModel().pause();
         }
-
+        dragging = false;
     }
 
     @Override
@@ -61,6 +62,10 @@ public class PoppulationController extends AbstractController<CAPopulationContai
             }
             this.getModel().resume();
         }
+        if(!dragging && SwingUtilities.isRightMouseButton(e)) {
+            getParent().getPopupController().showPopup(e);
+        }
+        dragging = false;
     }
 
     @Override
@@ -81,6 +86,7 @@ public class PoppulationController extends AbstractController<CAPopulationContai
             if(SwingUtilities.isRightMouseButton(e)) {
                 if(end.y >= 0 && end.x >= 0 && end.y < this.getModel().getNumberOfRows() && end.y < this.getModel().getNumberOfColumns())
                     this.getModel().setState(end.y, end.x, this.tempCellState);
+                dragging = true;
             } else if(SwingUtilities.isLeftMouseButton(e)) {
                 tempCells = this.getModel().getPopulation();
                 // Vorschau anzeigen

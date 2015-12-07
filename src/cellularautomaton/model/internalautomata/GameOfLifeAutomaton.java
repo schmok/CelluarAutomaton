@@ -1,4 +1,8 @@
-package cellularautomaton.model;
+package cellularautomaton.model.internalautomata;
+
+import cellularautomaton.annotation.Callable;
+import cellularautomaton.model.Automaton;
+import cellularautomaton.model.Cell;
 
 /**
  * Created by Viktor Spadi on 18.10.2015.
@@ -32,5 +36,14 @@ public class GameOfLifeAutomaton extends Automaton {
                 break;
         }
         return newCell;
+    }
+
+    @Callable
+    public void setGlider() {
+        setState(1,2,1);
+        setState(2,3,1);
+        setState(3,1,1);
+        setState(3,2,1);
+        setState(3,3,1);
     }
 }

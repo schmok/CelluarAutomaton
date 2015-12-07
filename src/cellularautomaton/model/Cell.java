@@ -22,7 +22,7 @@ public class Cell {
         return this.state;
     }
 
-    void setState(int state) {
+    public void setState(int state) {
         this.state = state;
     }
 }

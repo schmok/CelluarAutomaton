@@ -59,10 +59,14 @@ public enum StringEnumeration {
     // Windows
     W_CHANGE_SIZE_WINDOW("W_CHANGE_SIZE_WINDOW"),
     W_CHANGED_SIZE("W_CHANGED_SIZE"),
-
+    W_AUTOMATON_CHOOSER("W_AUTOMATON_CHOOSER"),
+    W_AUTOMATON_FNEF("W_AUTOMATON_FNEF"),
     // States ect.
     SI_STATE(""),
-    SI_COLOR("")
+    SI_COLOR(""),
+
+    // Popups
+    PM_POPUP_MENU("")
     ;
 
     private final String text;

@@ -1,11 +1,13 @@
 package cellularautomaton.model;
 
+import cellularautomaton.app.Main;
 import cellularautomaton.controller.CellularAutomatonController;
 import cellularautomaton.event.AutomatonEventEnum;
+import cellularautomaton.model.internalautomata.GameOfLifeAutomaton;
 
 import java.awt.*;
 import java.util.Observable;
-import java.util.concurrent.Semaphore;
+import java.util.Set;
 
 /**
  * Created by Viktor Spadi on 14.10.2015.
@@ -30,8 +32,8 @@ public class CellularAutomaton extends Observable {
      * Constructor
      * @param automatonController
      */
-    public CellularAutomaton(CellularAutomatonController automatonController) {
-        this.setAutomaton(new GameOfLifeAutomaton(15, 15, true));
+    public CellularAutomaton(CellularAutomatonController automatonController, Automaton automaton) {
+        this.setAutomaton(automaton);
         this.automatonController = automatonController;
         this.automatonController.bindModel(this);
         this.isRunning = false;
@@ -47,9 +49,17 @@ public class CellularAutomaton extends Observable {
         this.runner.start();
     }
 
-    public void terminate() {
+    public void terminate(boolean all, CellularAutomatonController cac) {
         // ToDo later on "on close do you want to save?" logic
-        System.exit(0);
+        if(all) {
+            System.exit(0);
+        } else if(cac != null) {
+            Main.instanceCount--;
+            cac.getView().getFrame().dispose();
+            if(Main.instanceCount == 0) {
+                System.exit(0);
+            }
+        }
     }
 
     public void pause() {
@@ -190,6 +200,10 @@ public class CellularAutomaton extends Observable {
         //System.out.printf("Simtime: %d this would be %dfps\n",elapsedTime, 1000/((elapsedTime>0)?elapsedTime:1));
         this.setChanged();
         this.notifyObservers(AutomatonEventEnum.CELL_CHANGED);
+    }
+
+    public Automaton getAutomaton() {
+        return automaton;
     }
 
     class AutomatonRunner extends Thread {

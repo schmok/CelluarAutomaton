@@ -4,12 +4,14 @@ import cellularautomaton.controller.locale.*;
 import cellularautomaton.event.AutomatonEventEnum;
 import cellularautomaton.model.CellularAutomaton;
 import cellularautomaton.view.gui.basicview.components.CAJScrollPane;
+import cellularautomaton.view.gui.basicview.menu.CAJPopupMenu;
 import cellularautomaton.view.gui.basicview.windows.CAChangeCellColorWindow;
 import cellularautomaton.view.gui.basicview.windows.CAChangeSizeWindow;
 import cellularautomaton.view.gui.basicview.footer.CAFooter;
 import cellularautomaton.view.gui.basicview.menu.CAMenuBar;
 import cellularautomaton.view.gui.basicview.states.*;
 import cellularautomaton.view.gui.basicview.toolbar.CAToolbar;
+import cellularautomaton.view.gui.basicview.windows.CAJAutomatonClassChooser;
 import cellularautomaton.view.util.IOwnEnumeration;
 
 import javax.swing.*;
@@ -36,6 +38,8 @@ public class AutomatonView implements IOwnEnumeration, Observer {
     private CellularAutomaton automaton;
     private CAChangeSizeWindow changeSizeWindow;
     private CAChangeCellColorWindow changeCellColorWindow;
+    private CAJPopupMenu popupMenu;
+    private CAJAutomatonClassChooser automatonClassChooser;
 
     public void setModel(CellularAutomaton automaton) {
         this.automaton = automaton;
@@ -84,6 +88,9 @@ public class AutomatonView implements IOwnEnumeration, Observer {
         return populationScrollPane;
     }
 
+    public CAJPopupMenu getPopupMenu() { return popupMenu; }
+
+    public CAJAutomatonClassChooser getAutomatonClassChooser() { return automatonClassChooser; }
     // Methods /////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     /*
@@ -130,6 +137,8 @@ public class AutomatonView implements IOwnEnumeration, Observer {
         // Create additional Windows
         this.changeSizeWindow = new CAChangeSizeWindow();
         this.changeCellColorWindow = new CAChangeCellColorWindow();
+        this.popupMenu = new CAJPopupMenu();
+        this.automatonClassChooser = new CAJAutomatonClassChooser();
 
         // Add components
         this.frame.add(this.toolbar, BorderLayout.PAGE_START);
@@ -189,5 +198,4 @@ public class AutomatonView implements IOwnEnumeration, Observer {
     public StringEnumeration getEnumeration() {
         return StringEnumeration.CA_MAINWINDOW;
     }
-
 }

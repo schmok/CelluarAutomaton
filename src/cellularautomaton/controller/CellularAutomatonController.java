@@ -21,6 +21,8 @@ public class CellularAutomatonController extends AbstractController<AutomatonVie
     private StateController stateController;
     private ToolbarController toolbarController;
     private PoppulationController poppulationController;
+    private PopupController popupController;
+    private AutomatonLoaderController automatonLoaderController;
 
     public MenuController getMenuController() {
         return menuController;
@@ -38,6 +40,10 @@ public class CellularAutomatonController extends AbstractController<AutomatonVie
         return poppulationController;
     }
 
+    public PopupController getPopupController() { return popupController; }
+
+    public AutomatonLoaderController getAutomatonLoaderController() { return automatonLoaderController; }
+
     // Methods /////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     /*
@@ -52,6 +58,8 @@ public class CellularAutomatonController extends AbstractController<AutomatonVie
         this.stateController = new StateController(getView().getStateContainer(), this);
         this.toolbarController = new ToolbarController(getView().getToolbar(), this);
         this.poppulationController = new PoppulationController(getView().getPopulationContainer(), this);
+        this.popupController = new PopupController(getView().getPopupMenu(), this);
+        this.automatonLoaderController = new AutomatonLoaderController(getView().getAutomatonClassChooser(), this);
         bindEvents();
     }
 
@@ -68,6 +76,8 @@ public class CellularAutomatonController extends AbstractController<AutomatonVie
         this.stateController.bindModel(cellularAutomaton);
         this.toolbarController.bindModel(cellularAutomaton);
         this.poppulationController.bindModel(cellularAutomaton);
+        this.popupController.bindModel(cellularAutomaton);
+        this.automatonLoaderController.bindModel(cellularAutomaton);
 
         // observer binding
         this.getModel().addObserver(this.getView());
@@ -83,7 +93,7 @@ public class CellularAutomatonController extends AbstractController<AutomatonVie
             @Override
             public void windowClosing(WindowEvent e) {
                 super.windowClosing(e);
-                getModel().terminate();
+                invokeClose();
             }
         });
 
@@ -93,6 +103,11 @@ public class CellularAutomatonController extends AbstractController<AutomatonVie
                 getModel().setSimInterval(((JSlider)e.getSource()).getValue());
             }
         });
+    }
+
+    public void invokeClose() {
+        // TODO Logic for save or sth.
+        getModel().terminate(false, this);
     }
 
     public void getNewAutomatonSize() {
@@ -124,7 +139,7 @@ public class CellularAutomatonController extends AbstractController<AutomatonVie
         StringEnumeration enm = ((IOwnEnumeration)e.getSource()).getEnumeration();
         switch (enm) {
             case MI_QUIT:
-                getModel().terminate();
+                getModel().terminate(true, this);
                 break;
             case MI_CHANGE_SIZE:
                 this.getView().getChangeSizeWindow().reset();
@@ -157,6 +172,10 @@ public class CellularAutomatonController extends AbstractController<AutomatonVie
                 break;
             case MI_STOP:
                 this.getModel().setRunning(false);
+                break;
+            case MI_LOAD:
+            case MS_LOAD:
+                getAutomatonLoaderController().loadAutomaton();
                 break;
             default:
                 //System.out.println("Event: "+ enm.name());

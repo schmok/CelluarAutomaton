@@ -22,7 +22,7 @@ public class ToolbarController extends AbstractController<CAToolbar, CellularAut
         switch (enm) {
 
             default:
-                System.out.println("ToolbarAction: "+ enm.name()+ " From:"+e.getSource().getClass().getName());
+                //System.out.println("ToolbarAction: "+ enm.name()+ " From:"+e.getSource().getClass().getName());
         }
     }
 }

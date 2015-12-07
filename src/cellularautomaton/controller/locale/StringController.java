@@ -1,5 +1,7 @@
 package cellularautomaton.controller.locale;
 
+import cellularautomaton.model.CellularAutomaton;
+
 import javax.swing.*;
 import java.io.File;
 import java.io.FileInputStream;
@@ -81,5 +83,13 @@ public class StringController {
 
     public KeyStroke getAccelerator(StringEnumeration text) {
         return this.amMapper.getAccelerator(text);
+    }
+
+    public String getInternalAutomatonPath() {
+        String classPath = CellularAutomaton.class.getClassLoader().getResource("cellularautomaton/model/CellularAutomaton.class").toString();
+        classPath = classPath.replace("file:","");
+        classPath = classPath.replace(CellularAutomaton.class.getSimpleName()+".class","");
+        classPath += "internalautomata";
+        return classPath;
     }
 }

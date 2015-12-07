@@ -1,9 +1,13 @@
 package cellularautomaton.app;
 
 import cellularautomaton.controller.*;
+import cellularautomaton.model.Automaton;
 import cellularautomaton.model.CellularAutomaton;
+import cellularautomaton.model.internalautomata.GameOfLifeAutomaton;
 import cellularautomaton.view.*;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Locale;
 
 /**
@@ -13,22 +17,21 @@ import java.util.Locale;
  *
  */
 public class Main {
-    public static void main(String[] args) {
 
+    public static int instanceCount = 0;
+
+    public static void main(String[] args) {
+        createAutomatonWindow(new GameOfLifeAutomaton(15, 15, true));
+    }
+
+    public static void createAutomatonWindow(Automaton automaton) {
+        instanceCount++;
         javax.swing.SwingUtilities.invokeLater(new Runnable() {
             public void run() {
-                // Start Automaton
-                // Choose View
                 AutomatonView automatonView = new AutomatonView();
-
-                // Init AutomatonController
                 CellularAutomatonController automatonController = new CellularAutomatonController(automatonView);
-
-                // Create Automaton
-                CellularAutomaton automaton = new CellularAutomaton(automatonController);
-
-                // Start it
-                automaton.start();
+                CellularAutomaton automatonApp = new CellularAutomaton(automatonController, automaton);
+                automatonApp.start();
             }
         });
     }
