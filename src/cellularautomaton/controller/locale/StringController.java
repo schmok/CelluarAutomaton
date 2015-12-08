@@ -90,6 +90,6 @@ public class StringController {
         classPath = classPath.replace("file:","");
         classPath = classPath.replace(CellularAutomaton.class.getSimpleName()+".class","");
         classPath += "internalautomata";
-        return classPath;
+        return classPath.replace("%20", " ");
     }
 }

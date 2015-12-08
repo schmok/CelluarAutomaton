@@ -54,11 +54,14 @@ public class CellularAutomaton extends Observable {
         if(all) {
             System.exit(0);
         } else if(cac != null) {
+            /*
             Main.instanceCount--;
             cac.getView().getFrame().dispose();
             if(Main.instanceCount == 0) {
                 System.exit(0);
             }
+            */
+            Main.closeWindow(cac);
         }
     }
 

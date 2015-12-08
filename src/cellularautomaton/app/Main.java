@@ -17,7 +17,8 @@ import java.util.Locale;
  *
  */
 public class Main {
-
+    public static HashMap<CellularAutomatonController,Long> runnableHashMap = new HashMap<>();
+    public static long id=0;
     public static int instanceCount = 0;
 
     public static void main(String[] args) {
@@ -26,13 +27,28 @@ public class Main {
 
     public static void createAutomatonWindow(Automaton automaton) {
         instanceCount++;
-        javax.swing.SwingUtilities.invokeLater(new Runnable() {
+        AutomatonView automatonView = new AutomatonView();
+        CellularAutomatonController automatonController = new CellularAutomatonController(automatonView);
+        CellularAutomaton automatonApp = new CellularAutomaton(automatonController, automaton);
+        Runnable runner = new Runnable() {
             public void run() {
-                AutomatonView automatonView = new AutomatonView();
-                CellularAutomatonController automatonController = new CellularAutomatonController(automatonView);
-                CellularAutomaton automatonApp = new CellularAutomaton(automatonController, automaton);
                 automatonApp.start();
             }
-        });
+        };
+        runnableHashMap.put(automatonController, id++);
+        javax.swing.SwingUtilities.invokeLater(runner);
+    }
+
+    public static void closeWindow(CellularAutomatonController cac) {
+        Long id = runnableHashMap.get(cac);
+        if(id != null){
+            instanceCount--;
+            cac.getModel().setRunning(false);
+            cac.getView().getFrame().dispose();
+            runnableHashMap.remove(cac);
+            if(instanceCount == 0) {
+                System.exit(0);
+            }
+        }
     }
 }
