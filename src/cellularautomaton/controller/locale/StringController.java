@@ -77,6 +77,10 @@ public class StringController {
         }
     }
 
+    public static Locale getLocale() {
+        return locale;
+    }
+
     public int getMnemonic(StringEnumeration text) {
         return this.amMapper.getMnemonic(text);
     }

@@ -3,12 +3,18 @@ package cellularautomaton.controller;
 import cellularautomaton.controller.locale.StringEnumeration;
 import cellularautomaton.model.CellularAutomaton;
 import cellularautomaton.view.AutomatonView;
+import cellularautomaton.view.util.FileHelper;
 import cellularautomaton.view.util.IOwnEnumeration;
+import sun.misc.IOUtils;
 
 import javax.swing.*;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 import java.awt.event.*;
+import java.io.*;
+import java.net.URISyntaxException;
+import java.nio.file.Files;
+import java.util.Scanner;
 
 /**
  * Created by Viktor Spadi on 14.10.2015.
@@ -134,6 +140,27 @@ public class CellularAutomatonController extends AbstractController<AutomatonVie
         }
     }
 
+    private void createNewAutomaton() {
+        String automatonName = this.getView().getNewAutomatonWindow().getNameField().getText();
+        if(automatonName.length() > 0) {
+            String filePath = FileHelper.getInstance().getAutomataPath()+File.separator+automatonName+".java";
+            InputStream baseFile = FileHelper.getInstance().getInputStream("AutomatonTemplate.txt");
+            String template = FileHelper.convertStreamToString(baseFile);
+            String clazzString = template.replaceAll("<AUTOMATONNAME>",automatonName);
+            try {
+                PrintWriter out = new PrintWriter(filePath);
+                out.println(clazzString);
+                out.close();
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
+            File file = new File(filePath);
+            if(file.exists()) {
+                AutomatonCompiler.getInstance().compile(file);
+            }
+        }
+    }
+
     @Override
     public void actionPerformed(ActionEvent e) {
         StringEnumeration enm = ((IOwnEnumeration)e.getSource()).getEnumeration();
@@ -176,6 +203,14 @@ public class CellularAutomatonController extends AbstractController<AutomatonVie
             case MI_LOAD:
             case MS_LOAD:
                 getAutomatonLoaderController().loadAutomaton();
+                break;
+            case MI_NEW:
+                this.getView().getNewAutomatonWindow().reset();
+                this.getView().getNewAutomatonWindow().setVisible(true);
+                this.getView().getNewAutomatonWindow().toFront();
+                break;
+            case W_NEW_AUTOMATON:
+                createNewAutomaton();
                 break;
             default:
                 //System.out.println("Event: "+ enm.name());

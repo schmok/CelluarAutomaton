@@ -2,6 +2,7 @@ package cellularautomaton.view.gui.basicview.windows;
 
 import cellularautomaton.controller.locale.StringController;
 import cellularautomaton.controller.locale.StringEnumeration;
+import cellularautomaton.view.util.FileHelper;
 import cellularautomaton.view.util.IOwnEnumeration;
 
 import javax.swing.*;
@@ -14,9 +15,7 @@ import java.io.File;
 public class CAJAutomatonClassChooser extends JFileChooser implements IOwnEnumeration {
 
     public CAJAutomatonClassChooser() {
-        //super(new File("./out/production/CelluarAutomaton/cellularautomaton/model/internalautomata"));
-        //System.out.println(StringController.getInstance().getInternalAutomatonPath());
-        super(StringController.getInstance().getInternalAutomatonPath());
+        super(FileHelper.getInstance().getAutomataPath());
         FileNameExtensionFilter filter = new FileNameExtensionFilter(StringController.getInstance().get(StringEnumeration.W_AUTOMATON_FNEF), "class");
 
         this.setFileFilter(filter);

@@ -17,6 +17,7 @@ public class CAChangeSizeWindow extends JFrame implements IOwnEnumeration{
     private CAJButton submitButton;
     private JLabel widthLabel;
     private JLabel heightLabel;
+    private JFrame parentFrame;
 
     public JTextField getWidthField() {
         return widthField;
@@ -74,5 +75,25 @@ public class CAChangeSizeWindow extends JFrame implements IOwnEnumeration{
     public void reset() {
         this.heightField.setText("");
         this.widthField.setText("");
+    }
+
+    public void setParentFrame(JFrame component) {
+        this.parentFrame = component;
+    }
+
+    @Override
+    public void setVisible(boolean b) {
+        super.setVisible(b);
+        if(b) {
+            Container parent = this.parentFrame;
+            if(parent != null) {
+                Point p = new Point(parent.getWidth() /2 + parent.getX()-this.getWidth() / 2,
+                        parent.getHeight() / 2 + parent.getY()-this.getHeight() / 2);
+                this.setLocation(p);
+            } else {
+                this.setLocation(100,100);
+            }
+
+        }
     }
 }

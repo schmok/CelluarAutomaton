@@ -14,7 +14,6 @@ public class CAChangeCellColorWindow extends JColorChooser implements IOwnEnumer
 
     public CAChangeCellColorWindow() {
         super();
-
     }
 
     @Override

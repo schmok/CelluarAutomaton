@@ -3,11 +3,9 @@ package cellularautomaton.model;
 import cellularautomaton.app.Main;
 import cellularautomaton.controller.CellularAutomatonController;
 import cellularautomaton.event.AutomatonEventEnum;
-import cellularautomaton.model.internalautomata.GameOfLifeAutomaton;
 
 import java.awt.*;
 import java.util.Observable;
-import java.util.Set;
 
 /**
  * Created by Viktor Spadi on 14.10.2015.

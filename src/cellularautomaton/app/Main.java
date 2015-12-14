@@ -3,12 +3,10 @@ package cellularautomaton.app;
 import cellularautomaton.controller.*;
 import cellularautomaton.model.Automaton;
 import cellularautomaton.model.CellularAutomaton;
-import cellularautomaton.model.internalautomata.GameOfLifeAutomaton;
+import cellularautomaton.model.automata.GameOfLifeAutomaton;
 import cellularautomaton.view.*;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Locale;
 
 /**
  * Created by Viktor Spadi on 14.10.2015.

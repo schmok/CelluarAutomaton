@@ -1,4 +1,4 @@
-package cellularautomaton.model.internalautomata;
+package cellularautomaton.model.automata;
 
 import cellularautomaton.annotation.Callable;
 import cellularautomaton.model.Automaton;

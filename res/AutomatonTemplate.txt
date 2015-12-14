@@ -1,0 +1,21 @@
+//package cellularautomaton.model.automata;
+
+import cellularautomaton.model.Automaton;
+import cellularautomaton.model.Cell;
+
+public class <AUTOMATONNAME> extends Automaton {
+    final private static int initNumberOfRows = 30;
+    final private static int initNumberOfColumns = 50;
+    final private static int numberOfStates = 2;
+    final private static boolean mooreNeighborhood = true;
+    final private static boolean initTorus = true;
+
+    public <AUTOMATONNAME>(int rows, int columns, boolean isTorus) {
+        super(rows, columns, 10, false, isTorus);
+    }
+
+
+    protected Cell transform(Cell cell, Cell[] neighbors) {
+        return cell;
+    }
+}

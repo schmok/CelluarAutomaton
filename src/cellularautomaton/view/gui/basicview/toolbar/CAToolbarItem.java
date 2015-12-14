@@ -16,7 +16,6 @@ public class CAToolbarItem extends JButton implements IOwnEnumeration {
         super();
         this.type = text;
         setIcon(FileHelper.getInstance().getIcon(icon));
-        //setBorder(null);
     }
 
     @Override

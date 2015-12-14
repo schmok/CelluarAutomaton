@@ -29,11 +29,12 @@ public class AutomatonLoaderController extends AbstractController<CAJAutomatonCl
         if(returnVal == JFileChooser.APPROVE_OPTION) {
             File file = getView().getSelectedFile();
             try {
-                URL[] urls = new URL[]{new URL("file:"+file.getAbsolutePath())};
-
+                URL[] urls = new URL[]{file.toURI().toURL()};
                 ClassLoader cl = new URLClassLoader(urls);
-                String className = "cellularautomaton.model.internalautomata."+file.getName().replace(".class", ""); // TODO andere automaten klassen
-                Class clazz = cl.loadClass(className);
+                //String className = "cellularautomaton.model.automata."+file.getName().replace(".class", "");
+                String className = file.getName().replace(".class", "");
+                //Class clazz = cl.loadClass(className);
+                Class clazz = Class.forName(className, true, cl);
                 Constructor[] constructors = clazz.getConstructors();
 
                 if(constructors.length == 1 && Automaton.class.isAssignableFrom(clazz)) {
@@ -58,7 +59,7 @@ public class AutomatonLoaderController extends AbstractController<CAJAutomatonCl
             } catch (MalformedURLException e) {
                 e.printStackTrace();
             } catch (ClassNotFoundException e) {
-                // class not found!
+                e.printStackTrace();
             } catch (InvocationTargetException e) {
                 e.printStackTrace();
             } catch (InstantiationException e) {

@@ -23,16 +23,3 @@ public class CAJButton extends JButton implements IOwnEnumeration{
         return type;
     }
 }
-
-
-/*
-
- GameOfLifeAutomaton gol = new GameOfLifeAutomaton(100,100,true);
-
-        gol.randomPopulation();
-        this.setColorMapping(gol.getColorMapping());
-
-        this.drawPopulation(gol.getPopulation());
-        this.drawPopulation(gol.getPopulation());
-
- */
