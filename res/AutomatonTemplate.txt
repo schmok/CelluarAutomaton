@@ -1,5 +1,3 @@
-//package cellularautomaton.model.automata;
-
 import cellularautomaton.model.Automaton;
 import cellularautomaton.model.Cell;
 
