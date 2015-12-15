@@ -10,12 +10,10 @@ __kernel void calcNextGeneration(__global int *inCells,
                                     const int isMoore) {
     int y = get_global_id(0);
     int x = get_global_id(1);
-    int width = size[0];
-    int height = size[1];
+    int width = size.x;
+    int height = size.y;
     int index = x + y * width;
     int mod = (isMoore == 1)?-1:0;
-    int sz = (mod == -1)?8:4;
-    int neig[sz];
     int ctr = 0;
     int target;
     int state = inCells[index];

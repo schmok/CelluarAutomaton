@@ -111,7 +111,8 @@ public abstract class Automaton extends Observable {
         int torus[] = new int[]{(isTorus)?1:0};
         int isMoore[] = new int[]{(isMooreNeighborHood)?1:0};
         int numStates[] = new int[]{numberOfStates};
-
+        //input_data_mem = clCreateBuffer(context, CL_MEM_READ_ONLY | CL_MEM_USE_HOST_PTR ,data.length * Sizeof.cl_int, Pointer.to(this.data), null);
+        clEnqueueWriteBuffer(command_queue, input_data_mem, CL_TRUE,0, data.length * Sizeof.cl_int,Pointer.to(data),0,null,null);
         clSetKernelArg(kernel, 0, Sizeof.cl_mem, Pointer.to(input_data_mem));
         clSetKernelArg(kernel, 1, Sizeof.cl_mem, Pointer.to(output_data_mem));
         clSetKernelArg(kernel, 2, Sizeof.cl_int2, Pointer.to(cellSize));
@@ -122,11 +123,9 @@ public abstract class Automaton extends Observable {
         clEnqueueNDRangeKernel(command_queue, kernel, 2, null, globalWorkSize, null, 0, null, event);
         clWaitForEvents(1, new cl_event[]{event});
         clEnqueueReadBuffer(command_queue, output_data_mem, CL_TRUE, 0, data.length *Sizeof.cl_int,Pointer.to(data), 0, null,null);
-
-
         long stopTime = System.currentTimeMillis();
         long elapsedTime = stopTime - startTime;
-        //System.out.printf("Calculationtime: %d ms\n",elapsedTime);
+        System.out.printf("Calculationtime: %d ms\n",elapsedTime);
         lock = false;
     }
 
@@ -355,6 +354,7 @@ public abstract class Automaton extends Observable {
      */
     public void setPopulation(Cell[][] cells) {
         this.cells = cells;
+        allocateMemory();
         writeData();
         this.setChanged();
         this.notifyObservers(AutomatonEventEnum.CELL_CHANGED);
@@ -364,6 +364,7 @@ public abstract class Automaton extends Observable {
      */
     public void clearPopulation() {
         iterator(this.cells, (cell, row, col) -> new Cell());
+        allocateMemory();
         writeData();
         this.setChanged();
         this.notifyObservers(AutomatonEventEnum.CELL_CHANGED);
@@ -381,8 +382,13 @@ public abstract class Automaton extends Observable {
      * setzt f�r jede Zelle einen zuf�llig erzeugten Zustand
      */
     public void randomPopulation() {
-        iterator(this.cells, (cell, row, col) -> new Cell((int)(Math.random() * this.numberOfStates)));
-        writeData();
+        //iterator(this.cells, (cell, row, col) -> new Cell((int)(Math.random() * this.numberOfStates)));
+        allocateMemory();
+        for(int r = 0; r < this.getNumberOfRows() * this.getNumberOfColumns(); r++) {
+            this.data[r] = (int)(Math.random() * this.numberOfStates);
+        }
+        //allocateMemory();
+        //writeData();
         this.setChanged();
         this.notifyObservers(AutomatonEventEnum.CELL_CHANGED);
     }
@@ -412,6 +418,7 @@ public abstract class Automaton extends Observable {
      */
     public void setState(int row, int column, int state) {
         this.cells[row][column].setState(state);
+        allocateMemory();
         writeData();
         this.setChanged();
         this.notifyObservers(AutomatonEventEnum.CELL_CHANGED);
@@ -505,6 +512,8 @@ public abstract class Automaton extends Observable {
         while(lock){
 
         }
+        //allocateMemory();
+        //writeData();
         calculateNextGenCL();
         //Cell[][] newCells = new Cell[this.getNumberOfRows()][this.getNumberOfColumns()];
 
