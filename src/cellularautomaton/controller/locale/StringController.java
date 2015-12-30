@@ -13,7 +13,7 @@ import java.util.ResourceBundle;
 /**
  * Created by Viktor Spadi on 14.10.2015.
  *
- * The place to implement localisation later on
+ * The place to implement localisation later on / done
  */
 public class StringController {
     // Attributes //////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -48,7 +48,6 @@ public class StringController {
         JComponent.setDefaultLocale(StringController.locale);
         StringController.bundle = ResourceBundle.getBundle("guitext", StringController.locale);
         StringController sc = StringController.getInstance();
-        System.out.println(sc.get(StringEnumeration.MI_PRINT));
     }
 
     protected StringController(){

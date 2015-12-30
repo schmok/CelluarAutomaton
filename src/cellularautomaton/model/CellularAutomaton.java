@@ -19,6 +19,7 @@ public class CellularAutomaton extends Observable {
     private boolean isRunning;
     private int simInterval;
     private AutomatonRunner runner;
+    private String sourceCode;
     // Methods /////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     public void setAutomaton(Automaton automaton) {
@@ -36,6 +37,7 @@ public class CellularAutomaton extends Observable {
         this.automatonController.bindModel(this);
         this.isRunning = false;
         this.simInterval = 50;
+        this.sourceCode = "";
     }
 
     /*
@@ -45,6 +47,13 @@ public class CellularAutomaton extends Observable {
         this.automatonController.open();
         this.runner = new AutomatonRunner(this);
         this.runner.start();
+    }
+    public void setSourceCode(String code) {
+        this.sourceCode = code;
+    }
+
+    public String getSourceCode() {
+        return this.sourceCode;
     }
 
     public void terminate(boolean all, CellularAutomatonController cac) {

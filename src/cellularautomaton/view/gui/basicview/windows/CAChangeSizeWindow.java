@@ -3,6 +3,7 @@ package cellularautomaton.view.gui.basicview.windows;
 import cellularautomaton.controller.locale.StringController;
 import cellularautomaton.controller.locale.StringEnumeration;
 import cellularautomaton.view.gui.basicview.components.CAJButton;
+import cellularautomaton.view.gui.basicview.components.CAJFrame;
 import cellularautomaton.view.util.IOwnEnumeration;
 
 import javax.swing.*;
@@ -11,13 +12,12 @@ import java.awt.*;
 /**
  * Created by vspadi on 09.11.15.
  */
-public class CAChangeSizeWindow extends JFrame implements IOwnEnumeration{
+public class CAChangeSizeWindow extends CAJFrame implements IOwnEnumeration{
     private JTextField widthField;
     private JTextField heightField;
     private CAJButton submitButton;
     private JLabel widthLabel;
     private JLabel heightLabel;
-    private JFrame parentFrame;
 
     public JTextField getWidthField() {
         return widthField;
@@ -32,7 +32,7 @@ public class CAChangeSizeWindow extends JFrame implements IOwnEnumeration{
     }
 
     public CAChangeSizeWindow() {
-        super(StringController.getInstance().get(StringEnumeration.W_CHANGE_SIZE_WINDOW));
+        super(StringEnumeration.W_CHANGE_SIZE_WINDOW);
 
         this.submitButton = new CAJButton(StringEnumeration.W_CHANGED_SIZE);
         this.widthField = new JTextField();
@@ -75,25 +75,5 @@ public class CAChangeSizeWindow extends JFrame implements IOwnEnumeration{
     public void reset() {
         this.heightField.setText("");
         this.widthField.setText("");
-    }
-
-    public void setParentFrame(JFrame component) {
-        this.parentFrame = component;
-    }
-
-    @Override
-    public void setVisible(boolean b) {
-        super.setVisible(b);
-        if(b) {
-            Container parent = this.parentFrame;
-            if(parent != null) {
-                Point p = new Point(parent.getWidth() /2 + parent.getX()-this.getWidth() / 2,
-                        parent.getHeight() / 2 + parent.getY()-this.getHeight() / 2);
-                this.setLocation(p);
-            } else {
-                this.setLocation(100,100);
-            }
-
-        }
     }
 }

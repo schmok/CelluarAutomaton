@@ -13,6 +13,7 @@ import cellularautomaton.view.gui.basicview.states.*;
 import cellularautomaton.view.gui.basicview.toolbar.CAToolbar;
 import cellularautomaton.view.gui.basicview.windows.CAJAutomatonClassChooser;
 import cellularautomaton.view.gui.basicview.windows.CANewAutomatonWindow;
+import cellularautomaton.view.gui.basicview.windows.editor.CAAutomatonEditorWindow;
 import cellularautomaton.view.util.IOwnEnumeration;
 
 import javax.swing.*;
@@ -42,6 +43,7 @@ public class AutomatonView implements IOwnEnumeration, Observer {
     private CAJPopupMenu popupMenu;
     private CAJAutomatonClassChooser automatonClassChooser;
     private CANewAutomatonWindow newAutomatonWindow;
+    private CAAutomatonEditorWindow automatonEditorWindow;
 
     public void setModel(CellularAutomaton automaton) {
         this.automaton = automaton;
@@ -96,6 +98,8 @@ public class AutomatonView implements IOwnEnumeration, Observer {
 
     public CANewAutomatonWindow getNewAutomatonWindow() { return newAutomatonWindow; }
 
+    public CAAutomatonEditorWindow getAutomatonEditorWindow() { return automatonEditorWindow; }
+
     // Methods /////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     /*
@@ -147,6 +151,8 @@ public class AutomatonView implements IOwnEnumeration, Observer {
         this.automatonClassChooser = new CAJAutomatonClassChooser();
         this.newAutomatonWindow = new CANewAutomatonWindow();
         this.newAutomatonWindow.setParentFrame(this.frame);
+        this.automatonEditorWindow = new CAAutomatonEditorWindow();
+        this.automatonEditorWindow.setParentFrame(this.frame);
 
         // Add components
         this.frame.add(this.toolbar, BorderLayout.PAGE_START);

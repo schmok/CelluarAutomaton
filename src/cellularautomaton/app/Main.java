@@ -23,7 +23,7 @@ public class Main {
         createAutomatonWindow(new GameOfLifeAutomaton(15, 15, true));
     }
 
-    public static void createAutomatonWindow(Automaton automaton) {
+    public static CellularAutomaton createAutomatonWindow(Automaton automaton) {
         instanceCount++;
         AutomatonView automatonView = new AutomatonView();
         CellularAutomatonController automatonController = new CellularAutomatonController(automatonView);
@@ -35,6 +35,7 @@ public class Main {
         };
         runnableHashMap.put(automatonController, id++);
         javax.swing.SwingUtilities.invokeLater(runner);
+        return automatonApp;
     }
 
     public static void closeWindow(CellularAutomatonController cac) {

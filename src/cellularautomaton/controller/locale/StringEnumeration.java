@@ -42,6 +42,7 @@ public enum StringEnumeration {
     MI_RANDOM("MI_RANDOM"),
     // Toolbar
     TB_NAME("TB_NAME"),
+    MI_COMPILE("MI_COMPILE"),
 
     // J Objects
     CA_CELL(""),
@@ -54,6 +55,7 @@ public enum StringEnumeration {
     CA_TOOLBAR(""),
     CA_TOOLBARITEM(""),
     CA_MAINWINDOW(""),
+    CA_EDITOR_TOOLBAR(""),
 
 
     // Windows
@@ -63,6 +65,7 @@ public enum StringEnumeration {
     W_AUTOMATON_FNEF("W_AUTOMATON_FNEF"),
     W_NEW_AUTOMATON_WINDOW("W_NEW_AUTOMATON"),
     W_NEW_AUTOMATON("W_NEW_AUTOMATON_WINDOW"),
+    W_AUTOMATON_EDITOR("W_AUTOMATON_EDITOR"),
     // States ect.
     SI_STATE(""),
     SI_COLOR(""),

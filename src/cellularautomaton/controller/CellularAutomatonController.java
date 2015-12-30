@@ -29,6 +29,7 @@ public class CellularAutomatonController extends AbstractController<AutomatonVie
     private PoppulationController poppulationController;
     private PopupController popupController;
     private AutomatonLoaderController automatonLoaderController;
+    private EditorController editorController;
 
     public MenuController getMenuController() {
         return menuController;
@@ -50,6 +51,8 @@ public class CellularAutomatonController extends AbstractController<AutomatonVie
 
     public AutomatonLoaderController getAutomatonLoaderController() { return automatonLoaderController; }
 
+    public EditorController getEditorController() { return editorController; }
+
     // Methods /////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     /*
@@ -66,6 +69,7 @@ public class CellularAutomatonController extends AbstractController<AutomatonVie
         this.poppulationController = new PoppulationController(getView().getPopulationContainer(), this);
         this.popupController = new PopupController(getView().getPopupMenu(), this);
         this.automatonLoaderController = new AutomatonLoaderController(getView().getAutomatonClassChooser(), this);
+        this.editorController = new EditorController(getView().getAutomatonEditorWindow(), this);
         bindEvents();
     }
 
@@ -84,6 +88,7 @@ public class CellularAutomatonController extends AbstractController<AutomatonVie
         this.poppulationController.bindModel(cellularAutomaton);
         this.popupController.bindModel(cellularAutomaton);
         this.automatonLoaderController.bindModel(cellularAutomaton);
+        this.editorController.bindModel(cellularAutomaton);
 
         // observer binding
         this.getModel().addObserver(this.getView());
@@ -107,6 +112,14 @@ public class CellularAutomatonController extends AbstractController<AutomatonVie
             @Override
             public void stateChanged(ChangeEvent e) {
                 getModel().setSimInterval(((JSlider)e.getSource()).getValue());
+            }
+        });
+
+        this.getView().getAutomatonEditorWindow().addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                super.windowClosing(e);
+                getView().getAutomatonEditorWindow().setVisible(false);
             }
         });
     }
@@ -157,6 +170,10 @@ public class CellularAutomatonController extends AbstractController<AutomatonVie
             File file = new File(filePath);
             if(file.exists()) {
                 AutomatonCompiler.getInstance().compile(file);
+                File classFile = new File(file.getAbsolutePath().replace("java", "class"));
+                if(automatonLoaderController.loadAutomatonClass(classFile)) {
+                    this.getView().getNewAutomatonWindow().setVisible(false);
+                }
             }
         }
     }
@@ -211,6 +228,10 @@ public class CellularAutomatonController extends AbstractController<AutomatonVie
                 break;
             case W_NEW_AUTOMATON:
                 createNewAutomaton();
+                break;
+            case MI_EDITOR:
+                this.getView().getAutomatonEditorWindow().getTextPane().setText(this.getModel().getSourceCode());
+                this.getView().getAutomatonEditorWindow().setVisible(true);
                 break;
             default:
                 //System.out.println("Event: "+ enm.name());

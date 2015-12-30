@@ -5,6 +5,9 @@ import javax.swing.*;
 import java.awt.*;
 import java.io.*;
 import java.net.URISyntaxException;
+import java.nio.file.Files;
+import java.util.*;
+import java.util.List;
 
 /**
  * Created by Viktor Spadi on 17.10.2015.
@@ -66,5 +69,18 @@ public class FileHelper {
     public static String convertStreamToString(java.io.InputStream is) {
         java.util.Scanner s = new java.util.Scanner(is).useDelimiter("\\A");
         return s.hasNext() ? s.next() : "";
+    }
+
+    public static String getStringFromFile(File sc) {
+        String code = "";
+        try {
+            List<String> lines = Files.readAllLines(sc.toPath());
+            for(String line: lines) {
+                code += line + "\n";
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return code;
     }
 }
