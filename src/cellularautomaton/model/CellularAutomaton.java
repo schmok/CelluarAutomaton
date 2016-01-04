@@ -25,7 +25,9 @@ public class CellularAutomaton extends Observable {
     public void setAutomaton(Automaton automaton) {
         this.automaton = automaton;
         this.setChanged();
-        this.notifyObservers(AutomatonEventEnum.NEW_AUTOMATON);
+        this.notifyObservers(AutomatonEventEnum.COLOR_CHANGED);
+        this.notifyObservers(AutomatonEventEnum.SIZE_CHANGED);
+        this.notifyObservers(AutomatonEventEnum.CELL_CHANGED);
     }
     /*
      * Constructor
@@ -236,7 +238,7 @@ public class CellularAutomaton extends Observable {
                 checkYield();
                 try {
                     if(automaton.simInterval == 0)
-                        Thread.sleep(5);
+                        Thread.sleep(1);
                     else
                         Thread.sleep(automaton.simInterval);
                     if(automaton.isRunning) {

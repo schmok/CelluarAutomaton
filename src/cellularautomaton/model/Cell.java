@@ -1,9 +1,11 @@
 package cellularautomaton.model;
 
+import java.io.Serializable;
+
 /**
  * Created by Viktor Spadi on 18.10.2015.
  */
-public class Cell {
+public class Cell implements Serializable{
     private int state;
 
     public Cell () {

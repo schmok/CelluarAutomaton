@@ -27,6 +27,7 @@ public class AutomatonLoaderController extends AbstractController<CAJAutomatonCl
     }
 
     public void loadAutomaton() {
+        getView().setFilter(CAJAutomatonClassChooser.FILTER.CLASS);
         int returnVal = getView().showDialog(getParent().getView().getFrame(), StringController.getInstance().get(StringEnumeration.W_AUTOMATON_CHOOSER));
         if(returnVal == JFileChooser.APPROVE_OPTION) {
             File file = getView().getSelectedFile();

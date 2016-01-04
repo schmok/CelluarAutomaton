@@ -83,4 +83,11 @@ public class FileHelper {
         }
         return code;
     }
+
+    public static String removeFileEnding(String path) {
+        if(path.contains("."))
+            return path.substring(0, path.lastIndexOf('.'));
+        else
+            return path;
+    }
 }

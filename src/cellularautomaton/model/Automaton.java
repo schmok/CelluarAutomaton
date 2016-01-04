@@ -5,11 +5,12 @@ package cellularautomaton.model;
  */
 import cellularautomaton.event.AutomatonEventEnum;
 
+import java.io.Serializable;
 import java.util.Observable;
 
 import java.awt.Color;
 
-public abstract class Automaton{
+public abstract class Automaton implements Serializable {
     private Cell[][] cells;
     private Color[] colors;
     private int numberOfStates;
