@@ -26,7 +26,9 @@ public class CellularAutomaton extends Observable {
         this.automaton = automaton;
         this.setChanged();
         this.notifyObservers(AutomatonEventEnum.COLOR_CHANGED);
+        this.setChanged();
         this.notifyObservers(AutomatonEventEnum.SIZE_CHANGED);
+        this.setChanged();
         this.notifyObservers(AutomatonEventEnum.CELL_CHANGED);
     }
     /*
