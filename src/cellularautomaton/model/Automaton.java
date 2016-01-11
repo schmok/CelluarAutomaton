@@ -5,6 +5,10 @@ package cellularautomaton.model;
  */
 import cellularautomaton.event.AutomatonEventEnum;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
 import java.io.Serializable;
 import java.util.Observable;
 
@@ -217,7 +221,10 @@ public abstract class Automaton implements Serializable {
      * neuer Zustand der Zelle
      */
     public void setState(int row, int column, int state) {
-        this.cells[row][column].setState(state);
+        if(row >= 0 && column >= 0 && row < getNumberOfRows() && column < getNumberOfColumns()) {
+            this.cells[row][column].setState(state);
+        }
+
     }
     /**
      * Liefert eine Zelle des Automaten
