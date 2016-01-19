@@ -13,9 +13,25 @@ import javax.swing.filechooser.FileNameExtensionFilter;
  */
 public class CAJAutomatonClassChooser extends JFileChooser implements IOwnEnumeration {
     public enum FILTER {
-        CLASS,
-        SERIAL,
-        XML
+        CLASS("class"),
+        SERIAL("ser"),
+        XML("xml");
+
+        private final String text;
+
+        // Methods /////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+        /**
+         * @param text
+         */
+        FILTER(final String text) {
+            this.text = text;
+        }
+
+        @Override
+        public String toString() {
+            return text;
+        }
     }
 
     public CAJAutomatonClassChooser() {
