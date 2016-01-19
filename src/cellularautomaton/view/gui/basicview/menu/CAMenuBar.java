@@ -17,6 +17,7 @@ public class CAMenuBar extends JMenuBar implements Observer, IOwnEnumeration {
     private CAAutomatonMenu automatonMenu;
     private CAPopulationMenu populationMenu;
     private CASimulationMenu simulationMenu;
+    private CAJSettingsMenu settingsMenu;
     private CAHelpMenu helpMenu;
 
     @Override
@@ -36,6 +37,8 @@ public class CAMenuBar extends JMenuBar implements Observer, IOwnEnumeration {
         return automatonMenu;
     }
 
+    public CAJSettingsMenu getSettingsMenu() { return settingsMenu; }
+
 
     public CAMenuBar(StringController stringController) {
 
@@ -43,6 +46,7 @@ public class CAMenuBar extends JMenuBar implements Observer, IOwnEnumeration {
         add(this.automatonMenu = new CAAutomatonMenu(stringController));
         add(this.populationMenu = new CAPopulationMenu(stringController));
         add(this.simulationMenu = new CASimulationMenu(stringController));
+        add(this.settingsMenu = new CAJSettingsMenu(stringController));
         add(this.helpMenu = new CAHelpMenu(stringController));
     }
 

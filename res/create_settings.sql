@@ -1,0 +1,1 @@
+create table ca_settings(settings_name varchar(100) constraint sn_pk primary key, wind_pos_x int, wind_pos_y int, wind_width int, wind_height int, zoomfactor int, sim_interval int)

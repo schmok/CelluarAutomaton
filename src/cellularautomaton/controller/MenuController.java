@@ -97,8 +97,17 @@ public class MenuController extends AbstractController<CAMenuBar, CellularAutoma
             case MI_LOAD_SERIAL:
                 loadAutomatonSerial();
                 break;
+            case MI_SETTINGS_SAVE:
+                getParent().getSettingsController().saveSettings();
+                break;
+            case MI_SETTINGS_LOAD:
+                getParent().getSettingsController().loadSettings();
+                break;
+            case MI_SETTINGS_DELETE:
+                getParent().getSettingsController().deleteSettings();
+                break;
             default:
-                //System.out.println("MenuAction: "+ enm.name()+ " From:"+e.getSource().getClass().getName());
+                System.out.println("MenuAction: "+ enm.name()+ " From:"+e.getSource().getClass().getName());
         }
     }
 }

@@ -5,14 +5,11 @@ import cellularautomaton.event.AutomatonEventEnum;
 import cellularautomaton.model.CellularAutomaton;
 import cellularautomaton.view.gui.basicview.components.CAJScrollPane;
 import cellularautomaton.view.gui.basicview.menu.CAJPopupMenu;
-import cellularautomaton.view.gui.basicview.windows.CAChangeCellColorWindow;
-import cellularautomaton.view.gui.basicview.windows.CAChangeSizeWindow;
+import cellularautomaton.view.gui.basicview.windows.*;
 import cellularautomaton.view.gui.basicview.footer.CAFooter;
 import cellularautomaton.view.gui.basicview.menu.CAMenuBar;
 import cellularautomaton.view.gui.basicview.states.*;
 import cellularautomaton.view.gui.basicview.toolbar.CAToolbar;
-import cellularautomaton.view.gui.basicview.windows.CAJAutomatonClassChooser;
-import cellularautomaton.view.gui.basicview.windows.CANewAutomatonWindow;
 import cellularautomaton.view.gui.basicview.windows.editor.CAAutomatonEditorWindow;
 import cellularautomaton.view.util.IOwnEnumeration;
 
@@ -99,6 +96,7 @@ public class AutomatonView implements IOwnEnumeration, Observer {
     public CANewAutomatonWindow getNewAutomatonWindow() { return newAutomatonWindow; }
 
     public CAAutomatonEditorWindow getAutomatonEditorWindow() { return automatonEditorWindow; }
+
 
     // Methods /////////////////////////////////////////////////////////////////////////////////////////////////////////
 

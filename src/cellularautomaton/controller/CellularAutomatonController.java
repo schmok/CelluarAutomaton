@@ -30,6 +30,7 @@ public class CellularAutomatonController extends AbstractController<AutomatonVie
     private PopupController popupController;
     private AutomatonLoaderController automatonLoaderController;
     private EditorController editorController;
+    private SettingsController settingsController;
 
     public MenuController getMenuController() {
         return menuController;
@@ -53,6 +54,8 @@ public class CellularAutomatonController extends AbstractController<AutomatonVie
 
     public EditorController getEditorController() { return editorController; }
 
+    public SettingsController getSettingsController() { return settingsController; }
+
     // Methods /////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     /*
@@ -70,6 +73,7 @@ public class CellularAutomatonController extends AbstractController<AutomatonVie
         this.popupController = new PopupController(getView().getPopupMenu(), this);
         this.automatonLoaderController = new AutomatonLoaderController(getView().getAutomatonClassChooser(), this);
         this.editorController = new EditorController(getView().getAutomatonEditorWindow(), this);
+        this.settingsController = new SettingsController(getView().getMenuBar().getSettingsMenu(), this);
         bindEvents();
     }
 
@@ -89,6 +93,7 @@ public class CellularAutomatonController extends AbstractController<AutomatonVie
         this.popupController.bindModel(cellularAutomaton);
         this.automatonLoaderController.bindModel(cellularAutomaton);
         this.editorController.bindModel(cellularAutomaton);
+        this.settingsController.bindModel(cellularAutomaton);
 
         // observer binding
         this.getModel().addObserver(this.getView());

@@ -46,6 +46,7 @@ public class Main {
             cac.getView().getFrame().dispose();
             runnableHashMap.remove(cac);
             if(instanceCount == 0) {
+                SettingsController.closeConnection();
                 System.exit(0);
             }
         }
