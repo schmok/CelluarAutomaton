@@ -26,7 +26,9 @@ public class CAAutomatonEditorWindow extends CAJFrame implements IOwnEnumeration
         this.add(this.editorToolbar, BorderLayout.PAGE_START);
         this.textPane = new JTextPane();
         this.textPane.setPreferredSize(new Dimension(500,500));
-        this.add(this.textPane, BorderLayout.CENTER);
+        JScrollPane scrollPane = new JScrollPane(this.textPane);
+
+        this.add(scrollPane, BorderLayout.CENTER);
         this.pack();
     }
 

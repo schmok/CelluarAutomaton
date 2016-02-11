@@ -35,20 +35,43 @@ public class AutomatonLoaderController extends AbstractController<CAJAutomatonCl
         }
     }
 
+    public boolean loadAutomatonClassFromName(String name) {
+        try {
+            URLClassLoader cl = new URLClassLoader(new URL[]{new File("./").toURI().toURL()});
+            Class<?> compiledClass = null;
+            compiledClass = cl.loadClass(name);
+            Automaton automaton = (Automaton)compiledClass.newInstance();
+            if(automaton != null) {
+                this.getModel().setAutomaton(automaton);
+            }
+
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (InstantiationException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        }
+
+        return false;
+    }
+
     public boolean loadAutomatonClass(File file) {
         try {
             URL[] urls = new URL[]{file.getParentFile().getAbsoluteFile().toURI().toURL()};
             ClassLoader cl = new URLClassLoader(urls);
             String className = file.getName().replace(".class", "");
             Class clazz = Class.forName(className, true, cl);
-
             Automaton automaton = (Automaton)clazz.newInstance();
-
             if(automaton != null) {
                 CellularAutomaton ca = Main.createAutomatonWindow(automaton);
                 File sc = new File(file.getAbsolutePath().replace("class", "java"));
+                this.getModel().setSourceFile(sc);
                 String code = FileHelper.getStringFromFile(sc);
                 ca.setSourceCode(code);
+                ca.setSourceFile(file);
                 return true;
             }
         } catch (MalformedURLException e) {

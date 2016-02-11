@@ -14,6 +14,7 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 public class CAJAutomatonClassChooser extends JFileChooser implements IOwnEnumeration {
     public enum FILTER {
         CLASS("class"),
+        JAVA("JAVA"),
         SERIAL("ser"),
         XML("xml");
 
@@ -46,7 +47,7 @@ public class CAJAutomatonClassChooser extends JFileChooser implements IOwnEnumer
         FileNameExtensionFilter filter = null;
         switch(f) {
             case CLASS:
-                filter = new FileNameExtensionFilter(StringController.getInstance().get(StringEnumeration.W_AUTOMATON_FNEF_CLASS), "class");
+                filter = new FileNameExtensionFilter(StringController.getInstance().get(StringEnumeration.W_AUTOMATON_FNEF_CLASS), "class", "java");
                 break;
             case SERIAL:
                 filter = new FileNameExtensionFilter(StringController.getInstance().get(StringEnumeration.W_AUTOMATON_FNEF_SER), "ser");

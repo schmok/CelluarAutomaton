@@ -5,6 +5,7 @@ import cellularautomaton.controller.CellularAutomatonController;
 import cellularautomaton.event.AutomatonEventEnum;
 
 import java.awt.*;
+import java.io.File;
 import java.util.Observable;
 
 /**
@@ -20,6 +21,8 @@ public class CellularAutomaton extends Observable {
     private int simInterval;
     private AutomatonRunner runner;
     private String sourceCode;
+
+    private File sourceFile;
     // Methods /////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     public void setAutomaton(Automaton automaton) {
@@ -218,6 +221,14 @@ public class CellularAutomaton extends Observable {
 
     public Automaton getAutomaton() {
         return automaton;
+    }
+
+    public void setSourceFile(File sc) {
+        this.sourceFile = sc;
+    }
+
+    public File getSourceFile() {
+        return sourceFile;
     }
 
     class AutomatonRunner extends Thread {

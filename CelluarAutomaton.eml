@@ -4,7 +4,6 @@
 	<exclude-output/>
 	<contentEntry url="file://$MODULE_DIR$"/>
 	<levels>
-		<level name="JOCL-0.1.9" value="project"/>
 		<level name="derby" value="project"/>
 	</levels>
 </component>

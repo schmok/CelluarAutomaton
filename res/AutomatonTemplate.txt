@@ -8,8 +8,8 @@ public class <AUTOMATONNAME> extends Automaton {
     final private static boolean mooreNeighborhood = true;
     final private static boolean initTorus = true;
 
-    public <AUTOMATONNAME>(int rows, int columns, boolean isTorus) {
-        super(rows, columns, 10, false, isTorus);
+    public <AUTOMATONNAME>() {
+        super(initNumberOfRows, initNumberOfColumns, numberOfStates, mooreNeighborhood, initTorus);
     }
 
 

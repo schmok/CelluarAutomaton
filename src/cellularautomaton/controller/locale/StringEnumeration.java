@@ -70,6 +70,7 @@ public enum StringEnumeration {
     W_CHANGED_SIZE("W_CHANGED_SIZE"),
     W_AUTOMATON_CHOOSER("W_AUTOMATON_CHOOSER"),
     W_AUTOMATON_FNEF_CLASS("W_AUTOMATON_FNEF_CLASS"),
+    W_AUTOMATON_FNEF_JAVA("W_AUTOMATON_FNEF_JAVA"),
     W_AUTOMATON_FNEF_SER("W_AUTOMATON_FNEF_SER"),
     W_AUTOMATON_FNEF_XML("W_AUTOMATON_FNEF_XML"),
     W_NEW_AUTOMATON_WINDOW("W_NEW_AUTOMATON"),
@@ -86,8 +87,8 @@ public enum StringEnumeration {
     SI_COLOR(""),
 
     // Popups
-    PM_POPUP_MENU("")
-    ;
+    PM_POPUP_MENU("");
+
 
     private final String text;
 
