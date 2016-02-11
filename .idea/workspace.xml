@@ -7,37 +7,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="56a1aa05-9f95-43b6-8f2a-2695f55cb5cc" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.project" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ViktorSpadiSimulator.eml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ViktorSpadiSimulator.iml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/derby.log" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Aufgaben/Aufgabe 2/.idea/.name" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Aufgaben/Aufgabe 2/.idea/compiler.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Aufgaben/Aufgabe 2/.idea/copyright/profiles_settings.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Aufgaben/Aufgabe 2/.idea/misc.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Aufgaben/Aufgabe 2/.idea/modules.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Aufgaben/Aufgabe 2/.idea/uiDesigner.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Aufgaben/Aufgabe 2/.idea/vcs.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Aufgaben/Aufgabe 2/.idea/workspace.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Aufgaben/Aufgabe 2/Cellular Test.xlsx" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Aufgaben/Aufgabe 2/SimpleGameOfLife/src/cellularautomaton/gol/Automaton.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Aufgaben/Aufgabe 2/SimpleGameOfLife/src/cellularautomaton/gol/Cell.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Aufgaben/Aufgabe 2/SimpleGameOfLife/src/cellularautomaton/gol/GameOfLifeAutomaton.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Aufgaben/Aufgabe 2/SimpleGameOfLife/src/cellularautomaton/gol/Main.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Aufgaben/Aufgabe 2/out/production/SimpleGameOfLife/cellularautomaton/gol/Automaton$CellIterator.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Aufgaben/Aufgabe 2/out/production/SimpleGameOfLife/cellularautomaton/gol/Automaton.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Aufgaben/Aufgabe 2/out/production/SimpleGameOfLife/cellularautomaton/gol/Cell.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Aufgaben/Aufgabe 2/out/production/SimpleGameOfLife/cellularautomaton/gol/GameOfLifeAutomaton.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Aufgaben/Aufgabe 2/out/production/SimpleGameOfLife/cellularautomaton/gol/Main$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Aufgaben/Aufgabe 2/out/production/SimpleGameOfLife/cellularautomaton/gol/Main$Runner.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Aufgaben/Aufgabe 2/out/production/SimpleGameOfLife/cellularautomaton/gol/Main.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/CelluarAutomaton.eml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/CelluarAutomaton.iml" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/CelluarAutomaton/cellularautomaton/model/CellularAutomaton.class" afterPath="$PROJECT_DIR$/out/production/CelluarAutomaton/cellularautomaton/model/CellularAutomaton.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/CelluarAutomaton/cellularautomaton/controller/CellularAutomatonController.class" afterPath="$PROJECT_DIR$/out/production/CelluarAutomaton/cellularautomaton/controller/CellularAutomatonController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/CelluarAutomaton/cellularautomaton/controller/locale/StringEnumeration.class" afterPath="$PROJECT_DIR$/out/production/CelluarAutomaton/cellularautomaton/controller/locale/StringEnumeration.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.classpath" afterPath="$PROJECT_DIR$/.classpath" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ViktorSpadiSimulator_Abgabe.pdf" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="CellularAutomaton.iws" />
@@ -314,6 +284,28 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="cellularautomaton" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CellularAutomaton" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ViktorSpadiSimulator" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cellularautomaton" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -801,7 +793,7 @@
       <workItem from="1455216498337" duration="212000" />
       <workItem from="1455216827502" duration="23000" />
       <workItem from="1455216942765" duration="61000" />
-      <workItem from="1455217021942" duration="19000" />
+      <workItem from="1455217021942" duration="454000" />
     </task>
     <task id="LOCAL-00001" summary="Basic Userinterface is ready!">
       <created>1445112611846</created>
@@ -899,11 +891,17 @@
       <option name="project" value="LOCAL" />
       <updated>1455215829600</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Projekt umbenannt&#10;">
+      <created>1455217049247</created>
+      <option name="number" value="00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1455217049247</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="183519000" />
+    <option name="totallyTimeSpent" value="183954000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1392" height="1411" extended-state="4" />
@@ -911,6 +909,7 @@
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32615384" sideWeight="0.4831122" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.38164252" sideWeight="0.42003232" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -918,7 +917,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24492754" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2557971" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
       <window_info id="Statistic" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24980392" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -930,7 +929,6 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="6" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.36769232" sideWeight="0.5910503" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32615384" sideWeight="0.4831122" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.36153847" sideWeight="0.5799677" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32615384" sideWeight="0.47188613" order="6" side_tool="false" content_ui="tabs" />
@@ -967,7 +965,8 @@
     <MESSAGE value="Aufgabenzettel 9 - partiell" />
     <MESSAGE value="Aufgabenzettel 11" />
     <MESSAGE value="Letzte Änderungen gemacht" />
-    <option name="LAST_COMMIT_MESSAGE" value="Letzte Änderungen gemacht" />
+    <MESSAGE value="Projekt umbenannt&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="Projekt umbenannt&#10;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
