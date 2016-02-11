@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<component inherit-compiler-output="true" inheritJdk="true">
+<component inheritJdk="true">
 	<output-test url="file://$MODULE_DIR$/out/test/CelluarAutomaton"/>
-	<exclude-output/>
 	<contentEntry url="file://$MODULE_DIR$"/>
-	<levels>
-		<level name="derby" value="project"/>
-	</levels>
+	<lib name="derby.jar" scope="COMPILE">
+		<relative-module-cls project-related="jar://$PROJECT_DIR$/res/lib/derby.jar!/"/>
+	</lib>
 </component>

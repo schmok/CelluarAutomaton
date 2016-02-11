@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/CelluarAutomaton.iml" filepath="$PROJECT_DIR$/CelluarAutomaton.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ViktorSpadiSimulator.iml" filepath="$PROJECT_DIR$/ViktorSpadiSimulator.iml" />
     </modules>
   </component>
 </project>
